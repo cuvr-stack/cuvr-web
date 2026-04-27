@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import logo from "../public/cuvr-logo.png";
 
 const NAV_ITEMS = [
@@ -23,11 +25,14 @@ function Logo() {
 
 export default function Header() {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
 
   const isActive = (href: string) => {
     if (href.startsWith("/#")) return false;
     return pathname === href;
   };
+
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-white/5 bg-[#110d29] backdrop-blur-xl">
@@ -67,8 +72,47 @@ export default function Header() {
           >
             Get Started
           </Link>
+
+          {/* Hamburger Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-slate-300 hover:text-white"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden border-t border-white/5 bg-[#110d29]">
+          <nav className="flex flex-col gap-4 px-5 py-4 sm:px-8">
+            {NAV_ITEMS.map((item) => {
+              const active = isActive(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={closeMenu}
+                  className={`text-sm font-medium transition-colors ${
+                    active ? "text-white" : "text-slate-300 hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+            <Link
+              href="/login"
+              onClick={closeMenu}
+              className="text-sm font-medium text-slate-300 hover:text-white sm:hidden"
+            >
+              Login
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
