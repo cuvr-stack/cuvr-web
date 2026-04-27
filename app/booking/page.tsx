@@ -92,16 +92,16 @@ function Body() {
           <ContactCard
             icon={<Mail className="h-5 w-5 text-brand-purple" />}
             title="Email Us"
-            primary="care@cuvr.health"
+            primary="care@cuvr.ae"
             secondary="Available 24/7 for urgent clinical inquiries."
           />
           <ContactCard
             icon={<Phone className="h-5 w-5 text-brand-blue" />}
             title="Call Us"
-            primary="+1 (888) VR-CUVR-H"
+            primary="+971 502592439"
             secondary="Mon–Fri: 8:00 AM – 6:00 PM EST"
           />
-          <ContactCard
+          {/* <ContactCard
             icon={<MapPin className="h-5 w-5 text-brand-purple" />}
             title="Visit Our Hub"
             primary={
@@ -114,7 +114,7 @@ function Body() {
               </>
             }
             tall
-          />
+          /> */}
         </div>
       </div>
     </section>
