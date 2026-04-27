@@ -2,30 +2,30 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   Activity,
-  Brain,
-  ChevronLeft,
-  ChevronRight,
-  Gamepad2,
-  Info,
-  LineChart,
+  ArrowRight,
+  Headphones,
   Play,
   Sparkles,
-  Stethoscope,
+  Star,
+  TrendingUp,
+  User,
+  UserCircle2,
+  Users,
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import vr_person from '@/public/cuvr_person_vr.png'
-import brain_icon from '@/public/brain_icon.png'
-import therapist_tablet from '@/public/therapist_tablet.png'
+import vr_person from "@/public/cuvr_person_vr.png";
+import vr_headset from "@/public/quest1.png";
+
 export default function HomePage() {
   return (
     <>
       <Header />
-      <main>
+      <main className="bg-space text-white">
         <Hero />
-        <WhyVR />
-        <Approach />
-        <PatientStories />
+        <WhySpatial />
+        <Protocol />
+        <PatientSuccess />
         <FinalCTA />
       </main>
       <Footer />
@@ -36,397 +36,342 @@ export default function HomePage() {
 /* -------------------------------- Hero ---------------------------------- */
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white to-slate-50">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 md:grid-cols-2 md:py-24">
-        <div>
-          <span className="inline-flex rounded-full bg-violet-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-purple">
-            The Future of Physio
-          </span>
+    <section className="relative overflow-hidden h-screen">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src={vr_person}
+          alt=""
+          fill
+          priority
+          className="object-cover object-center opacity-60 img-height"
+        />
+        <div className="absolute inset-0 hero-photo-overlay" />
+      </div>
 
-          <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-slate-900 sm:text-6xl md:text-7xl">
-            Recovery,
-            <br />
-            <span className="text-gradient-brand">Reimagined.</span>
-          </h1>
+      {/* Three faint avatar dots top-right (decorative) */}
+      {/* <div className="pointer-events-none absolute left-1/2 top-12 hidden w-full max-w-7xl -translate-x-1/2 justify-end gap-16 px-8 sm:flex">
+        <FloatingAvatar />
+        <FloatingAvatar />
+        <FloatingAvatar />
+      </div> */}
 
-          <p className="mt-6 max-w-md text-base leading-relaxed text-slate-600">
-            CUVR combines clinical expertise with immersive virtual reality
-            to accelerate your healing journey. Professional physical therapy
-            that feels like a breakthrough.
-          </p>
+      <div className="relative mx-auto flex min-h-[640px] max-w-5xl flex-col items-center justify-center px-5 py-28 text-center sm:px-8 md:py-36 h-screen">
+        <span className="rounded-full px-5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-300">
+          Rehabilitation Reimagined
+        </span>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Link
-              href="/booking"
-              className="btn-gradient inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold"
-            >
-              Start Your Journey
-            </Link>
-            <Link
-              href="/how-it-works"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-brand-blue hover:text-brand-indigo"
-            >
-              <span className="flex h-8 w-8 items-center justify-center rounded-full border border-brand-blue/30">
-                <Play className="h-3 w-3 fill-current" />
-              </span>
-              See it in Action
-            </Link>
-          </div>
+        <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
+          The Future of{" "}
+          <span className="text-gradient-future">Recovery</span> is Spatial
+        </h1>
 
-          <div className="mt-10 flex items-center gap-4">
-            <div className="flex -space-x-2">
-              {["#a78bfa", "#60a5fa", "#f472b6"].map((c, i) => (
-                <div
-                  key={i}
-                  className="h-9 w-9 rounded-full border-2 border-white"
-                  style={{
-                    background: `linear-gradient(135deg, ${c}, #6366f1)`,
-                  }}
-                />
-              ))}
-            </div>
-            <p className="text-sm text-slate-500">
-              Trusted by{" "}
-              <span className="font-semibold text-slate-900">2,400+</span>{" "}
-              active recovery patients
-            </p>
-          </div>
+        <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-slate-300">
+          Experience a revolutionary blend of clinical physical therapy and
+          immersive VR technology. Heal faster, stay motivated, and track every
+          movement with surgical precision.
+        </p>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
+          <Link
+            href="/booking"
+            className="btn-gradient inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold"
+          >
+            Start Your Journey
+          </Link>
+          <Link
+            href="/how-it-works"
+            className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-slate-200 transition hover:text-white"
+          >
+            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-white/5">
+              <Play className="h-3 w-3 fill-white" />
+            </span>
+            Watch the Experience
+          </Link>
         </div>
-
-        <VRHeadsetCard />
       </div>
     </section>
   );
 }
 
-function VRHeadsetCard() {
+function FloatingAvatar() {
   return (
-    <div className="relative mx-auto w-full max-w-md perspective-container">
-      <div className="aspect-[4/5] animate-tilt rounded-3xl p-6 box-gradient">
-        <div className="flex h-full flex-col items-center justify-between">
-          {/* VR headset silhouette */}
-          <div className="flex flex-1 items-center justify-center image-padding-25">
-            {/* <svg
-              viewBox="0 0 200 140"
-              className="w-56 text-teal-300/60"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              aria-hidden="true"
-            >
-              <rect
-                x="20"
-                y="40"
-                width="160"
-                height="70"
-                rx="18"
-                fill="currentColor"
-                fillOpacity="0.12"
-              />
-              <circle cx="70" cy="75" r="20" />
-              <circle cx="130" cy="75" r="20" />
-              <path d="M20 60 Q 0 70 10 95" />
-              <path d="M180 60 Q 200 70 190 95" />
-            </svg> */}
-            <Image src={vr_person} alt="vr person" />
-          </div>
+    <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 backdrop-blur">
+      <UserCircle2 className="h-5 w-5 text-white/60" />
+    </div>
+  );
+}
 
-          <div className="w-full rounded-2xl bg-white/10 p-4 backdrop-blur">
-            <div className="flex items-center justify-between text-xs font-medium text-white/70">
-              <span>LIVE SESSION</span>
-              <span>Progress</span>
-            </div>
-            <div className="mt-2 flex items-center justify-between gap-4">
-              <span className="text-base font-semibold text-white">
-                Shoulder Mobility
-              </span>
-              <div className="h-1.5 w-24 overflow-hidden rounded-full bg-white/20">
-                <div className="h-full w-3/5 rounded-full bg-gradient-to-r from-fuchsia-400 to-violet-400" />
-              </div>
-            </div>
+/* --------------------------- Why Spatial Therapy ------------------------ */
+function WhySpatial() {
+  const features = [
+    {
+      title: "Neural Immersion",
+      body:
+        "Engage your brain's proprioceptive pathways with environments designed to rewrite pain signals and accelerate coordination.",
+      icon: <Users className="h-6 w-6" />,
+      tone: "violet" as const,
+    },
+    {
+      title: "Real-time Biometrics",
+      body:
+        "Visualize your progress with spatial data overlays. See your range of motion, muscle engagement, and heart rate in your field of view.",
+      icon: <Activity className="h-6 w-6" />,
+      tone: "cyan" as const,
+    },
+    {
+      title: "Gamified Recovery",
+      body:
+        "Transform rehabilitation into a quest. Earn rewards, conquer challenges, and find your flow state in beautifully rendered VR worlds.",
+      icon: <Play className="h-5 w-5 fill-current" />,
+      tone: "magenta" as const,
+    },
+  ];
+
+  return (
+    <section className="bg-white py-24 text-slate-900">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-brand-purple">
+            Future of Healing
+          </span>
+          <h2 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+            Why Spatial Therapy?
+          </h2>
+          <p className="mt-4 text-base text-slate-500">
+            Beyond flat screens and basic exercises. CUVR creates a 360-degree
+            ecosystem where movement is play, and progress is visceral.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {features.map((f) => (
+            <FeatureCard key={f.title} {...f} />
+          ))}
+        </div>
+
+        {/* Stats card */}
+        <div className="mt-12 flex justify-center">
+          <div className="stats-card flex w-full max-w-3xl items-center justify-around rounded-2xl px-8 py-6">
+            <Stat value="40%" label="Faster Recovery" />
+            <Divider />
+            <Stat value="92%" label="User Retention" />
+            <Divider />
+            <Stat value="24/7" label="Expert Support" />
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function FeatureCard({
+  title,
+  body,
+  icon,
+  tone,
+}: {
+  title: string;
+  body: string;
+  icon: React.ReactNode;
+  tone: "violet" | "cyan" | "magenta";
+}) {
+  const glowMap = {
+    violet: "icon-glow-violet",
+    cyan: "icon-glow-cyan",
+    magenta: "icon-glow-magenta",
+  } as const;
+  const ringMap = {
+    violet: "ring-violet text-violet-500",
+    cyan: "ring-cyan text-cyan-400",
+    magenta: "ring-magenta text-pink-400",
+  } as const;
+
+  return (
+    <div className="card-light rounded-2xl p-8 text-center">
+      <div className="relative mx-auto mb-6 flex h-20 w-20 items-center justify-center">
+        <span
+          className={`absolute inset-0 rounded-full blur-md ${glowMap[tone]}`}
+        />
+        <span
+          className={`relative flex h-14 w-14 items-center justify-center rounded-full bg-white ${ringMap[tone]}`}
+        >
+          {icon}
+        </span>
+      </div>
+      <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
+      <p className="mt-3 text-sm leading-relaxed text-slate-500">{body}</p>
+    </div>
+  );
+}
+
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="text-center">
+      <div className="text-3xl font-extrabold text-slate-900 sm:text-4xl">
+        {value}
+      </div>
+      <div className="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-500">
+        {label}
       </div>
     </div>
   );
 }
 
-/* ------------------------------ Why VR ---------------------------------- */
-function WhyVR() {
-  return (
-    <section className="py-20">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-            Why Virtual Reality?
-          </h2>
-          <p className="mt-4 text-base text-slate-600">
-            Traditional therapy can be repetitive. VR turns clinical exercises
-            into engaging environments that boost compliance and neurological
-            recovery speed.
-          </p>
-        </div>
-
-        <div className="mt-12 grid gap-6 md:grid-cols-[70%_1fr]">
-          {/* Neural Plasticity */}
-          <div className="rounded-3xl bg-white p-8 shadow-card ring-1 ring-slate-100">
-            <div className="grid gap-6 md:grid-cols-[60%_1fr] items-center h-full">
-              {/* Left column - Text content */}
-              <div>
-                <div className="mb-8 inline-flex h-11 w-11 items-center justify-center rounded-xl icon-bg-light text-brand-blue">
-                  {/* <Info className="h-5 w-5" /> */}
-                  <Image src={brain_icon} alt="brain icon" />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900">
-                  Neural Plasticity Focus
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                  By providing visual feedback in 3D space, we stimulate neural
-                  pathways more effectively than standard repetitive motions.
-                </p>
-              </div>
-              
-              {/* Right column - Brain visualization */}
-              <div className="relative mx-auto flex h-full w-full items-center justify-center rounded-xl bg-gray">
-                <Brain className="h-16 w-16 text-slate-400" />
-                <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  px-2 py-0.5 text-xs font-bold text-brand-purple">
-                  +45% RECOVERY RATE
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Brain visualization card */}
-          {/* <div className="rounded-3xl bg-white p-8 shadow-card ring-1 ring-slate-100">
-            <div className="flex h-full flex-col justify-between">
-              <div className="relative mx-auto flex h-32 w-full items-center justify-center rounded-xl bg-slate-100">
-                <Brain className="h-16 w-16 text-slate-400" />
-                <span className="absolute right-4 top-3 rounded-full bg-white px-2 py-0.5 text-xs font-bold text-brand-purple shadow">
-                  +45% RECOVERY RATE
-                </span>
-              </div>
-              <p className="mt-4 text-center text-xs font-medium text-slate-500">
-                Safe work
-              </p>
-            </div>
-          </div> */}
-
-          {/* Engaging Gameflow purple card */}
-          <div className="relative overflow-hidden rounded-3xl gardient-blue-box p-8 text-white shadow-xl">
-            <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 backdrop-blur">
-              <Gamepad2 className="h-5 w-5" />
-            </div>
-            <h3 className="text-lg font-bold">Engaging Gameflow</h3>
-            <p className="mt-2 text-sm leading-relaxed text-white/85">
-              We turn mundane stretches into immersive goals. You won&apos;t
-              even realize you&apos;re doing &ldquo;work.&rdquo;
-            </p>
-            <button className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-semibold backdrop-blur transition hover:bg-white/25">
-              <Sparkles className="h-4 w-4" />
-              14 New Worlds
-            </button>
-          </div>
-        </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-[30%_1fr]">
-           {/* Real-time Biofeedback */}
-          <div className="rounded-3xl bg-white p-8 shadow-card ring-1 ring-slate-100">
-            <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-violet-50 text-brand-purple">
-              <Activity className="h-5 w-5" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-900">
-              Real-time Biofeedback
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-600">
-              Precision motion tracking measures your range of motion down to
-              the millimeter.
-            </p>
-          </div>
-
-          {/* Monitor placeholder */}
-          <div className="rounded-3xl bg-white p-8 shadow-card ring-1 ring-slate-100 ">
-            <div className="mt-6 grid gap-6 md:grid-cols-2">
-            <div className="mx-auto flex h-32 w-full items-center justify-center rounded-xl bg-slate-100">
-              <LineChart className="h-14 w-14 text-slate-400" />
-            </div>
-            {/* Clinical Supervision */}
-          
-          <div className="bg-white">
-            <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 text-slate-700">
-              <Stethoscope className="h-5 w-5" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-900">
-              Clinical Supervision
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-slate-600">
-              Your data is monitored by licensed physiotherapists who adjust
-              your program remotely for optimal safety and progress.
-            </p>
-          </div>
-          </div>
-          </div>
-
-          
-        </div>
-      </div>
-    </section>
-  );
+function Divider() {
+  return <span className="h-10 w-px bg-slate-200" />;
 }
 
-/* ------------------------------ Approach ------------------------------- */
-function Approach() {
-  const steps = [
+/* ----------------------------- Protocol --------------------------------- */
+function Protocol() {
+  const phases = [
     {
-      n: 1,
-      title: "Initial Clinical Assessment",
+      n: "Phase 1: Calibrate",
+      icon: <Sparkles className="h-4 w-4 color-1" />,
       body:
-        "We start with a thorough evaluation by a senior physiotherapist to identify your specific mobility limitations and goals.",
+        "Precision scanning of current mobility levels and pain thresholds to create a unique biomechanical baseline.",
     },
     {
-      n: 2,
-      title: "VR Environment Selection",
+      n: "Phase 2: Immerse",
+      icon: <Headphones className="h-4 w-4 color-2" />,
       body:
-        "We tailor the virtual worlds to your interests—from calming nature retreats to active sports challenges—to maximize engagement.",
+        "Guided sessions within neural-optimized VR landscapes that encourage rhythmic movement and focused effort.",
     },
     {
-      n: 3,
-      title: "Progressive Loading",
+      n: "Phase 3: Evolve",
+      icon: <TrendingUp className="h-4 w-4 color-3" />,
       body:
-        "The software automatically increases difficulty and complexity as your body heals, ensuring continuous progress.",
+        "Continuous adaptation of difficulty and environment complexity as your physical and neural pathways strengthen.",
     },
   ];
 
   return (
-    <section className="bg-white py-20">
+    <section className="bg-space-soft py-24">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 md:grid-cols-2 md:items-center">
-        <div className="relative">
-          <div className="relative rounded-3xl">
-            {/* Silhouette placeholder */}
-            {/* <svg
-              viewBox="0 0 200 250"
-              className="absolute inset-0 h-full w-full text-slate-500/60"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <circle cx="100" cy="70" r="32" />
-              <path d="M40 250 C 40 170 60 130 100 130 C 140 130 160 170 160 250 Z" />
-            </svg> */}
-            <Image src={therapist_tablet} alt="Therapist with Tablet" />
-          </div>
-          <div className="absolute bottom-8 opacity_7 btn-right rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 px-6 py-4 text-white shadow-xl md:right-10">
-            <p className="text-3xl font-extrabold">98%</p>
-            <p className="text-xs uppercase tracking-wider opacity-90">
-              Patient Success
-            </p>
-          </div>
-        </div>
-
         <div>
-          <h2 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-            Our Approach
+          <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-violet-300">
+            The Methodology
+          </span>
+          <h2 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            The CUVR Protocol
           </h2>
-          <ol className="mt-8 space-y-6">
-            {steps.map((s) => (
-              <li key={s.n} className="flex gap-5">
-                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-brand-purple text-sm font-bold text-white">
-                  {s.n}
+
+          <ul className="mt-10 space-y-5">
+            {phases.map((p) => (
+              <li
+                key={p.n}
+                className="card-phase flex gap-4 rounded-2xl p-5"
+              >
+                <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-white/10 text-violet-200">
+                  {p.icon}
                 </span>
                 <div>
-                  <h3 className="text-lg font-semibold text-slate-900">
-                    {s.title}
-                  </h3>
-                  <p className="mt-1 text-sm leading-relaxed text-slate-600">
-                    {s.body}
+                  <h3 className="text-sm font-semibold text-white">{p.n}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-slate-400">
+                    {p.body}
                   </p>
                 </div>
               </li>
             ))}
-          </ol>
+          </ul>
+        </div>
+
+        <div className="relative">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#7b36d0] via-[#10081f] to-[#0a0a1f] p-6 shadow-2xl">
+            <div className="animate-float-slow">
+              <Image
+                src={vr_headset}
+                alt="VR headset"
+                className="mx-auto rounded-2xl"
+                priority
+              />
+            </div>
+
+            {/* Floating status card */}
+            <div className="absolute bottom-8 left-8 right-8 rounded-2xl border border-white/10 bg-black/55 p-4 backdrop-blur-md md:right-auto md:max-w-xs">
+              <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-300">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse-dot" />
+                Protocol Active
+              </div>
+              <p className="mt-2 text-xs leading-relaxed text-slate-200">
+                Real-time spatial mapping initialized. 98% tracking accuracy
+                achieved.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-/* --------------------------- Patient Stories ---------------------------- */
-function PatientStories() {
+/* --------------------------- Patient Success ---------------------------- */
+function PatientSuccess() {
   const stories = [
     {
+      stars: 5,
       quote:
-        "After my ACL surgery, traditional physio felt like a chore. CUVR turned my recovery into something I actually looked forward to every morning. My range of motion improved significantly faster than expected.",
-      name: "Mark Henderson",
-      role: "Post-Surgical Patient",
+        "I was told I'd never regain full mobility. Three months with CUVR and I'm back on the court. The visuals kept me coming back.",
+      name: "Marcus Thorne",
+      role: "Pro Athlete",
     },
     {
+      stars: 5,
       quote:
-        "The gamified aspect made me forget I was doing physical therapy. The metrics they show you are so encouraging. I'm back to hiking after just 8 weeks of sessions.",
+        "CUVR turned my recovery into a game. The biofeedback data was so motivating for my surgeon too. Highly recommended.",
       name: "Sarah Jenkins",
-      role: "Chronic Back Pain Patient",
+      role: "UX Engineer",
+    },
+    {
+      stars: 5,
+      quote:
+        "Being immersed in a calm VR forest while doing leg extensions made the difficult movements feel almost effortless.",
+      name: "David Kim",
+      role: "Retired Educator",
     },
   ];
 
   return (
     <section
       id="testimonials"
-      className="bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950 py-20 text-white"
+      className="bg-white py-24 text-slate-900"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="mb-10 flex items-end justify-between gap-4">
-          <div>
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Patient Stories
-            </h2>
-            <p className="mt-3 max-w-md text-sm text-slate-300">
-              See how CUVR has helped real patients reclaim their mobility
-              and their lives.
-            </p>
-          </div>
-          <div className="flex gap-2">
-            <button
-              aria-label="Previous"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-white/20"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
-              aria-label="Next"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-white/20"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-          </div>
+        <div className="mb-12">
+          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            Patient <span className="text-gradient-cyan">Success</span>
+          </h2>
+          <p className="mt-3 text-sm text-slate-500">
+            Real stories from the edge of sensory-enhanced recovery.
+          </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-3">
           {stories.map((s) => (
-            <div
+            <article
               key={s.name}
-              className="rounded-3xl bg-white/5 p-8 ring-1 ring-white/10 backdrop-blur"
+              className="rounded-2xl bg-[#0d1024] p-7 text-white ring-1 ring-white/5 shadow-xl"
             >
-              <svg
-                className="h-8 w-8 text-violet-400"
-                viewBox="0 0 32 32"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path d="M10 8H4v8h4c0 4-2 6-4 6v2c6 0 10-4 10-10V8zm14 0h-6v8h4c0 4-2 6-4 6v2c6 0 10-4 10-10V8h-4z" />
-              </svg>
-              <p className="mt-5 text-base leading-relaxed text-slate-100">
+              <div className="flex gap-1 text-yellow-400">
+                {Array.from({ length: s.stars }).map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-current" />
+                ))}
+              </div>
+              <p className="mt-5 text-sm leading-relaxed text-slate-200">
                 &ldquo;{s.quote}&rdquo;
               </p>
-              <div className="mt-8 flex items-center gap-3">
-                <div
-                  className="h-10 w-10 rounded-full"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, #a78bfa, #6366f1)",
-                  }}
-                />
+              <div className="mt-7 flex items-center gap-3 border-t border-white/5 pt-5">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10">
+                  <User className="h-4 w-4 text-slate-300" />
+                </div>
                 <div>
                   <p className="text-sm font-semibold">{s.name}</p>
-                  <p className="text-xs text-slate-400">{s.role}</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
+                    {s.role}
+                  </p>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
@@ -437,32 +382,35 @@ function PatientStories() {
 /* ------------------------------ Final CTA ------------------------------- */
 function FinalCTA() {
   return (
-    <section className="bg-white py-20">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 p-10 text-white md:p-16">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Ready to reclaim your strength?
-            </h2>
-            <p className="mx-auto mt-4 max-w-md text-sm text-white/85">
-              Book your free initial consultation and see how VR can transform
-              your clinical recovery today.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/booking"
-                className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand-purple transition hover:bg-slate-100"
-              >
-                Book Free Consult
-              </Link>
-              <Link
-                href="/booking"
-                className="rounded-full border border-white/50 px-6 py-3 text-sm font-semibold transition hover:bg-white/10"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </div>
+    <section className="bg-[#0a0a1c] py-24">
+      <div className="mx-auto max-w-5xl px-5 sm:px-8">
+        <div className="bg-cta-gradient relative overflow-hidden rounded-[32px] border border-white/10 px-8 py-16 text-center md:px-16">
+          <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            Enter the <span className="text-gradient-future">Future</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-slate-300">
+            Are you ready to transcend traditional physical therapy? Join the
+            elite group of users defining the next generation of recovery.
+          </p>
+
+          <form
+            className="mx-auto mt-9 flex w-full max-w-xl flex-col items-stretch gap-3 sm:flex-row"
+            action="/booking"
+          >
+            <input
+              type="email"
+              required
+              placeholder="Enter your email address"
+              className="input-glass flex-1 rounded-full px-6 py-3.5 text-sm"
+            />
+            <button
+              type="submit"
+              className="btn-gradient inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold"
+            >
+              Get Early Access
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </form>
         </div>
       </div>
     </section>
