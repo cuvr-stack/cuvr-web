@@ -303,7 +303,7 @@ function Channels() {
   ];
 
   return (
-    <section className="bg-white py-24 text-slate-900">
+    <section id="channels" className="bg-white py-24 text-slate-900 scroll-mt-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <AnimateOnScroll
           animation="animate-fade-in"

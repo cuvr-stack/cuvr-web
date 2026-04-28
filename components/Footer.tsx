@@ -1,29 +1,198 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Globe } from "lucide-react";
+import {
+  Globe,
+  Linkedin,
+  Instagram,
+  Twitter,
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  ShieldCheck,
+} from "lucide-react";
 import cuvr_logo from "@/public/cuvr-logo.png";
 
-const FOOTER_LINKS = [
-  { label: "Privacy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
+const EXPLORE_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "How it Works", href: "/how-it-works" },
+  { label: "Book a Session", href: "/booking" },
   { label: "Support", href: "/support" },
+];
+
+const SERVICE_LINKS = [
+  { label: "Neuro-Kinetic Sync", href: "/services#channels" },
+  { label: "Post-Trauma Elasticity", href: "/services#channels" },
+  { label: "Hyper-Performance Tuning", href: "/services#channels" },
+  { label: "Spatial Recovery Protocol", href: "/how-it-works" },
+];
+
+const RESOURCE_LINKS = [
+  { label: "Help Center", href: "/support" },
   { label: "Contact", href: "/support#contact" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+];
+
+const SOCIAL_LINKS = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/cuvr",
+    icon: <Linkedin className="h-4 w-4" />,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/cuvr.health",
+    icon: <Instagram className="h-4 w-4" />,
+  },
+  {
+    label: "Twitter",
+    href: "https://twitter.com/cuvrhealth",
+    icon: <Twitter className="h-4 w-4" />,
+  },
 ];
 
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="border-t border-white/5 bg-[#05060f] text-slate-400">
-      <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-5 py-8 sm:px-8 md:flex-row md:items-center">
-        <div className="flex items-center gap-3">
-          <Image src={cuvr_logo} alt="CUVR logo" width={48} height={28} />
-          <span className="text-xs uppercase tracking-[0.32em] text-slate-500">
-            © {year} CUVR Spatial Therapy. Beyond Physical.
-          </span>
+      {/* ---------- Top: 4-column sitemap ---------- */}
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+          {/* Brand */}
+          <div>
+            <Link href="/" className="inline-flex items-center gap-3">
+              <Image
+                src={cuvr_logo}
+                alt="CUVR logo"
+                width={48}
+                height={28}
+              />
+              <span className="text-sm font-bold tracking-[0.18em] text-white">
+                CUVR
+              </span>
+            </Link>
+            <p className="mt-5 text-sm leading-relaxed text-slate-400">
+              CUVR Spatial Systems is a Dubai Health Authority licensed clinic
+              merging clinical-grade physical therapy with immersive virtual
+              reality. Heal faster with spatial precision.
+            </p>
+
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-violet-200">
+              <ShieldCheck className="h-3.5 w-3.5" />
+              {/* DHA Licensed */}
+            </div>
+
+            <div className="mt-6 flex gap-3">
+              {SOCIAL_LINKS.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  aria-label={s.label}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition hover:border-violet-400/40 hover:bg-violet-500/10 hover:text-white"
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Explore */}
+          <nav aria-label="Site" className="text-sm">
+            <h2 className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white">
+              Explore
+            </h2>
+            <ul className="mt-5 space-y-3">
+              {EXPLORE_LINKS.map((l) => (
+                <li key={l.label}>
+                  <Link
+                    href={l.href}
+                    className="text-slate-400 transition hover:text-white"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Services */}
+          <nav aria-label="Services" className="text-sm">
+            <h2 className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white">
+              Services
+            </h2>
+            <ul className="mt-5 space-y-3">
+              {SERVICE_LINKS.map((l) => (
+                <li key={l.label}>
+                  <Link
+                    href={l.href}
+                    className="text-slate-400 transition hover:text-white"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Contact / NAP */}
+          <div className="text-sm">
+            <h2 className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white">
+              Visit & Contact
+            </h2>
+            <address className="mt-5 space-y-3 not-italic">
+              <p className="flex items-start gap-3 text-slate-400">
+                <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-violet-300" />
+                <span>
+                  Building 64, Block E
+                  <br />
+                  Dubai Healthcare City
+                  <br />
+                  P.O. Box 505276, Dubai, UAE
+                </span>
+              </p>
+              <p className="flex items-center gap-3">
+                <Phone className="h-4 w-4 flex-shrink-0 text-violet-300" />
+                <a
+                  href="tel:+971502592439"
+                  className="text-slate-400 transition hover:text-white"
+                >
+                  +971 50 259 2439
+                </a>
+              </p>
+              <p className="flex items-center gap-3">
+                <Mail className="h-4 w-4 flex-shrink-0 text-violet-300" />
+                <a
+                  href="mailto:support@cuvr.ae"
+                  className="text-slate-400 transition hover:text-white"
+                >
+                  support@cuvr.ae
+                </a>
+              </p>
+              <p className="flex items-start gap-3 text-slate-400">
+                <Clock className="mt-0.5 h-4 w-4 flex-shrink-0 text-violet-300" />
+                <span>
+                  Mon – Fri: 8:00 – 18:00 GST
+                  <br />
+                  Sat: 10:00 – 16:00 GST
+                </span>
+              </p>
+            </address>
+          </div>
         </div>
 
-        <nav className="flex items-center gap-8 text-xs font-semibold uppercase tracking-[0.22em]">
-          {FOOTER_LINKS.map((l) => (
+        {/* Resources row (secondary nav) */}
+        <nav
+          aria-label="Resources"
+          className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-white/5 pt-8 text-xs"
+        >
+          <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500">
+            Resources
+          </span>
+          {RESOURCE_LINKS.map((l) => (
             <Link
               key={l.label}
               href={l.href}
@@ -33,10 +202,25 @@ export default function Footer() {
             </Link>
           ))}
         </nav>
+      </div>
 
-        <div className="flex items-center gap-2 text-slate-400">
-          <Globe className="h-4 w-4" />
-          <span className="text-xs uppercase tracking-[0.22em]">EN</span>
+      {/* ---------- Bottom bar ---------- */}
+      <div className="border-t border-white/5">
+        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-5 py-6 text-xs sm:px-8 md:flex-row md:items-center">
+          <p className="uppercase tracking-[0.22em] text-slate-500">
+            © {year} CUVR Spatial Systems · Beyond Physical
+          </p>
+
+          {/* <p className="text-slate-500">
+            Licensed by the{" "}
+            <span className="text-slate-300">Dubai Health Authority</span> ·
+            NABIDH-integrated · UAE PDPL compliant
+          </p> */}
+
+          <div className="flex items-center gap-2 text-slate-400">
+            <Globe className="h-4 w-4" />
+            <span className="uppercase tracking-[0.22em]">EN</span>
+          </div>
         </div>
       </div>
     </footer>
