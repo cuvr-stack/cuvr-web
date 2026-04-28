@@ -1,8 +1,23 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import loginPerson from "@/public/login-person.png";
+
+export const metadata: Metadata = {
+  title: "Patient Sign In",
+  description:
+    "Sign in to your CUVR patient portal to manage appointments, review session insights, and continue your spatial recovery program.",
+  alternates: { canonical: "/login" },
+  robots: { index: false, follow: false },
+  openGraph: {
+    title: "CUVR Patient Sign In",
+    description: "Access your CUVR patient portal.",
+    url: "/login",
+    type: "website",
+  },
+};
 
 export default function LoginPage() {
   const year = new Date().getFullYear();

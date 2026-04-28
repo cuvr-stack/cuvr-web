@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -17,6 +18,20 @@ import Footer from "@/components/Footer";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import vr_person from "@/public/cuvr_person_vr.png";
 import vr_headset from "@/public/quest1.png";
+
+export const metadata: Metadata = {
+  title: "Spatial VR Physical Therapy in Dubai",
+  description:
+    "CUVR is a DHA-licensed Dubai clinic merging clinical physical therapy with immersive VR. 40% faster recovery, real-time biometrics, and gamified rehabilitation.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "CUVR — Spatial VR Physical Therapy in Dubai",
+    description:
+      "DHA-licensed VR physiotherapy in Dubai. Recover faster with immersive, data-driven movement therapy.",
+    url: "/",
+    type: "website",
+  },
+};
 
 export default function HomePage() {
   return (
@@ -43,6 +58,7 @@ function Hero() {
         <Image
           src={vr_person}
           alt=""
+          aria-hidden
           fill
           priority
           className="object-cover object-center opacity-60 img-height"
@@ -288,7 +304,7 @@ function Protocol() {
             <div className="animate-float-slow">
               <Image
                 src={vr_headset}
-                alt="VR headset"
+                alt="CUVR-1S clinical VR headset used for spatial physical therapy"
                 className="mx-auto rounded-2xl"
                 priority
               />

@@ -1,5 +1,7 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import {
   ArrowRight,
   CheckCircle2,
@@ -18,6 +20,64 @@ import patient1 from "@/public/patient-1.png";
 import patient2 from "@/public/patient-2.png";
 import patient3 from "@/public/patient-3.png";
 
+export const metadata: Metadata = {
+  title: "Services — Spatial Precision Therapy",
+  description:
+    "Explore CUVR's recovery channels: neuro-kinetic sync, post-trauma elasticity, and hyper-performance tuning, powered by LiDAR bio-mapping and sub-5ms haptic feedback.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "CUVR Services — Spatial Precision Therapy",
+    description:
+      "DHA-licensed VR physiotherapy services in Dubai: clinical recovery, biometrics, and immersive infrastructure.",
+    url: "/services",
+    type: "website",
+  },
+};
+
+const SERVICES_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  name: "CUVR Spatial Systems",
+  url: "https://cuvr.ae/services",
+  description:
+    "DHA-licensed VR physical therapy clinic in Dubai offering spatial precision therapy across neuro-kinetic, post-trauma, and high-performance recovery channels.",
+  medicalSpecialty: ["Physiotherapy", "PhysicalTherapy", "Rehabilitation"],
+  areaServed: { "@type": "Country", name: "United Arab Emirates" },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Recovery Channels",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "MedicalProcedure",
+          name: "Neuro-Kinetic Sync",
+          description:
+            "Restoring the link between brain intent and muscle execution through biofeedback-rich spatial cues.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "MedicalProcedure",
+          name: "Post-Trauma Elasticity",
+          description:
+            "Gentle, guided range-of-motion protocols within immersive gravity-reduced VR environments.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "MedicalProcedure",
+          name: "Hyper-Performance Tuning",
+          description:
+            "Reactive training for athletes optimizing reaction time and spatial awareness.",
+        },
+      },
+    ],
+  },
+};
+
 export default function ServicesPage() {
   return (
     <>
@@ -30,6 +90,14 @@ export default function ServicesPage() {
         <FinalCTA />
       </main>
       <Footer />
+      <Script
+        id="ld-services"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(SERVICES_JSON_LD),
+        }}
+      />
     </>
   );
 }

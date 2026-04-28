@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, Phone, Zap, Navigation, Clock, BarChart3 } from "lucide-react";
@@ -7,6 +8,20 @@ import BookingForm from "@/components/BookingForm";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
 import heroImage from "@/public/booking-hero.png";
 import bgImage from "@/public/booking-bg.png";
+
+export const metadata: Metadata = {
+  title: "Book a Consultation — VR Therapy Assessment",
+  description:
+    "Reserve a 30-minute clinical assessment with CUVR's DHA-licensed physiotherapists in Dubai Healthcare City. Build a personalized spatial recovery protocol.",
+  alternates: { canonical: "/booking" },
+  openGraph: {
+    title: "Book a CUVR Consultation",
+    description:
+      "Schedule a free spatial assessment with CUVR's DHA-licensed clinical team in Dubai Healthcare City.",
+    url: "/booking",
+    type: "website",
+  },
+};
 
 export default function BookingPage() {
   return (
@@ -31,7 +46,7 @@ function Hero() {
       <div className="absolute inset-0">
         <Image
           src={heroImage}
-          alt="VR Recovery"
+          alt="Patient beginning a CUVR VR recovery program"
           fill
           priority
           sizes="100vw"
@@ -273,7 +288,7 @@ function VisitHub() {
         <AnimateOnScroll animation="animate-slide-in-right" className="relative overflow-hidden rounded-3xl">
           <Image
             src={bgImage}
-            alt="CUVR Hub Location"
+            alt="CUVR clinic exterior in Dubai Healthcare City"
             className="rounded-3xl"
             priority
             width={600}

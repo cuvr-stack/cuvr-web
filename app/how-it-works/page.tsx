@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   BarChart3,
@@ -15,6 +16,20 @@ import AnimateOnScroll from "@/components/AnimateOnScroll";
 import heroImage from "@/public/how-it-works-hero.png";
 import personImage from "@/public/how-person.png";
 import vrImage from "@/public/how-vr.png";
+
+export const metadata: Metadata = {
+  title: "How It Works — Spatial Recovery Protocol",
+  description:
+    "From spatial assessment to immersive sessions and biometric analytics — see how CUVR's four-phase VR therapy protocol accelerates clinical recovery.",
+  alternates: { canonical: "/how-it-works" },
+  openGraph: {
+    title: "How CUVR Works — Spatial Recovery Protocol",
+    description:
+      "Four phases of VR-driven physical therapy: assessment, personalization, immersion, and biometric analytics.",
+    url: "/how-it-works",
+    type: "article",
+  },
+};
 
 export default function HowItWorksPage() {
   return (
@@ -40,7 +55,7 @@ function Hero() {
       <div className="absolute inset-0 ">
         <Image
           src={heroImage}
-          alt="VR Experience"
+          alt="Patient in a CUVR immersive VR physical therapy session"
           fill
           priority
           sizes="100vw"
@@ -242,7 +257,7 @@ function Technology() {
             </div>
             <Image
               src={vrImage}
-              alt="VR Interface"
+              alt="CUVR spatial VR interface showing live motion-tracking telemetry"
               className="relative rounded-xl"
               priority
               width={600}
@@ -267,7 +282,7 @@ function Precision() {
           <AnimateOnScroll animation="animate-slide-in-left" className="relative overflow-hidden rounded-3xl">
             <Image
               src={personImage}
-              alt="Clinical Precision"
+              alt="Physiotherapist guiding a patient through a CUVR clinical VR rehabilitation session"
               className="rounded-3xl"
               priority
               width={500}

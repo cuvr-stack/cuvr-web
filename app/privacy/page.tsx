@@ -1,8 +1,23 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ShieldCheck } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy — DHA & PDPL Compliant",
+  description:
+    "How CUVR collects, processes, and protects your health and biometric data under UAE Federal Law No. 2 of 2019 (ICT Health Law), the PDPL, and DHA / NABIDH standards.",
+  alternates: { canonical: "/privacy" },
+  openGraph: {
+    title: "CUVR Privacy Policy",
+    description:
+      "DHA, NABIDH, and PDPL-aligned privacy practices for clinical VR physical therapy.",
+    url: "/privacy",
+    type: "article",
+  },
+};
 
 const SECTIONS = [
   {

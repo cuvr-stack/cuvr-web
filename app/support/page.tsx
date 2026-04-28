@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import Script from "next/script";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -18,6 +20,20 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
+
+export const metadata: Metadata = {
+  title: "Support — Help Center & FAQs",
+  description:
+    "CUVR's help center: VR headset setup, billing & UAE insurance, clinical sessions, account help, and DHA / NABIDH / PDPL data-protection answers. Email support@cuvr.ae or call +971 50 259 2439.",
+  alternates: { canonical: "/support" },
+  openGraph: {
+    title: "CUVR Support Center",
+    description:
+      "Answers for setup, billing, sessions, and data protection — plus direct contact channels for DHA-licensed clinical support.",
+    url: "/support",
+    type: "website",
+  },
+};
 
 const CATEGORIES = [
   {
@@ -105,6 +121,19 @@ const TONE = {
   },
 } as const;
 
+const FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+};
+
 export default function SupportPage() {
   return (
     <>
@@ -116,6 +145,12 @@ export default function SupportPage() {
         <Contact />
       </main>
       <Footer />
+      <Script
+        id="ld-faq"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
+      />
     </>
   );
 }

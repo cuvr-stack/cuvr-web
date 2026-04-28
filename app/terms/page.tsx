@@ -1,8 +1,23 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ScrollText } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
+
+export const metadata: Metadata = {
+  title: "Terms of Service — CUVR Patient Agreement",
+  description:
+    "Read CUVR's clinical terms covering eligibility, billing in AED, insurance via eClaim Link, telemetry, liability, and UAE governing law for our DHA-licensed VR physical therapy services.",
+  alternates: { canonical: "/terms" },
+  openGraph: {
+    title: "CUVR Terms of Service",
+    description:
+      "Patient agreement for CUVR — DHA-licensed VR physical therapy in Dubai.",
+    url: "/terms",
+    type: "article",
+  },
+};
 
 const SECTIONS = [
   {
