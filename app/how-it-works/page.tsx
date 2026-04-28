@@ -5,18 +5,26 @@ import {
   LineChart,
   Stethoscope,
   UserCheck,
+  Zap,
+  Brain,
 } from "lucide-react";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Howvr from "../../public/vr-how.png"
+import AnimateOnScroll from "@/components/AnimateOnScroll";
+import heroImage from "@/public/how-it-works-hero.png";
+import personImage from "@/public/how-person.png";
+import vrImage from "@/public/how-vr.png";
+
 export default function HowItWorksPage() {
   return (
     <>
       <Header />
-      <main>
+      <main className="bg-space text-white">
         <Hero />
-        <Path />
+        <Journey />
+        <Technology />
+        <Precision />
         <CTA />
       </main>
       <Footer />
@@ -24,134 +32,287 @@ export default function HowItWorksPage() {
   );
 }
 
+/* -------------------------------- Hero ---------------------------------- */
 function Hero() {
   return (
-    <section className="bg-gradient-to-b from-white to-slate-50">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 md:grid-cols-2 md:py-24">
-        <div>
-          <span className="inline-flex rounded-full bg-violet-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-purple">
-            The Digital Frontier
-          </span>
-          <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight text-slate-900 sm:text-6xl md:text-7xl">
-            Rehab,
-            <br />
-            <span className="italic text-gradient-brand">Redefined.</span>
-          </h1>
-          <p className="mt-6 max-w-md text-base leading-relaxed text-slate-600">
-            CUVR combines clinical physiotherapy expertise with immersive VR
-            technology to transform your recovery journey from a chore into an
-            adventure.
-          </p>
-        </div>
+    <section className="relative min-h-screen overflow-hidden">
+      {/* Background VR Headset Image */}
+      <div className="absolute inset-0 ">
+        <Image
+          src={heroImage}
+          alt="VR Experience"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#05060f]/60 via-[#05060f]/80 to-[#05060f] opacity-40" />
+      </div>
 
-        <div className="relative mx-auto w-full max-w-md">
-          <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br from-slate-200 via-slate-300 to-slate-400 shadow-xl">
-            <div className="flex h-full w-full flex-col items-center justify-center text-slate-500">
-             {/*  <Headphones className="h-20 w-20 opacity-60" /> */}
-             <Image src={Howvr} alt="How Vr" />
-              <p className="mt-3 text-xs font-medium uppercase tracking-widest">
-                Clinical VR session
+      <div className="relative mx-auto flex min-h-screen max-w-5xl flex-col items-start justify-center px-5 py-24 sm:px-8">
+        <AnimateOnScroll animation="animate-fade-in" className="mb-6">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">
+            Pioneering Clinical VR
+          </span>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll animation="animate-slide-in-up" delay="0.1s" className="max-w-2xl">
+          <h1 className="text-5xl font-extrabold leading-[1.1] tracking-tight sm:text-6xl md:text-7xl">
+            The Science of
+            <br />
+            <span className="text-gradient-brand">Recovery</span>
+          </h1>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll animation="animate-slide-in-up" delay="0.2s" className="mt-6 max-w-xl">
+          <p className="text-base leading-relaxed text-slate-300">
+            Experience physical therapy reimagined through immersive spatial
+            computing. We combine clinical expertise with high-end VR
+            gaming technology to accelerate your healing journey.
+          </p>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll animation="animate-bounce-in" delay="0.3s" className="mt-10 flex flex-wrap gap-4">
+          <Link
+            href="/booking"
+            className="btn-gradient inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold"
+          >
+            Start Your Journey
+            <span>→</span>
+          </Link>
+          <button className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold backdrop-blur hover:bg-white/20">
+            <span>▶</span>
+            Watch Overview
+          </button>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ----------------------------- Patient Journey --------------------------- */
+function Journey() {
+  const steps = [
+    {
+      number: "01",
+      icon: <Brain className="h-5 w-5" />,
+      title: "Spatial Assessment",
+      description:
+        "Advanced 3D body mapping captures 50,000+ data points. Proprietary algorithms establish your baseline.",
+      color: "bg-violet-500/20",
+      iconBg: "bg-violet-500",
+    },
+    {
+      number: "02",
+      icon: <Headphones className="h-5 w-5" />,
+      title: "Personalized Protocol",
+      description:
+        "AI-generated routines tailored to your specific recovery goals, injury type, and mobility milestones.",
+      color: "bg-cyan-500/20",
+      iconBg: "bg-cyan-500",
+    },
+    {
+      number: "03",
+      icon: <Zap className="h-5 w-5" />,
+      title: "Immersive Session",
+      description:
+        "Engagement-focused VR environments that turn your exercises into epic quests throughout your healing journey.",
+      color: "bg-pink-500/20",
+      iconBg: "bg-pink-500",
+    },
+    {
+      number: "04",
+      icon: <BarChart3 className="h-5 w-5" />,
+      title: "Biometric Analytics",
+      description:
+        "Real-time feedback loops ensure motion accuracy, muscle engagement, and cardio performance tracking.",
+      color: "bg-purple-500/20",
+      iconBg: "bg-purple-500",
+    },
+  ];
+
+  return (
+    <section className="bg-white py-24 text-slate-900">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <AnimateOnScroll animation="animate-fade-in" className="mb-4 text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-purple">
+            Process Flow
+          </span>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll animation="animate-slide-in-up" delay="0.1s" className="text-center">
+          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            The Patient Journey
+          </h2>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll animation="animate-slide-in-up" delay="0.2s" className="mx-auto mt-3 max-w-2xl text-center">
+          <p className="text-slate-600">
+            From your first touchpoint to your final milestone, our data-driven path ensures precision at every degree of motion.
+          </p>
+        </AnimateOnScroll>
+
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step, i) => (
+            <AnimateOnScroll
+              key={step.number}
+              animation="animate-scale-fade-in"
+              delay={`${0.3 + i * 0.1}s`}
+              className={`rounded-2xl p-6 ring-1 ring-slate-200 ${step.color}`}
+            >
+              <div className={`mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg ${step.iconBg} text-white`}>
+                {step.icon}
+              </div>
+              <p className="text-sm font-semibold text-slate-500">{step.number}</p>
+              <h3 className="mt-2 text-lg font-bold text-slate-900">{step.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                {step.description}
               </p>
-            </div>
-          </div>
+            </AnimateOnScroll>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function Path() {
+/* ----------------------- Technology & Interface ----------------------- */
+function Technology() {
   return (
-    <section className="bg-white py-20">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-            Your Path to Recovery
-          </h2>
-          <div className="mx-auto mt-3 h-0.5 w-24 rounded bg-brand-purple" />
-        </div>
+    <section className="bg-space-soft py-24">
+      <div className="mx-auto grid max-w-7xl gap-16 px-5 sm:px-8 md:grid-cols-2 md:items-center">
+        <div>
+          <AnimateOnScroll animation="animate-fade-in" className="mb-4">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">
+              Spatial Ecosystem
+            </span>
+          </AnimateOnScroll>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
-          {/* Card 1 */}
-          <div className="rounded-3xl bg-slate-50 p-8 ring-1 ring-slate-100 md:col-span-2">
-            <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100 text-brand-blue">
-              <BarChart3 className="h-5 w-5" />
-            </div>
-            <h3 className="text-xl font-bold text-slate-900">
-              01. Clinical Assessment
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-slate-600">
-              Every journey starts with a deep dive. Our clinical experts
-              evaluate your range of motion, strength, and specific recovery
-              goals to build your digital twin profile.
-            </p>
-            <div className="mt-8 flex items-center gap-3">
-              <div className="flex -space-x-2">
-                {["#a78bfa", "#60a5fa"].map((c, i) => (
-                  <div
-                    key={i}
-                    className="h-8 w-8 rounded-full border-2 border-white"
-                    style={{
-                      background: `linear-gradient(135deg, ${c}, #6366f1)`,
-                    }}
-                  />
-                ))}
+          <AnimateOnScroll animation="animate-slide-in-left" delay="0.1s">
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+              Next-Gen Interface for
+              <br />
+              Human Movement
+            </h2>
+          </AnimateOnScroll>
+
+          <div className="mt-10 space-y-6">
+            <AnimateOnScroll animation="animate-slide-in-left" delay="0.2s" className="flex gap-4">
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-cyan-500/20 text-cyan-400">
+                <Zap className="h-5 w-5" />
               </div>
-              <span className="text-sm font-semibold text-brand-blue">
-                Expert Consultation Included
-              </span>
-            </div>
-          </div>
-
-          {/* Card 2 purple */}
-          <div className="rounded-3xl bg-gradient-to-br from-violet-500 via-violet-600 to-purple-700 p-8 text-white shadow-xl">
-            <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 backdrop-blur">
-              <Headphones className="h-5 w-5" />
-            </div>
-            <h3 className="text-xl font-bold">02. VR Exercises</h3>
-            <p className="mt-3 text-sm leading-relaxed text-white/90">
-              Step into a curated world. Your therapy is gamified into
-              immersive environments—from tranquil beaches to forest peaks—
-              designed to trigger the correct physiological responses.
-            </p>
-          </div>
-
-          {/* Card 3 */}
-          <div className="rounded-3xl bg-slate-50 p-8 ring-1 ring-slate-100">
-            <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100 text-brand-blue">
-              <LineChart className="h-5 w-5" />
-            </div>
-            <h3 className="text-xl font-bold text-slate-900">
-              03. Live Metrics
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-slate-600">
-              Our sensors track your every movement with millimetric
-              precision, providing immediate visual feedback and ensuring
-              every repetition counts towards your healing.
-            </p>
-          </div>
-
-          {/* Card 4 */}
-          <div className="rounded-3xl bg-slate-50 p-8 ring-1 ring-slate-100 md:col-span-2">
-            <div className="flex items-start justify-between gap-6">
               <div>
-                <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100 text-brand-blue">
-                  <Stethoscope className="h-5 w-5" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900">
-                  04. Clinical Oversight
-                </h3>
-                <p className="mt-3 max-w-xs text-sm leading-relaxed text-slate-600">
-                  You&apos;re never alone. A dedicated clinical
-                  physiotherapist reviews your VR session data weekly,
-                  adjusting your program remotely to match your pace of
-                  recovery.
+                <h3 className="font-semibold text-white">Sub-Millimeter Tracking</h3>
+                <p className="mt-1 text-sm leading-relaxed text-slate-400">
+                  Precision sensors monitor every subtle movement with microsecond-level accuracy for biomechanical perfection.
                 </p>
               </div>
-              <div className="hidden h-32 w-40 flex-shrink-0 items-center justify-center rounded-2xl bg-slate-900 text-white sm:flex">
-                <UserCheck className="h-10 w-10 opacity-80" />
+            </AnimateOnScroll>
+
+            <AnimateOnScroll animation="animate-slide-in-left" delay="0.3s" className="flex gap-4">
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-pink-500/20 text-pink-400">
+                <Brain className="h-5 w-5" />
               </div>
+              <div>
+                <h3 className="font-semibold text-white">Haptic Bio-Feedback</h3>
+                <p className="mt-1 text-sm leading-relaxed text-slate-400">
+                  Tactile sensory cues guide your body through the physical rehabilitation in perfect synchronization.
+                </p>
+              </div>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll animation="animate-slide-in-left" delay="0.4s" className="flex gap-4">
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-purple-500/20 text-purple-400">
+                <LineChart className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-white">Live Session Feedback</h3>
+                <p className="mt-1 text-sm leading-relaxed text-slate-400">
+                  TFM Datasync Interface tracks all metrics in real-time for instant coaching adjustments.
+                </p>
+              </div>
+            </AnimateOnScroll>
+          </div>
+        </div>
+
+        <AnimateOnScroll animation="animate-slide-in-right" className="relative">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-800 to-slate-900 p-8 shadow-2xl">
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 blur-3xl" />
             </div>
+            <Image
+              src={vrImage}
+              alt="VR Interface"
+              className="relative rounded-xl"
+              priority
+              width={600}
+              height={400}
+            />
+            <div className="absolute bottom-4 left-4 rounded-lg bg-black/60 px-3 py-1.5 text-xs font-semibold text-cyan-300 backdrop-blur">
+              ● Active Tracking: 99%
+            </div>
+          </div>
+        </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------ Clinical Precision ----------------------- */
+function Precision() {
+  return (
+    <section className="bg-white py-24 text-slate-900">
+      <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 md:grid-cols-2 md:items-center">
+        <div className="order-2 md:order-1">
+          <AnimateOnScroll animation="animate-slide-in-left" className="relative overflow-hidden rounded-3xl">
+            <Image
+              src={personImage}
+              alt="Clinical Precision"
+              className="rounded-3xl"
+              priority
+              width={500}
+              height={600}
+            />
+            <div className="absolute bottom-6 right-6 rounded-2xl bg-slate-900 px-6 py-4 text-white">
+              <div className="text-3xl font-bold">98%</div>
+              <div className="text-xs font-semibold text-slate-400">Data Accuracy</div>
+            </div>
+          </AnimateOnScroll>
+        </div>
+
+        <div className="order-1 md:order-2">
+          <AnimateOnScroll animation="animate-fade-in" className="mb-4">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-purple">
+              Clinical Integrity
+            </span>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll animation="animate-slide-in-right" delay="0.1s">
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+              Clinical Precision in Every Pixel
+            </h2>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll animation="animate-slide-in-right" delay="0.2s" className="mt-6">
+            <p className="max-w-md leading-relaxed text-slate-600">
+              Our protocols are developed in collaboration with leading orthopedic experts. Every VR environment is calibrated to stimulate specific muscle groups and recovery pathways.
+            </p>
+          </AnimateOnScroll>
+
+          <div className="mt-10 space-y-4">
+            <AnimateOnScroll animation="animate-slide-in-right" delay="0.3s" className="rounded-lg border-l-4 border-brand-blue bg-blue-50 p-4">
+              <p className="font-semibold text-slate-900">Evidence Based</p>
+              <p className="mt-1 text-sm text-slate-600">
+                Protocols validated through clinical trials with leading physical therapy research institutions.
+              </p>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll animation="animate-slide-in-right" delay="0.4s" className="rounded-lg border-l-4 border-brand-purple bg-violet-50 p-4">
+              <p className="font-semibold text-slate-900">HIPAA Secure</p>
+              <p className="mt-1 text-sm text-slate-600">
+                Enterprise-grade encryption ensures your personal data remains confidential and secure always.
+              </p>
+            </AnimateOnScroll>
           </div>
         </div>
       </div>
@@ -159,35 +320,36 @@ function Path() {
   );
 }
 
+/* ------------------------------ Final CTA ------------------------------- */
 function CTA() {
   return (
-    <section className="bg-white pb-24">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="rounded-3xl bg-gradient-to-r from-blue-600 via-violet-600 to-purple-600 p-10 text-white md:p-14">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Ready to enter the clinic?
+    <section className="bg-space-soft py-20">
+      <div className="mx-auto max-w-5xl px-5 sm:px-8">
+        <AnimateOnScroll animation="animate-scale-fade-in" className="rounded-3xl border border-white/10 bg-gradient-to-r from-violet-600/20 via-purple-600/20 to-pink-600/20 px-8 py-16 text-center backdrop-blur sm:px-16">
+          <AnimateOnScroll animation="animate-slide-in-up" delay="0.1s">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Ready to Evolve?
             </h2>
-            <p className="mx-auto mt-3 max-w-lg text-sm text-white/85">
-              Join thousands of patients who have accelerated their recovery
-              through the power of CUVR immersion.
+          </AnimateOnScroll>
+
+          <AnimateOnScroll animation="animate-slide-in-up" delay="0.2s" className="mt-4">
+            <p className="mx-auto max-w-lg text-sm leading-relaxed text-slate-300">
+              Take the first step toward a faster, smarter, and more engaging recovery. Our clinical team is ready to meet you exactly where you are.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <Link
-                href="/booking"
-                className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand-purple transition hover:bg-slate-100"
-              >
-                Start Free Assessment
-              </Link>
-              <Link
-                href="/services"
-                className="rounded-full border border-white/50 px-6 py-3 text-sm font-semibold transition hover:bg-white/10"
-              >
-                View VR Environments
-              </Link>
-            </div>
-          </div>
-        </div>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll animation="animate-bounce-in" delay="0.3s" className="mt-10 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/booking"
+              className="btn-gradient rounded-full px-6 py-3 text-sm font-semibold"
+            >
+              Book Your Assessment
+            </Link>
+            <button className="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+              Contact Clinical Support
+            </button>
+          </AnimateOnScroll>
+        </AnimateOnScroll>
       </div>
     </section>
   );

@@ -7,6 +7,11 @@ interface AnimateOnScrollProps {
   animation: string;
   delay?: string;
   className?: string;
+  /**
+   * If true, the element will animate again every time it scrolls into view.
+   * Defaults to false (animate once and stay visible).
+   */
+  repeat?: boolean;
 }
 
 export default function AnimateOnScroll({
@@ -14,6 +19,7 @@ export default function AnimateOnScroll({
   animation,
   delay,
   className = "",
+  repeat = false,
 }: AnimateOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -21,31 +27,45 @@ export default function AnimateOnScroll({
     const element = ref.current;
     if (!element) return;
 
+    // If the user prefers reduced motion, just reveal the content.
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReducedMotion) {
+      element.classList.remove("pre-animate");
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Add animation class when element comes into view
+          element.classList.remove("pre-animate");
           element.classList.add(animation);
-          observer.unobserve(element);
+          if (!repeat) observer.unobserve(element);
+        } else if (repeat) {
+          element.classList.add("pre-animate");
+          element.classList.remove(animation);
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: "0px 0px -100px 0px",
+        // a small threshold + a slightly negative bottom rootMargin
+        // gives a nice "as it enters the viewport" feel without being jumpy
+        threshold: 0.12,
+        rootMargin: "0px 0px -60px 0px",
       }
     );
 
     observer.observe(element);
 
     return () => {
-      observer.unobserve(element);
+      observer.disconnect();
     };
-  }, [animation]);
+  }, [animation, repeat]);
 
   return (
     <div
       ref={ref}
-      className={className}
+      className={`pre-animate ${className}`.trim()}
       style={{ animationDelay: delay }}
     >
       {children}

@@ -4,10 +4,10 @@ import { Globe } from "lucide-react";
 import cuvr_logo from "@/public/cuvr-logo.png";
 
 const FOOTER_LINKS = [
-  { label: "Privacy", href: "#" },
-  { label: "Terms", href: "#" },
-  { label: "Support", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+  { label: "Support", href: "/support" },
+  { label: "Contact", href: "/support#contact" },
 ];
 
 export default function Footer() {
