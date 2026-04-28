@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 import vr_person from "@/public/cuvr_person_vr.png";
 import vr_headset from "@/public/quest1.png";
 
@@ -57,22 +58,22 @@ function Hero() {
       </div> */}
 
       <div className="relative mx-auto flex min-h-[640px] max-w-5xl flex-col items-center justify-center px-5 py-28 text-center sm:px-8 md:py-36 h-screen">
-        <span className="rounded-full px-5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-300">
+        <span className="animate-fade-in rounded-full px-5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-300">
           Rehabilitation Reimagined
         </span>
 
-        <h1 className="mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
+        <h1 className="animate-slide-in-up mt-6 text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl" style={{ animationDelay: '0.2s' }}>
           The Future of{" "}
           <span className="text-gradient-future">Recovery</span> is Spatial
         </h1>
 
-        <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-slate-300">
+        <p className="animate-slide-in-up mx-auto mt-6 max-w-xl text-base leading-relaxed text-slate-300" style={{ animationDelay: '0.4s' }}>
           Experience a revolutionary blend of clinical physical therapy and
           immersive VR technology. Heal faster, stay motivated, and track every
           movement with surgical precision.
         </p>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
+        <div className="animate-bounce-in mt-10 flex flex-wrap items-center justify-center gap-6" style={{ animationDelay: '0.6s' }}>
           <Link
             href="/booking"
             className="btn-gradient inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold"
@@ -131,18 +132,22 @@ function WhySpatial() {
   return (
     <section className="bg-white py-24 text-slate-900">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+        <AnimateOnScroll animation="animate-fade-in" className="mx-auto max-w-2xl text-center">
           <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-brand-purple">
             Future of Healing
           </span>
-          <h2 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+        </AnimateOnScroll>
+        <AnimateOnScroll animation="animate-slide-in-up" delay="0.2s" className="mx-auto max-w-2xl text-center mt-4">
+          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
             Why Spatial Therapy?
           </h2>
+        </AnimateOnScroll>
+        <AnimateOnScroll animation="animate-slide-in-up" delay="0.4s" className="mx-auto max-w-2xl text-center">
           <p className="mt-4 text-base text-slate-500">
             Beyond flat screens and basic exercises. CUVR creates a 360-degree
             ecosystem where movement is play, and progress is visceral.
           </p>
-        </div>
+        </AnimateOnScroll>
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {features.map((f) => (
@@ -151,7 +156,7 @@ function WhySpatial() {
         </div>
 
         {/* Stats card */}
-        <div className="mt-12 flex justify-center">
+        <AnimateOnScroll animation="animate-bounce-in" delay="0.6s" className="mt-12 flex justify-center">
           <div className="stats-card flex w-full max-w-3xl items-center justify-around rounded-2xl px-8 py-6">
             <Stat value="40%" label="Faster Recovery" />
             <Divider />
@@ -159,7 +164,7 @@ function WhySpatial() {
             <Divider />
             <Stat value="24/7" label="Expert Support" />
           </div>
-        </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
@@ -188,7 +193,7 @@ function FeatureCard({
   } as const;
 
   return (
-    <div className="card-light rounded-2xl p-8 text-center">
+    <AnimateOnScroll animation="animate-scale-fade-in" className="card-light rounded-2xl p-8 text-center">
       <div className="relative mx-auto mb-6 flex h-20 w-20 items-center justify-center">
         <span
           className={`absolute inset-0 rounded-full blur-md ${glowMap[tone]}`}
@@ -201,7 +206,7 @@ function FeatureCard({
       </div>
       <h3 className="text-lg font-semibold text-slate-900">{title}</h3>
       <p className="mt-3 text-sm leading-relaxed text-slate-500">{body}</p>
-    </div>
+    </AnimateOnScroll>
   );
 }
 
@@ -248,18 +253,20 @@ function Protocol() {
   return (
     <section className="bg-space-soft py-24">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 md:grid-cols-2 md:items-center">
-        <div>
+        <AnimateOnScroll animation="animate-slide-in-left" className="space-y-4">
           <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-violet-300">
             The Methodology
           </span>
-          <h2 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
             The CUVR Protocol
           </h2>
 
           <ul className="mt-10 space-y-5">
-            {phases.map((p) => (
-              <li
+            {phases.map((p, i) => (
+              <AnimateOnScroll
                 key={p.n}
+                animation="animate-slide-in-left"
+                delay={`${0.3 + i * 0.15}s`}
                 className="card-phase flex gap-4 rounded-2xl p-5"
               >
                 <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-white/10 text-violet-200">
@@ -271,12 +278,12 @@ function Protocol() {
                     {p.body}
                   </p>
                 </div>
-              </li>
+              </AnimateOnScroll>
             ))}
           </ul>
-        </div>
+        </AnimateOnScroll>
 
-        <div className="relative">
+        <AnimateOnScroll animation="animate-slide-in-right" className="relative">
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#7b36d0] via-[#10081f] to-[#0a0a1f] p-6 shadow-2xl">
             <div className="animate-float-slow">
               <Image
@@ -299,7 +306,7 @@ function Protocol() {
               </p>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
@@ -337,19 +344,21 @@ function PatientSuccess() {
       className="bg-white py-24 text-slate-900"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="mb-12">
+        <AnimateOnScroll animation="animate-fade-in" className="mb-12">
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
             Patient <span className="text-gradient-cyan">Success</span>
           </h2>
           <p className="mt-3 text-sm text-slate-500">
             Real stories from the edge of sensory-enhanced recovery.
           </p>
-        </div>
+        </AnimateOnScroll>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {stories.map((s) => (
-            <article
+          {stories.map((s, i) => (
+            <AnimateOnScroll
               key={s.name}
+              animation="animate-bounce-in"
+              delay={`${0.4 + i * 0.15}s`}
               className="rounded-2xl bg-[#0d1024] p-7 text-white ring-1 ring-white/5 shadow-xl"
             >
               <div className="flex gap-1 text-yellow-400">
@@ -371,7 +380,7 @@ function PatientSuccess() {
                   </p>
                 </div>
               </div>
-            </article>
+            </AnimateOnScroll>
           ))}
         </div>
       </div>
@@ -384,7 +393,7 @@ function FinalCTA() {
   return (
     <section className="bg-[#0a0a1c] py-24">
       <div className="mx-auto max-w-5xl px-5 sm:px-8">
-        <div className="bg-cta-gradient relative overflow-hidden rounded-[32px] border border-white/10 px-8 py-16 text-center md:px-16">
+        <AnimateOnScroll animation="animate-scale-fade-in" className="bg-cta-gradient relative overflow-hidden rounded-[32px] border border-white/10 px-8 py-16 text-center md:px-16">
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
             Enter the <span className="text-gradient-future">Future</span>
           </h2>
@@ -411,7 +420,7 @@ function FinalCTA() {
               <ArrowRight className="h-4 w-4" />
             </button>
           </form>
-        </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

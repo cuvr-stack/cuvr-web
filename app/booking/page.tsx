@@ -21,18 +21,18 @@ function Hero() {
     <section className="bg-white">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 pt-16 sm:px-8 md:grid-cols-2">
         <div>
-          <h1 className="text-5xl font-extrabold leading-[1.05] tracking-tight text-slate-900 sm:text-6xl">
+          <h1 className="animate-slide-in-left text-5xl font-extrabold leading-[1.05] tracking-tight text-slate-900 sm:text-6xl">
             The Future of
             <br />
             <span className="text-gradient-brand">Recovery</span> is Here.
           </h1>
-          <p className="mt-5 max-w-md text-base leading-relaxed text-slate-600">
+          <p className="animate-slide-in-left mt-5 max-w-md text-base leading-relaxed text-slate-600" style={{ animationDelay: '0.2s' }}>
             Bridge the gap between sterile clinics and immersive innovation.
             Secure your consultation for personalized VR physiotherapy today.
           </p>
         </div>
 
-        <div className="relative mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-900/80 to-slate-900 shadow-xl">
+        <div className="animate-scale-fade-in relative mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-900/80 to-slate-900 shadow-xl">
           <div className="absolute inset-0 flex items-center justify-center">
             <svg
               viewBox="0 0 200 140"
@@ -74,7 +74,7 @@ function Body() {
     <section className="bg-white pb-24 pt-10">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 md:grid-cols-[1.3fr_1fr]">
         {/* Form card */}
-        <div className="relative overflow-hidden rounded-3xl bg-white p-8 shadow-card ring-1 ring-slate-100 md:p-10">
+        <div className="animate-slide-in-left relative overflow-hidden rounded-3xl bg-white p-8 shadow-card ring-1 ring-slate-100 md:p-10">
           <div
             aria-hidden="true"
             className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-violet-100/80"
@@ -89,18 +89,22 @@ function Body() {
 
         {/* Contact column */}
         <div className="space-y-5">
-          <ContactCard
-            icon={<Mail className="h-5 w-5 text-brand-purple" />}
-            title="Email Us"
-            primary="care@cuvr.ae"
-            secondary="Available 24/7 for urgent clinical inquiries."
-          />
-          <ContactCard
-            icon={<Phone className="h-5 w-5 text-brand-blue" />}
-            title="Call Us"
-            primary="+971 502592439"
-            secondary="Mon–Fri: 8:00 AM – 6:00 PM EST"
-          />
+          <div style={{ animationDelay: '0.2s' }} className="animate-slide-in-right">
+            <ContactCard
+              icon={<Mail className="h-5 w-5 text-brand-purple" />}
+              title="Email Us"
+              primary="care@cuvr.ae"
+              secondary="Available 24/7 for urgent clinical inquiries."
+            />
+          </div>
+          <div style={{ animationDelay: '0.4s' }} className="animate-slide-in-right">
+            <ContactCard
+              icon={<Phone className="h-5 w-5 text-brand-blue" />}
+              title="Call Us"
+              primary="+971 502592439"
+              secondary="Mon–Fri: 8:00 AM – 6:00 PM EST"
+            />
+          </div>
           {/* <ContactCard
             icon={<MapPin className="h-5 w-5 text-brand-purple" />}
             title="Visit Our Hub"
