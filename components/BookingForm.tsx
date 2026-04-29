@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "@/lib/language-context";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -11,20 +12,15 @@ type FormState = {
   reason: string;
 };
 
-const REASONS = [
-  "General Physiotherapy Assessment",
-  "Post-Surgical Recovery",
-  "Chronic Pain Management",
-  "Sports Performance",
-  "Neurological Rehabilitation",
-];
-
 export default function BookingForm() {
+  const { tr } = useLanguage();
+  const f = tr.form;
+
   const [values, setValues] = useState<FormState>({
     name: "",
     email: "",
     phone: "",
-    reason: REASONS[0],
+    reason: f.reasons[0],
   });
   const [errors, setErrors] = useState<Partial<FormState>>({});
   const [status, setStatus] = useState<Status>("idle");
@@ -38,14 +34,14 @@ export default function BookingForm() {
 
   const validate = (): boolean => {
     const next: Partial<FormState> = {};
-    if (!values.name.trim()) next.name = "Please enter your name.";
+    if (!values.name.trim()) next.name = f.errorName;
     if (!values.email.trim()) {
-      next.email = "Please enter your email.";
+      next.email = f.errorEmail;
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
-      next.email = "Please enter a valid email address.";
+      next.email = f.errorEmailInvalid;
     }
     if (values.phone && !/^[+()\-\d\s]{7,}$/.test(values.phone)) {
-      next.phone = "Please enter a valid phone number.";
+      next.phone = f.errorPhone;
     }
     setErrors(next);
     return Object.keys(next).length === 0;
@@ -56,7 +52,6 @@ export default function BookingForm() {
     if (!validate()) return;
 
     setStatus("submitting");
-    // Simulate async submission. In a real app, call an API route here.
     await new Promise((r) => setTimeout(r, 900));
     // eslint-disable-next-line no-console
     console.log("Consultation request:", values);
@@ -67,21 +62,23 @@ export default function BookingForm() {
     return (
       <div className="rounded-xl bg-green-50 p-6 ring-1 ring-green-200">
         <h3 className="text-lg font-semibold text-green-800">
-          Request received
+          {f.requestReceived}
         </h3>
         <p className="mt-2 text-sm text-green-700">
-          Thanks, {values.name.split(" ")[0] || "there"} — our clinical team
-          will reach out within 2 business hours to confirm your consultation.
+          {f.thankYouMessage.replace(
+            "{name}",
+            values.name.split(" ")[0] || "there"
+          )}
         </p>
         <button
           type="button"
           onClick={() => {
-            setValues({ name: "", email: "", phone: "", reason: REASONS[0] });
+            setValues({ name: "", email: "", phone: "", reason: f.reasons[0] });
             setStatus("idle");
           }}
           className="mt-5 text-sm font-semibold text-brand-purple hover:underline"
         >
-          Book another session →
+          {f.bookAnother}
         </button>
       </div>
     );
@@ -91,7 +88,7 @@ export default function BookingForm() {
     <form onSubmit={onSubmit} noValidate className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <Field
-          label="Name"
+          label={f.name}
           name="name"
           placeholder="John Doe"
           value={values.name}
@@ -99,7 +96,7 @@ export default function BookingForm() {
           error={errors.name}
         />
         <Field
-          label="Email"
+          label={f.email}
           name="email"
           type="email"
           placeholder="john@example.com"
@@ -110,7 +107,7 @@ export default function BookingForm() {
       </div>
 
       <Field
-        label="Phone"
+        label={f.phone}
         name="phone"
         type="tel"
         placeholder="+1 (555) 000-0000"
@@ -124,7 +121,7 @@ export default function BookingForm() {
           htmlFor="reason"
           className="mb-2 block text-xs font-semibold uppercase tracking-wider text-slate-500"
         >
-          Reason for Visit
+          {f.reasonForVisit}
         </label>
         <select
           id="reason"
@@ -133,7 +130,7 @@ export default function BookingForm() {
           onChange={update("reason")}
           className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20"
         >
-          {REASONS.map((r) => (
+          {f.reasons.map((r) => (
             <option key={r} value={r}>
               {r}
             </option>
@@ -146,12 +143,10 @@ export default function BookingForm() {
         disabled={status === "submitting"}
         className="btn-gradient inline-flex w-full items-center justify-center rounded-full px-6 py-3.5 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-70"
       >
-        {status === "submitting" ? "Scheduling…" : "Schedule My Session"}
+        {status === "submitting" ? f.scheduling : f.scheduleSession}
       </button>
 
-      <p className="text-center text-xs text-slate-500">
-        Our clinical team typically responds within 2 business hours.
-      </p>
+      <p className="text-center text-xs text-slate-500">{f.responseTime}</p>
     </form>
   );
 }
