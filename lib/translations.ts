@@ -13,7 +13,7 @@ const t = {
 
     footer: {
       tagline:
-        "CUVR Spatial Systems is a Dubai Health Authority licensed clinic merging clinical-grade physical therapy with immersive virtual reality. Heal faster with spatial precision.",
+        "CUVR Spatial Systems is a clinical-grade physical therapy with immersive virtual reality. Heal faster with spatial precision.",
       dhaLicensed: "DHA Licensed",
       explore: "Explore",
       services: "Services",
