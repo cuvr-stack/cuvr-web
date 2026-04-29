@@ -82,7 +82,7 @@ export default function Header() {
 
           <Link
             href="/booking"
-            className="btn-gradient rounded-full px-5 py-2 text-sm font-semibold"
+            className="hidden btn-gradient rounded-full px-5 py-2 text-sm font-semibold md:inline-block"
           >
             {tr.nav.getStarted}
           </Link>
@@ -123,6 +123,15 @@ export default function Header() {
               className="text-sm font-medium text-slate-300 hover:text-white sm:hidden"
             >
               {tr.nav.login}
+            </Link>
+
+            {/* Mobile Get Started button */}
+            <Link
+              href="/booking"
+              onClick={closeMenu}
+              className="md:hidden btn-gradient rounded-full px-5 py-2 text-sm font-semibold text-center"
+            >
+              {tr.nav.getStarted}
             </Link>
           </nav>
         </div>
