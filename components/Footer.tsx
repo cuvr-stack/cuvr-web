@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -12,28 +14,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import cuvr_logo from "@/public/cuvr-logo.png";
-
-const EXPLORE_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "How it Works", href: "/how-it-works" },
-  { label: "Book a Session", href: "/booking" },
-  { label: "Support", href: "/support" },
-];
-
-const SERVICE_LINKS = [
-  { label: "Neuro-Kinetic Sync", href: "/services#channels" },
-  { label: "Post-Trauma Elasticity", href: "/services#channels" },
-  { label: "Hyper-Performance Tuning", href: "/services#channels" },
-  { label: "Spatial Recovery Protocol", href: "/how-it-works" },
-];
-
-const RESOURCE_LINKS = [
-  { label: "Help Center", href: "/support" },
-  { label: "Contact", href: "/support#contact" },
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms of Service", href: "/terms" },
-];
+import { useLanguage } from "@/lib/language-context";
 
 const SOCIAL_LINKS = [
   {
@@ -55,6 +36,31 @@ const SOCIAL_LINKS = [
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const { lang, setLang, tr } = useLanguage();
+  const f = tr.footer;
+
+  const exploreLinks = [
+    { label: f.home, href: "/" },
+    { label: f.services, href: "/services" },
+    { label: tr.nav.howItWorks, href: "/how-it-works" },
+    { label: f.bookSession, href: "/booking" },
+    { label: f.support, href: "/support" },
+  ];
+
+  const serviceLinks = [
+    { label: f.neuroKinetic, href: "/services#channels" },
+    { label: f.postTrauma, href: "/services#channels" },
+    { label: f.hyperPerformance, href: "/services#channels" },
+    { label: f.spatialProtocol, href: "/how-it-works" },
+  ];
+
+  const resourceLinks = [
+    { label: f.helpCenter, href: "/support" },
+    { label: f.contact, href: "/support#contact" },
+    { label: f.privacy, href: "/privacy" },
+    { label: f.terms, href: "/terms" },
+  ];
+
   return (
     <footer className="border-t border-white/5 bg-[#05060f] text-slate-400">
       {/* ---------- Top: 4-column sitemap ---------- */}
@@ -63,25 +69,18 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="inline-flex items-center gap-3">
-              <Image
-                src={cuvr_logo}
-                alt="CUVR logo"
-                width={48}
-                height={28}
-              />
+              <Image src={cuvr_logo} alt="CUVR logo" width={48} height={28} />
               <span className="text-sm font-bold tracking-[0.18em] text-white">
                 CUVR
               </span>
             </Link>
             <p className="mt-5 text-sm leading-relaxed text-slate-400">
-              CUVR Spatial Systems is a Dubai Health Authority licensed clinic
-              merging clinical-grade physical therapy with immersive virtual
-              reality. Heal faster with spatial precision.
+              {f.tagline}
             </p>
 
             <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-violet-200">
               <ShieldCheck className="h-3.5 w-3.5" />
-              {/* DHA Licensed */}
+              {f.dhaLicensed}
             </div>
 
             <div className="mt-6 flex gap-3">
@@ -103,11 +102,11 @@ export default function Footer() {
           {/* Explore */}
           <nav aria-label="Site" className="text-sm">
             <h2 className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white">
-              Explore
+              {f.explore}
             </h2>
             <ul className="mt-5 space-y-3">
-              {EXPLORE_LINKS.map((l) => (
-                <li key={l.label}>
+              {exploreLinks.map((l) => (
+                <li key={l.href}>
                   <Link
                     href={l.href}
                     className="text-slate-400 transition hover:text-white"
@@ -122,10 +121,10 @@ export default function Footer() {
           {/* Services */}
           <nav aria-label="Services" className="text-sm">
             <h2 className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white">
-              Services
+              {f.services}
             </h2>
             <ul className="mt-5 space-y-3">
-              {SERVICE_LINKS.map((l) => (
+              {serviceLinks.map((l) => (
                 <li key={l.label}>
                   <Link
                     href={l.href}
@@ -141,18 +140,12 @@ export default function Footer() {
           {/* Contact / NAP */}
           <div className="text-sm">
             <h2 className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white">
-              Visit & Contact
+              {f.visitContact}
             </h2>
             <address className="mt-5 space-y-3 not-italic">
               <p className="flex items-start gap-3 text-slate-400">
                 <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-violet-300" />
-                <span>
-                  Building 64, Block E
-                  <br />
-                  Dubai Healthcare City
-                  <br />
-                  P.O. Box 505276, Dubai, UAE
-                </span>
+                <span style={{ whiteSpace: "pre-line" }}>{f.address}</span>
               </p>
               <p className="flex items-center gap-3">
                 <Phone className="h-4 w-4 flex-shrink-0 text-violet-300" />
@@ -174,11 +167,7 @@ export default function Footer() {
               </p>
               <p className="flex items-start gap-3 text-slate-400">
                 <Clock className="mt-0.5 h-4 w-4 flex-shrink-0 text-violet-300" />
-                <span>
-                  Mon – Fri: 8:00 – 18:00 GST
-                  <br />
-                  Sat: 10:00 – 16:00 GST
-                </span>
+                <span style={{ whiteSpace: "pre-line" }}>{f.hours}</span>
               </p>
             </address>
           </div>
@@ -190,9 +179,9 @@ export default function Footer() {
           className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-white/5 pt-8 text-xs"
         >
           <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500">
-            Resources
+            {f.resources}
           </span>
-          {RESOURCE_LINKS.map((l) => (
+          {resourceLinks.map((l) => (
             <Link
               key={l.label}
               href={l.href}
@@ -208,19 +197,18 @@ export default function Footer() {
       <div className="border-t border-white/5">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-5 py-6 text-xs sm:px-8 md:flex-row md:items-center">
           <p className="uppercase tracking-[0.22em] text-slate-500">
-            © {year} CUVR Spatial Systems · Beyond Physical
+            {f.copyright.replace("{year}", String(year))}
           </p>
 
-          {/* <p className="text-slate-500">
-            Licensed by the{" "}
-            <span className="text-slate-300">Dubai Health Authority</span> ·
-            NABIDH-integrated · UAE PDPL compliant
-          </p> */}
-
-          <div className="flex items-center gap-2 text-slate-400">
+          <button
+            onClick={() => setLang(lang === "en" ? "ar" : "en")}
+            className="flex items-center gap-2 text-slate-400 transition hover:text-white"
+          >
             <Globe className="h-4 w-4" />
-            <span className="uppercase tracking-[0.22em]">EN</span>
-          </div>
+            <span className="uppercase tracking-[0.22em]">
+              {lang === "en" ? "عربي" : "EN"}
+            </span>
+          </button>
         </div>
       </div>
     </footer>

@@ -20,6 +20,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+html[lang="ar"] {
+  font-family: var(--font-cairo), sans-serif;
+}
+
+html[lang="ar"] .font-sans {
+  font-family: var(--font-cairo), sans-serif;
+}
+
 /* ---- shared smooth easing ----
    easing reference:
    smooth-out  -> cubic-bezier(0.22, 1, 0.36, 1)   (expo-out, gentle)

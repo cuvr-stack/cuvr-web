@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Cairo } from "next/font/google";
 import Script from "next/script";
+import Providers from "@/components/Providers";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,6 +9,13 @@ const inter = Inter({
   weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
   variable: "--font-inter",
+});
+
+const cairo = Cairo({
+  subsets: ["arabic", "latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
+  variable: "--font-cairo",
 });
 
 const SITE_URL = "https://cuvr.ae";
@@ -83,9 +91,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: "/cuvr-logo.png", type: "image/png" },
-    ],
+    icon: [{ url: "/cuvr-logo.png", type: "image/png" }],
     apple: [{ url: "/cuvr-logo.png" }],
   },
   referrer: "origin-when-cross-origin",
@@ -132,9 +138,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html
+      lang="en"
+      dir="ltr"
+      suppressHydrationWarning
+      className={`${inter.variable} ${cairo.variable}`}
+    >
       <body className="font-sans text-slate-900 bg-white">
-        {children}
+        <Providers>
+          {children}
+        </Providers>
         <Script
           id="ld-organization"
           type="application/ld+json"

@@ -6,13 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "../public/cuvr-logo.png";
-
-const NAV_ITEMS = [
-  { href: "/how-it-works", label: "How It Works" },
-  { href: "/services", label: "Services" },
-  { href: "/#testimonials", label: "Testimonials" },
-  { href: "/booking", label: "Booking" },
-];
+import { useLanguage } from "@/lib/language-context";
 
 function Logo() {
   return (
@@ -26,6 +20,14 @@ function Logo() {
 export default function Header() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const { lang, setLang, tr } = useLanguage();
+
+  const navItems = [
+    { href: "/how-it-works", label: tr.nav.howItWorks },
+    { href: "/services", label: tr.nav.services },
+    { href: "/#testimonials", label: tr.nav.testimonials },
+    { href: "/booking", label: tr.nav.booking },
+  ];
 
   const isActive = (href: string) => {
     if (href.startsWith("/#")) return false;
@@ -34,13 +36,15 @@ export default function Header() {
 
   const closeMenu = () => setIsOpen(false);
 
+  const toggleLang = () => setLang(lang === "en" ? "ar" : "en");
+
   return (
     <header className="sticky top-0 z-40 w-full border-b border-white/5 bg-[#110d29] backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
         <Logo />
 
         <nav className="hidden items-center gap-9 md:flex">
-          {NAV_ITEMS.map((item) => {
+          {navItems.map((item) => {
             const active = isActive(item.href);
             return (
               <Link
@@ -64,13 +68,23 @@ export default function Header() {
             href="/login"
             className="hidden text-sm font-medium text-slate-300 transition hover:text-white sm:inline"
           >
-            Login
+            {tr.nav.login}
           </Link>
+
+          {/* Language switcher */}
+          <button
+            onClick={toggleLang}
+            aria-label={lang === "en" ? "Switch to Arabic" : "Switch to English"}
+            className="flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 transition hover:border-white/40 hover:text-white"
+          >
+            {lang === "en" ? "عربي" : "EN"}
+          </button>
+
           <Link
             href="/booking"
             className="btn-gradient rounded-full px-5 py-2 text-sm font-semibold"
           >
-            Get Started
+            {tr.nav.getStarted}
           </Link>
 
           {/* Hamburger Button */}
@@ -88,7 +102,7 @@ export default function Header() {
       {isOpen && (
         <div className="md:hidden border-t border-white/5 bg-[#110d29]">
           <nav className="flex flex-col gap-4 px-5 py-4 sm:px-8">
-            {NAV_ITEMS.map((item) => {
+            {navItems.map((item) => {
               const active = isActive(item.href);
               return (
                 <Link
@@ -108,7 +122,7 @@ export default function Header() {
               onClick={closeMenu}
               className="text-sm font-medium text-slate-300 hover:text-white sm:hidden"
             >
-              Login
+              {tr.nav.login}
             </Link>
           </nav>
         </div>
