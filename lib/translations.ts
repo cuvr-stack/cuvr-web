@@ -13,7 +13,7 @@ const t = {
 
     footer: {
       tagline:
-        "CUVR Spatial Systems is a Dubai Health Authority licensed clinic merging clinical-grade physical therapy with immersive virtual reality. Heal faster with spatial precision.",
+        "CUVR Spatial Systems is a clinical-grade physical therapy with immersive virtual reality. Heal faster with spatial precision.",
       dhaLicensed: "DHA Licensed",
       explore: "Explore",
       services: "Services",
@@ -296,6 +296,33 @@ const t = {
         "Sports Performance",
         "Neurological Rehabilitation",
       ],
+    },
+
+    disclaimer: {
+      /* ── Dismissible first-visit banner ── */
+      bannerTitle: "Medical & Regulatory Notice",
+      bannerBody:
+        "CUVR services are regulated by the Dubai Health Authority (DHA). The information on this website is for general informational purposes only and does not constitute medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional before beginning any rehabilitation programme. For medical emergencies call 998.",
+      bannerAccept: "I Understand",
+      bannerLearnMore: "Full Disclaimer",
+
+      /* ── Footer regulatory strip ── */
+      regulatoryTitle: "Regulatory & Compliance",
+      licenseLabel: "DHA License",
+      licenseNumber: "DHA-XXXXX",           // replace with real number
+      nabidh: "NABIDH Integrated",
+      pdpl: "UAE PDPL Compliant",
+      hipaa: "HIPAA Aligned",
+      emergencyLabel: "Medical Emergency (UAE)",
+      emergencyNumber: "998",
+
+      /* ── Medical disclaimer paragraph (footer) ── */
+      medicalDisclaimer:
+        "The content published on this website is intended for informational purposes only and must not be used as a substitute for professional medical advice, clinical diagnosis, or treatment. CUVR Spatial Systems is a Dubai Health Authority licensed clinic. All virtual reality rehabilitation programmes are designed and supervised by DHA-licensed physiotherapists. Treatment outcomes may vary between individuals. In the event of a medical emergency, please call the UAE emergency services on 998 immediately.",
+
+      /* ── Data / privacy notice ── */
+      dataNotice:
+        "Patient health data is processed in accordance with the UAE Federal Decree-Law No. 45 of 2021 on Personal Data Protection (PDPL) and integrated with the Dubai Health Authority NABIDH platform. By using our services you consent to the collection and use of your health information as described in our Privacy Policy.",
     },
   },
 
@@ -595,6 +622,33 @@ const t = {
         "الأداء الرياضي",
         "التأهيل العصبي",
       ],
+    },
+
+    disclaimer: {
+      /* ── Dismissible first-visit banner ── */
+      bannerTitle: "إشعار طبي وتنظيمي",
+      bannerBody:
+        "تخضع خدمات CUVR لتنظيم هيئة الصحة بدبي (DHA). المعلومات الواردة على هذا الموقع هي لأغراض إعلامية عامة فحسب، ولا تُعدّ نصيحة طبية أو تشخيصاً أو علاجاً. استشر دائماً مختصاً صحياً مؤهلاً قبل البدء بأي برنامج تأهيلي. في حالات الطوارئ الطبية اتصل بـ 998.",
+      bannerAccept: "فهمت",
+      bannerLearnMore: "إخلاء المسؤولية الكامل",
+
+      /* ── Footer regulatory strip ── */
+      regulatoryTitle: "الامتثال التنظيمي",
+      licenseLabel: "ترخيص هيئة الصحة بدبي",
+      licenseNumber: "DHA-XXXXX",
+      nabidh: "متكامل مع NABIDH",
+      pdpl: "ملتزم بقانون PDPL الإماراتي",
+      hipaa: "متوافق مع HIPAA",
+      emergencyLabel: "طوارئ طبية (الإمارات)",
+      emergencyNumber: "998",
+
+      /* ── Medical disclaimer paragraph (footer) ── */
+      medicalDisclaimer:
+        "المحتوى المنشور على هذا الموقع لأغراض إعلامية فحسب، ولا ينبغي استخدامه بديلاً عن الاستشارة الطبية المتخصصة أو التشخيص السريري أو العلاج. CUVR Spatial Systems عيادة مرخّصة من هيئة الصحة بدبي. جميع برامج التأهيل بالواقع الافتراضي مصمَّمة ويُشرف عليها فيزيوثيرابيون مرخَّصون من هيئة الصحة بدبي. قد تتفاوت نتائج العلاج من شخص لآخر. في حالات الطوارئ الطبية، اتصل فوراً بخدمات الطوارئ الإماراتية على الرقم 998.",
+
+      /* ── Data / privacy notice ── */
+      dataNotice:
+        "تُعالَج البيانات الصحية للمرضى وفق أحكام المرسوم بقانون اتحادي رقم 45 لسنة 2021 بشأن حماية البيانات الشخصية (PDPL) وتُدمج مع منصة NABIDH التابعة لهيئة الصحة بدبي. باستخدامك لخدماتنا، فأنت توافق على جمع معلوماتك الصحية واستخدامها على النحو المبيَّن في سياسة الخصوصية.",
     },
   },
 } as const;
