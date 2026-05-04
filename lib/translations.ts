@@ -173,19 +173,34 @@ const t = {
 
       channelsTitle: "Precision Recovery Channels",
       channelsBody:
-        "Focused modalities designed for specific anatomical milestones and performance objectives.",
+        "Clinical-grade recovery protocols deployed through our proprietary spatial computing framework.",
       channel01: "Channel 01",
       channel02: "Channel 02",
       channel03: "Channel 03",
       neuroTitle: "Neuro-Kinetic Sync",
       neuroBody:
-        "Restoring the link between brain intent and muscle execution through biofeedback-rich spatial cues.",
+        "Aligning neural pathways with physical execution through real-time biofeedback and spatial anchors.",
       postTraumaTitle: "Post-Trauma Elasticity",
       postTraumaBody:
-        "Gentle, guided range-of-motion protocols within immersive 'gravity-reduced' visual environments.",
+        "Specialized protocols for regaining mobility and tissue resilience in a controlled, immersive environment.",
       hyperTitle: "Hyper-Performance Tuning",
       hyperBody:
-        "Advanced reactive training for elite athletes looking to optimize reaction time and spatial awareness.",
+        "Optimising peak performance metrics for elite athletes through high-fidelity spatial analysis.",
+      exploreModality: "Explore Modality →",
+
+      kineticBadge: "Neural Optimization",
+      kineticTitle: "Kinetic Performance Modalities",
+      kineticBody:
+        "Foundational movement reprogramming designed for physical restoration and structural integrity.",
+      cognitiveTitle: "Cognitive Rehabilitation",
+      cognitiveBody:
+        "Restoring cognitive function through gamified spatial challenges that bridge thought and action.",
+      mentalHealthTitle: "Mental Health & Wellness",
+      mentalHealthBody:
+        "Immersive environments designed to reduce cortisol levels and facilitate deep neural relaxation.",
+      adhdTitle: "ADHD & Focus Enhancement",
+      adhdBody:
+        "Strengthening attentional control through curated sensory feedback loops and spatial tasks.",
 
       backbone: "The Backbone",
       infraTitle: "Technological Infrastructure",
@@ -500,19 +515,34 @@ const t = {
 
       channelsTitle: "قنوات التعافي الدقيق",
       channelsBody:
-        "أنماط علاجية مُركَّزة مصممة لنقاط تشريحية محددة وأهداف أداء.",
+        "بروتوكولات تعافٍ سريرية مُنفَّذة عبر إطارنا المملوك للحوسبة المكانية.",
       channel01: "القناة 01",
       channel02: "القناة 02",
       channel03: "القناة 03",
       neuroTitle: "المزامنة الكينيتيكية العصبية",
       neuroBody:
-        "إعادة الرابط بين نية الدماغ وتنفيذ العضلات عبر إشارات مكانية غنية بالتغذية الراجعة الحيوية.",
+        "محاذاة المسارات العصبية مع التنفيذ الجسدي عبر التغذية الراجعة الحيوية الفورية والمراسي المكانية.",
       postTraumaTitle: "مرونة ما بعد الصدمة",
       postTraumaBody:
-        "بروتوكولات خفيفة وموجَّهة لنطاق الحركة ضمن بيئات بصرية غامرة 'منخفضة الجاذبية'.",
+        "بروتوكولات متخصصة لاستعادة الحركة ومرونة الأنسجة في بيئة غامرة ومضبوطة.",
       hyperTitle: "الضبط الفائق للأداء",
       hyperBody:
-        "تدريب رد الفعل المتقدم للرياضيين النخبة الراغبين في تحسين وقت رد الفعل والوعي المكاني.",
+        "تحسين مقاييس الأداء الذروة للرياضيين النخبة عبر التحليل المكاني عالي الدقة.",
+      exploreModality: "استكشف النمط ←",
+
+      kineticBadge: "تحسين عصبي",
+      kineticTitle: "أنماط الأداء الحركي",
+      kineticBody:
+        "إعادة برمجة حركية أساسية مصممة للتعافي الجسدي والسلامة الهيكلية.",
+      cognitiveTitle: "التأهيل المعرفي",
+      cognitiveBody:
+        "استعادة الوظيفة المعرفية عبر تحديات مكانية مُلعَّبة تجسّر الفكر والفعل.",
+      mentalHealthTitle: "الصحة النفسية والعافية",
+      mentalHealthBody:
+        "بيئات غامرة مصممة لخفض مستويات الكورتيزول وتيسير الاسترخاء العصبي العميق.",
+      adhdTitle: "اضطراب التركيز وتعزيزه",
+      adhdBody:
+        "تقوية التحكم الانتباهي عبر حلقات تغذية راجعة حسية مُنتقاة ومهام مكانية.",
 
       backbone: "العمود الفقري",
       infraTitle: "البنية التحتية التكنولوجية",
