@@ -171,6 +171,7 @@ const t = {
       subLatency: "Sub-5ms latency",
       scroll: "Scroll",
 
+      recoveryStack: "Recovery Stack",
       channelsTitle: "Precision Recovery Channels",
       channelsBody:
         "Clinical-grade recovery protocols deployed through our proprietary spatial computing framework.",
@@ -513,6 +514,7 @@ const t = {
       subLatency: "كمون أقل من 5 مللي ثانية",
       scroll: "مرر للأسفل",
 
+      recoveryStack: "مجموعة التعافي",
       channelsTitle: "قنوات التعافي الدقيق",
       channelsBody:
         "بروتوكولات تعافٍ سريرية مُنفَّذة عبر إطارنا المملوك للحوسبة المكانية.",
