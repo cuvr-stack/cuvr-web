@@ -309,7 +309,7 @@ function KineticModalities() {
         </AnimateOnScroll>
         {/* Title */}
         <AnimateOnScroll animation="animate-slide-in-up" delay="0.1s" className="mx-auto mt-3 max-w-2xl text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+          <h2 className="whitespace-nowrap text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             {s.kineticTitle}
           </h2>
         </AnimateOnScroll>
