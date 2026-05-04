@@ -241,41 +241,44 @@ function Channels() {
           <p className="text-sm leading-relaxed text-slate-500">{s.channelsBody}</p>
         </AnimateOnScroll>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-12 mx-auto grid max-w-[900px] gap-5 md:grid-cols-3">
           {channels.map((c, i) => (
             <AnimateOnScroll
               key={c.title}
               animation="animate-scale-fade-in"
               delay={`${0.25 + i * 0.12}s`}
             >
-              <article className="group flex flex-col rounded-2xl border border-slate-100 bg-white overflow-hidden transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
-                {/* Image */}
-                <div className="relative aspect-square w-full overflow-hidden bg-slate-100">
-                  <Image
-                    src={c.img}
-                    alt={c.title}
-                    fill
-                    className="object-cover transition duration-500 group-hover:scale-105"
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                  />
-                  {/* Channel badge overlay */}
-                  <span className="absolute bottom-3 left-3 rounded-full border border-white/30 bg-black/50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-sm">
-                    {c.no}
-                  </span>
-                </div>
-
-                {/* Content */}
-                <div className="flex flex-1 flex-col px-5 py-5">
-                  <h3 className="text-sm font-bold text-slate-900">{c.title}</h3>
-                  <p className="mt-1.5 flex-1 text-xs leading-relaxed text-slate-500">{c.desc}</p>
-                  <Link
-                    href="/booking"
-                    className="mt-4 inline-flex items-center gap-1 text-[11px] font-semibold text-slate-400 transition hover:text-slate-700"
-                  >
-                    {s.exploreModality}
-                  </Link>
-                </div>
-              </article>
+              {/* Gradient border wrapper */}
+              <div className="group rounded-2xl bg-gradient-to-br from-violet-300/40 to-blue-400/40 p-px transition-all duration-300 hover:from-violet-500/70 hover:to-blue-600/70 hover:shadow-xl hover:-translate-y-1">
+                <article className="flex h-full flex-col rounded-[15px] bg-white overflow-hidden">
+                  {/* Image with padding */}
+                  <div className="p-3 pb-0">
+                    <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-slate-100">
+                      <Image
+                        src={c.img}
+                        alt={c.title}
+                        fill
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                        sizes="(min-width: 768px) 30vw, 100vw"
+                      />
+                      <span className="absolute bottom-2.5 left-2.5 rounded-full border border-white/30 bg-black/50 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-sm">
+                        {c.no}
+                      </span>
+                    </div>
+                  </div>
+                  {/* Content */}
+                  <div className="flex flex-1 flex-col px-4 py-4">
+                    <h3 className="text-sm font-bold text-slate-900">{c.title}</h3>
+                    <p className="mt-1.5 flex-1 text-[11px] leading-relaxed text-slate-500">{c.desc}</p>
+                    <Link
+                      href="/booking"
+                      className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-slate-400 transition group-hover:text-violet-600"
+                    >
+                      {s.exploreModality}
+                    </Link>
+                  </div>
+                </article>
+              </div>
             </AnimateOnScroll>
           ))}
         </div>
@@ -315,37 +318,41 @@ function KineticModalities() {
           <p className="text-sm leading-relaxed text-slate-500">{s.kineticBody}</p>
         </AnimateOnScroll>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-12 mx-auto grid max-w-[900px] gap-5 md:grid-cols-3">
           {modalities.map((m, i) => (
             <AnimateOnScroll
               key={m.title}
               animation="animate-scale-fade-in"
               delay={`${0.25 + i * 0.12}s`}
             >
-              <article className="group flex flex-col rounded-2xl border border-slate-100 bg-white overflow-hidden transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
-                {/* Image */}
-                <div className="relative aspect-square w-full overflow-hidden bg-slate-100">
-                  <Image
-                    src={m.img}
-                    alt={m.title}
-                    fill
-                    className="object-cover transition duration-500 group-hover:scale-105"
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="flex flex-1 flex-col px-5 py-5">
-                  <h3 className="text-sm font-bold text-slate-900">{m.title}</h3>
-                  <p className="mt-1.5 flex-1 text-xs leading-relaxed text-slate-500">{m.desc}</p>
-                  <Link
-                    href="/booking"
-                    className="mt-4 inline-flex items-center gap-1 text-[11px] font-semibold text-slate-400 transition hover:text-slate-700"
-                  >
-                    {s.exploreModality}
-                  </Link>
-                </div>
-              </article>
+              {/* Gradient border wrapper */}
+              <div className="group rounded-2xl bg-gradient-to-br from-violet-300/40 to-blue-400/40 p-px transition-all duration-300 hover:from-violet-500/70 hover:to-blue-600/70 hover:shadow-xl hover:-translate-y-1">
+                <article className="flex h-full flex-col rounded-[15px] bg-white overflow-hidden">
+                  {/* Image with padding */}
+                  <div className="p-3 pb-0">
+                    <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-slate-100">
+                      <Image
+                        src={m.img}
+                        alt={m.title}
+                        fill
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                        sizes="(min-width: 768px) 30vw, 100vw"
+                      />
+                    </div>
+                  </div>
+                  {/* Content */}
+                  <div className="flex flex-1 flex-col px-4 py-4">
+                    <h3 className="text-sm font-bold text-slate-900">{m.title}</h3>
+                    <p className="mt-1.5 flex-1 text-[11px] leading-relaxed text-slate-500">{m.desc}</p>
+                    <Link
+                      href="/booking"
+                      className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-slate-400 transition group-hover:text-violet-600"
+                    >
+                      {s.exploreModality}
+                    </Link>
+                  </div>
+                </article>
+              </div>
             </AnimateOnScroll>
           ))}
         </div>
