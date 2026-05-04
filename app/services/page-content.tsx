@@ -318,7 +318,7 @@ function KineticModalities() {
           <p className="text-sm leading-relaxed text-slate-500">{s.kineticBody}</p>
         </AnimateOnScroll>
 
-        <div className="mt-12 mx-auto grid max-w-[900px] gap-5 md:grid-cols-3">
+        <div className="mt-12 mx-auto grid max-w-[900px] grid-cols-3 gap-5">
           {modalities.map((m, i) => (
             <AnimateOnScroll
               key={m.title}
