@@ -305,6 +305,9 @@ const t = {
       errorEmail: "Please enter your email.",
       errorEmailInvalid: "Please enter a valid email address.",
       errorPhone: "Please enter a valid phone number.",
+      errorSending: "Something went wrong",
+      errorSendingBody: "Please try again or email us directly at support@cuvr.ae",
+      tryAgain: "Try again →",
       reasons: [
         "General Physiotherapy Assessment",
         "Post-Surgical Recovery",
@@ -647,6 +650,9 @@ const t = {
       errorEmail: "يرجى إدخال بريدك الإلكتروني.",
       errorEmailInvalid: "يرجى إدخال عنوان بريد إلكتروني صالح.",
       errorPhone: "يرجى إدخال رقم هاتف صالح.",
+      errorSending: "حدث خطأ ما",
+      errorSendingBody: "يرجى المحاولة مرة أخرى أو مراسلتنا على support@cuvr.ae",
+      tryAgain: "حاول مجدداً ←",
       reasons: [
         "تقييم العلاج الطبيعي العام",
         "التعافي بعد الجراحة",
