@@ -21,6 +21,9 @@ import metaVR from "@/public/meta-2.png";
 import patient1 from "@/public/patient-1.png";
 import patient2 from "@/public/patient-2.png";
 import patient3 from "@/public/patient-3.png";
+import cognitiveImg from "@/public/cognitive.png";
+import mentalHealthImg from "@/public/mental-health.png";
+import adhdImg from "@/public/adhd.png";
 
 const SERVICES_JSON_LD = {
   "@context": "https://schema.org",
@@ -40,6 +43,7 @@ export default function ServicesContent() {
       <main className="bg-[#05060f] text-white">
         <Hero />
         <Channels />
+        <KineticModalities />
         <Infrastructure />
         <Excellence />
         <FinalCTA />
@@ -229,21 +233,127 @@ function Channels() {
           <p className="mt-4 text-base leading-relaxed text-slate-500">{s.channelsBody}</p>
         </AnimateOnScroll>
 
-        <div className="mt-14 grid gap-10 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
           {channels.map((c, i) => (
             <AnimateOnScroll
               key={c.title}
               animation="animate-scale-fade-in"
               delay={`${0.2 + i * 0.12}s`}
-              className="flex flex-col"
             >
-              <article className="flex flex-col">
-                <div className="relative aspect-square w-full overflow-hidden rounded-2xl">
-                  <Image src={c.img} alt={c.title} fill className="object-cover" sizes="(min-width: 768px) 33vw, 100vw" />
+              <article className="group flex flex-col rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm transition hover:shadow-md hover:border-violet-200">
+                {/* Image */}
+                <div className="relative aspect-square w-full overflow-hidden bg-slate-100">
+                  <Image
+                    src={c.img}
+                    alt={c.title}
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-105"
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                  />
+                  {/* Channel badge overlay */}
+                  <span className="absolute bottom-3 left-3 rounded-full border border-white/30 bg-black/50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur-sm">
+                    {c.no}
+                  </span>
                 </div>
-                <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.22em] text-violet-500">{c.no}</p>
-                <h3 className="mt-2 text-xl font-bold text-slate-900">{c.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-500">{c.desc}</p>
+
+                {/* Content */}
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-lg font-bold text-slate-900">{c.title}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-500">{c.desc}</p>
+                  <Link
+                    href="/booking"
+                    className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-violet-600 transition hover:text-violet-800"
+                  >
+                    {s.exploreModality}
+                  </Link>
+                </div>
+              </article>
+            </AnimateOnScroll>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------------- Kinetic Performance Modalities ------------------- */
+function KineticModalities() {
+  const { tr } = useLanguage();
+  const s = tr.services;
+
+  const modalities = [
+    {
+      title: s.cognitiveTitle,
+      desc: s.cognitiveBody,
+      img: cognitiveImg,
+    },
+    {
+      title: s.mentalHealthTitle,
+      desc: s.mentalHealthBody,
+      img: mentalHealthImg,
+    },
+    {
+      title: s.adhdTitle,
+      desc: s.adhdBody,
+      img: adhdImg,
+    },
+  ];
+
+  return (
+    <section className="bg-[#05060f] py-24">
+      {/* Subtle gradient atmosphere */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent"
+      />
+
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <AnimateOnScroll animation="animate-fade-in" className="text-center">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-violet-400">
+            {s.kineticBadge}
+          </span>
+        </AnimateOnScroll>
+        <AnimateOnScroll animation="animate-slide-in-up" delay="0.1s" className="mx-auto mt-4 max-w-2xl text-center">
+          <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            {s.kineticTitle}
+          </h2>
+        </AnimateOnScroll>
+        <AnimateOnScroll animation="animate-slide-in-up" delay="0.2s" className="mx-auto mt-4 max-w-2xl text-center">
+          <p className="text-base leading-relaxed text-slate-400">{s.kineticBody}</p>
+        </AnimateOnScroll>
+
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {modalities.map((m, i) => (
+            <AnimateOnScroll
+              key={m.title}
+              animation="animate-scale-fade-in"
+              delay={`${0.25 + i * 0.12}s`}
+            >
+              <article className="group flex flex-col rounded-2xl border border-white/10 bg-white/[0.04] overflow-hidden backdrop-blur-sm transition hover:border-violet-500/30 hover:bg-white/[0.07]">
+                {/* Image */}
+                <div className="relative aspect-square w-full overflow-hidden bg-[#0d0b1f]">
+                  <Image
+                    src={m.img}
+                    alt={m.title}
+                    fill
+                    className="object-cover opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                  />
+                  {/* Gradient fade at bottom */}
+                  <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#05060f]/60 to-transparent" />
+                </div>
+
+                {/* Content */}
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-lg font-bold text-white">{m.title}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-400">{m.desc}</p>
+                  <Link
+                    href="/booking"
+                    className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-violet-400 transition hover:text-violet-200"
+                  >
+                    {s.exploreModality}
+                  </Link>
+                </div>
               </article>
             </AnimateOnScroll>
           ))}

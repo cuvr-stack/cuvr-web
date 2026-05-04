@@ -173,19 +173,34 @@ const t = {
 
       channelsTitle: "Precision Recovery Channels",
       channelsBody:
-        "Focused modalities designed for specific anatomical milestones and performance objectives.",
+        "Clinical-grade recovery protocols deployed through our proprietary spatial computing framework.",
       channel01: "Channel 01",
       channel02: "Channel 02",
       channel03: "Channel 03",
       neuroTitle: "Neuro-Kinetic Sync",
       neuroBody:
-        "Restoring the link between brain intent and muscle execution through biofeedback-rich spatial cues.",
+        "Aligning neural pathways with physical execution through real-time biofeedback and spatial anchors.",
       postTraumaTitle: "Post-Trauma Elasticity",
       postTraumaBody:
-        "Gentle, guided range-of-motion protocols within immersive 'gravity-reduced' visual environments.",
+        "Specialized protocols for regaining mobility and tissue resilience in a controlled, immersive environment.",
       hyperTitle: "Hyper-Performance Tuning",
       hyperBody:
-        "Advanced reactive training for elite athletes looking to optimize reaction time and spatial awareness.",
+        "Optimising peak performance metrics for elite athletes through high-fidelity spatial analysis.",
+      exploreModality: "Explore Modality →",
+
+      kineticBadge: "Neural Optimization",
+      kineticTitle: "Kinetic Performance Modalities",
+      kineticBody:
+        "Foundational movement reprogramming designed for physical restoration and structural integrity.",
+      cognitiveTitle: "Cognitive Rehabilitation",
+      cognitiveBody:
+        "Restoring cognitive function through gamified spatial challenges that bridge thought and action.",
+      mentalHealthTitle: "Mental Health & Wellness",
+      mentalHealthBody:
+        "Immersive environments designed to reduce cortisol levels and facilitate deep neural relaxation.",
+      adhdTitle: "ADHD & Focus Enhancement",
+      adhdBody:
+        "Strengthening attentional control through curated sensory feedback loops and spatial tasks.",
 
       backbone: "The Backbone",
       infraTitle: "Technological Infrastructure",
@@ -296,6 +311,33 @@ const t = {
         "Sports Performance",
         "Neurological Rehabilitation",
       ],
+    },
+
+    disclaimer: {
+      /* ── Dismissible first-visit banner ── */
+      bannerTitle: "Medical & Regulatory Notice",
+      bannerBody:
+        "CUVR services are regulated by the Dubai Health Authority (DHA). The information on this website is for general informational purposes only and does not constitute medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional before beginning any rehabilitation programme. For medical emergencies call 998.",
+      bannerAccept: "I Understand",
+      bannerLearnMore: "Full Disclaimer",
+
+      /* ── Footer regulatory strip ── */
+      regulatoryTitle: "Regulatory & Compliance",
+      licenseLabel: "DHA License",
+      licenseNumber: "DHA-XXXXX",           // replace with real number
+      nabidh: "NABIDH Integrated",
+      pdpl: "UAE PDPL Compliant",
+      hipaa: "HIPAA Aligned",
+      emergencyLabel: "Medical Emergency (UAE)",
+      emergencyNumber: "998",
+
+      /* ── Medical disclaimer paragraph (footer) ── */
+      medicalDisclaimer:
+        "The content published on this website is intended for informational purposes only and must not be used as a substitute for professional medical advice, clinical diagnosis, or treatment. CUVR Spatial Systems is a Dubai Health Authority licensed clinic. All virtual reality rehabilitation programmes are designed and supervised by DHA-licensed physiotherapists. Treatment outcomes may vary between individuals. In the event of a medical emergency, please call the UAE emergency services on 998 immediately.",
+
+      /* ── Data / privacy notice ── */
+      dataNotice:
+        "Patient health data is processed in accordance with the UAE Federal Decree-Law No. 45 of 2021 on Personal Data Protection (PDPL) and integrated with the Dubai Health Authority NABIDH platform. By using our services you consent to the collection and use of your health information as described in our Privacy Policy.",
     },
   },
 
@@ -473,19 +515,34 @@ const t = {
 
       channelsTitle: "قنوات التعافي الدقيق",
       channelsBody:
-        "أنماط علاجية مُركَّزة مصممة لنقاط تشريحية محددة وأهداف أداء.",
+        "بروتوكولات تعافٍ سريرية مُنفَّذة عبر إطارنا المملوك للحوسبة المكانية.",
       channel01: "القناة 01",
       channel02: "القناة 02",
       channel03: "القناة 03",
       neuroTitle: "المزامنة الكينيتيكية العصبية",
       neuroBody:
-        "إعادة الرابط بين نية الدماغ وتنفيذ العضلات عبر إشارات مكانية غنية بالتغذية الراجعة الحيوية.",
+        "محاذاة المسارات العصبية مع التنفيذ الجسدي عبر التغذية الراجعة الحيوية الفورية والمراسي المكانية.",
       postTraumaTitle: "مرونة ما بعد الصدمة",
       postTraumaBody:
-        "بروتوكولات خفيفة وموجَّهة لنطاق الحركة ضمن بيئات بصرية غامرة 'منخفضة الجاذبية'.",
+        "بروتوكولات متخصصة لاستعادة الحركة ومرونة الأنسجة في بيئة غامرة ومضبوطة.",
       hyperTitle: "الضبط الفائق للأداء",
       hyperBody:
-        "تدريب رد الفعل المتقدم للرياضيين النخبة الراغبين في تحسين وقت رد الفعل والوعي المكاني.",
+        "تحسين مقاييس الأداء الذروة للرياضيين النخبة عبر التحليل المكاني عالي الدقة.",
+      exploreModality: "استكشف النمط ←",
+
+      kineticBadge: "تحسين عصبي",
+      kineticTitle: "أنماط الأداء الحركي",
+      kineticBody:
+        "إعادة برمجة حركية أساسية مصممة للتعافي الجسدي والسلامة الهيكلية.",
+      cognitiveTitle: "التأهيل المعرفي",
+      cognitiveBody:
+        "استعادة الوظيفة المعرفية عبر تحديات مكانية مُلعَّبة تجسّر الفكر والفعل.",
+      mentalHealthTitle: "الصحة النفسية والعافية",
+      mentalHealthBody:
+        "بيئات غامرة مصممة لخفض مستويات الكورتيزول وتيسير الاسترخاء العصبي العميق.",
+      adhdTitle: "اضطراب التركيز وتعزيزه",
+      adhdBody:
+        "تقوية التحكم الانتباهي عبر حلقات تغذية راجعة حسية مُنتقاة ومهام مكانية.",
 
       backbone: "العمود الفقري",
       infraTitle: "البنية التحتية التكنولوجية",
@@ -595,6 +652,33 @@ const t = {
         "الأداء الرياضي",
         "التأهيل العصبي",
       ],
+    },
+
+    disclaimer: {
+      /* ── Dismissible first-visit banner ── */
+      bannerTitle: "إشعار طبي وتنظيمي",
+      bannerBody:
+        "تخضع خدمات CUVR لتنظيم هيئة الصحة بدبي (DHA). المعلومات الواردة على هذا الموقع هي لأغراض إعلامية عامة فحسب، ولا تُعدّ نصيحة طبية أو تشخيصاً أو علاجاً. استشر دائماً مختصاً صحياً مؤهلاً قبل البدء بأي برنامج تأهيلي. في حالات الطوارئ الطبية اتصل بـ 998.",
+      bannerAccept: "فهمت",
+      bannerLearnMore: "إخلاء المسؤولية الكامل",
+
+      /* ── Footer regulatory strip ── */
+      regulatoryTitle: "الامتثال التنظيمي",
+      licenseLabel: "ترخيص هيئة الصحة بدبي",
+      licenseNumber: "DHA-XXXXX",
+      nabidh: "متكامل مع NABIDH",
+      pdpl: "ملتزم بقانون PDPL الإماراتي",
+      hipaa: "متوافق مع HIPAA",
+      emergencyLabel: "طوارئ طبية (الإمارات)",
+      emergencyNumber: "998",
+
+      /* ── Medical disclaimer paragraph (footer) ── */
+      medicalDisclaimer:
+        "المحتوى المنشور على هذا الموقع لأغراض إعلامية فحسب، ولا ينبغي استخدامه بديلاً عن الاستشارة الطبية المتخصصة أو التشخيص السريري أو العلاج. CUVR Spatial Systems عيادة مرخّصة من هيئة الصحة بدبي. جميع برامج التأهيل بالواقع الافتراضي مصمَّمة ويُشرف عليها فيزيوثيرابيون مرخَّصون من هيئة الصحة بدبي. قد تتفاوت نتائج العلاج من شخص لآخر. في حالات الطوارئ الطبية، اتصل فوراً بخدمات الطوارئ الإماراتية على الرقم 998.",
+
+      /* ── Data / privacy notice ── */
+      dataNotice:
+        "تُعالَج البيانات الصحية للمرضى وفق أحكام المرسوم بقانون اتحادي رقم 45 لسنة 2021 بشأن حماية البيانات الشخصية (PDPL) وتُدمج مع منصة NABIDH التابعة لهيئة الصحة بدبي. باستخدامك لخدماتنا، فأنت توافق على جمع معلوماتك الصحية واستخدامها على النحو المبيَّن في سياسة الخصوصية.",
     },
   },
 } as const;

@@ -12,6 +12,8 @@ import {
   Mail,
   Clock,
   ShieldCheck,
+  BadgeCheck,
+  PhoneCall,
 } from "lucide-react";
 import cuvr_logo from "@/public/cuvr-logo.png";
 import { useLanguage } from "@/lib/language-context";
@@ -38,6 +40,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
   const { lang, setLang, tr } = useLanguage();
   const f = tr.footer;
+  const d = tr.disclaimer;
 
   const exploreLinks = [
     { label: f.home, href: "/" },
@@ -191,6 +194,54 @@ export default function Footer() {
             </Link>
           ))}
         </nav>
+      </div>
+
+      {/* ---------- Regulatory & Compliance strip ---------- */}
+      <div className="border-t border-white/5">
+      <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 space-y-6">
+        {/* Badge row */}
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500">
+            {d.regulatoryTitle}
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-400/30 bg-violet-500/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-violet-200">
+            <ShieldCheck className="h-3 w-3" />
+            {d.licenseLabel}: {d.licenseNumber}
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-cyan-200">
+            <BadgeCheck className="h-3 w-3" />
+            {d.nabidh}
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-200">
+            <BadgeCheck className="h-3 w-3" />
+            {d.pdpl}
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-400/30 bg-blue-500/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-200">
+            <BadgeCheck className="h-3 w-3" />
+            {d.hipaa}
+          </span>
+          <span className="ms-auto inline-flex items-center gap-2 rounded-full border border-red-400/30 bg-red-500/10 px-3 py-1 text-[10px] font-semibold text-red-300">
+            <PhoneCall className="h-3 w-3" />
+            {d.emergencyLabel}:&nbsp;
+            <a href="tel:998" className="font-bold tracking-widest hover:text-white transition">
+              {d.emergencyNumber}
+            </a>
+          </span>
+        </div>
+
+        {/* Medical disclaimer */}
+        <p className="text-[11px] leading-relaxed text-slate-500">
+          <span className="font-semibold text-slate-400">
+            {d.licenseLabel} {d.licenseNumber}.
+          </span>{" "}
+          {d.medicalDisclaimer}
+        </p>
+
+        {/* Data / privacy notice */}
+        <p className="text-[11px] leading-relaxed text-slate-600">
+          {d.dataNotice}
+        </p>
+      </div>
       </div>
 
       {/* ---------- Bottom bar ---------- */}
