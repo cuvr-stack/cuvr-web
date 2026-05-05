@@ -502,11 +502,7 @@ function Founder() {
                 <Linkedin className="h-4 w-4 text-violet-600" />
               </a>
 
-              {/* Decorative years badge */}
-              <div className="absolute -left-6 top-1/2 -translate-y-1/2 flex flex-col items-center rounded-xl border border-violet-100 bg-white px-3 py-2 shadow-lg">
-                <span className="text-2xl font-extrabold text-violet-600 leading-none">12</span>
-                <span className="mt-0.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-500 leading-tight text-center">yrs<br/>exp</span>
-              </div>
+
             </div>
           </AnimateOnScroll>
 
