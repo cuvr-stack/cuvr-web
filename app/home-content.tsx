@@ -570,7 +570,7 @@ function FinalCTA() {
         src={ctaBg}
         alt=""
         fill
-        className="object-cover object-center opacity-15"
+        className="object-cover object-center"
         aria-hidden
       />
       <div className="relative z-10 mx-auto max-w-5xl px-5 sm:px-8">
