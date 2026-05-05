@@ -81,8 +81,8 @@ export default function Footer() {
               {f.tagline}
             </p>
 
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-violet-200">
-              <ShieldCheck className="h-3.5 w-3.5" />
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-200">
+              <Clock className="h-3.5 w-3.5" />
               {f.dhaLicensed}
             </div>
 
@@ -204,11 +204,11 @@ export default function Footer() {
           <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500">
             {d.regulatoryTitle}
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-400/30 bg-violet-500/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-violet-200">
-            <ShieldCheck className="h-3 w-3" />
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/30 bg-amber-500/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-200">
+            <Clock className="h-3 w-3" />
             {d.licenseLabel}: {d.licenseNumber}
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-cyan-200">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-400/30 bg-slate-500/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
             <BadgeCheck className="h-3 w-3" />
             {d.nabidh}
           </span>
