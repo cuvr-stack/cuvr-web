@@ -445,7 +445,7 @@ function Founder() {
   const h = tr.home;
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-violet-50/40 py-28">
+    <section id="founder" className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-violet-50/40 py-28">
       {/* Decorative blobs */}
       <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-violet-100/60 blur-3xl" />
       <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-blue-100/50 blur-3xl" />
