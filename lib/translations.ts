@@ -99,6 +99,16 @@ const t = {
       ev3Source: "BMC Musculoskeletal Disorders, 2023",
       evidenceDisclaimer: "CUVR outcomes data will be published upon clinical deployment following DHA licensing.",
 
+      founderBadge: "Meet the Founder",
+      founderName: "Nikhil Louis",
+      founderTitle: "Founder & CEO, CUVR Spatial Systems",
+      founderQuote:
+        "I built CUVR because I saw first-hand how broken the rehabilitation experience was — painful, repetitive, and deeply unmotivating. Virtual reality changes the equation entirely. We're not just making therapy more bearable; we're making it something patients genuinely look forward to.",
+      founderBio:
+        "Nikhil is a healthcare technology entrepreneur with a background in clinical operations and immersive computing. He founded CUVR to bridge the gap between cutting-edge spatial technology and clinical-grade physical rehabilitation — starting with Dubai and scaling across the GCC.",
+      founderLinkedin: "Connect on LinkedIn",
+      founderCTA: "Request a Demo",
+
       ctaTitle1: "Enter the",
       ctaHighlight: "Future",
       ctaBody:
@@ -454,6 +464,16 @@ const t = {
       ev3Body: "تحقق برامج العلاج بالواقع الافتراضي معدل إتمام 89% مقابل 62% للعلاج الطبيعي التقليدي — تحسّن بنسبة 44% في الالتزام.",
       ev3Source: "BMC Musculoskeletal Disorders, 2023",
       evidenceDisclaimer: "ستُنشر بيانات نتائج CUVR عند الانطلاق السريري عقب الحصول على ترخيص هيئة الصحة بدبي.",
+
+      founderBadge: "تعرّف على المؤسس",
+      founderName: "نيخيل لويس",
+      founderTitle: "المؤسس والرئيس التنفيذي، CUVR Spatial Systems",
+      founderQuote:
+        "أسّستُ CUVR لأنني رأيتُ عن كثب مدى عجز تجربة التأهيل التقليدية — مؤلمة، مملّة، وتفتقر إلى التحفيز. الواقع الافتراضي يغيّر المعادلة كلياً. لا نجعل العلاج أكثر احتمالاً فحسب، بل نجعله شيئاً يتطلّع إليه المرضى حقاً.",
+      founderBio:
+        "نيخيل رائد أعمال في مجال التكنولوجيا الصحية، ذو خلفية في العمليات السريرية والحوسبة الغامرة. أسّس CUVR لردم الفجوة بين أحدث التقنيات المكانية والتأهيل الجسدي ذي المستوى السريري — بدءاً من دبي وتوسّعاً عبر منطقة الخليج.",
+      founderLinkedin: "تواصل على LinkedIn",
+      founderCTA: "طلب عرض توضيحي",
 
       ctaTitle1: "ادخل",
       ctaHighlight: "المستقبل",

@@ -7,7 +7,9 @@ import {
   ArrowRight,
   BookOpen,
   Headphones,
+  Linkedin,
   Play,
+  Quote,
   Sparkles,
   TrendingUp,
   UserCircle2,
@@ -18,6 +20,7 @@ import AnimateOnScroll from "@/components/AnimateOnScroll";
 import { useLanguage } from "@/lib/language-context";
 import vr_person from "@/public/cuvr_person_vr.png";
 import vr_headset from "@/public/quest1.png";
+import founderImg from "@/public/founder.png";
 
 export default function HomeContent() {
   return (
@@ -28,6 +31,7 @@ export default function HomeContent() {
         <WhySpatial />
         <Protocol />
         <PatientSuccess />
+        <Founder />
         <FinalCTA />
       </main>
       <Footer />
@@ -380,14 +384,15 @@ function PatientSuccess() {
         </AnimateOnScroll>
 
         {/* Cards */}
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid items-stretch gap-6 md:grid-cols-3">
           {cards.map((c, i) => (
             <AnimateOnScroll
               key={c.label}
               animation="animate-scale-fade-in"
               delay={`${0.2 + i * 0.15}s`}
+              className="h-full"
             >
-              <div className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 {/* Top gradient accent line */}
                 <div className={`absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r ${c.gradient}`} />
 
@@ -412,9 +417,9 @@ function PatientSuccess() {
 
                 {/* Label & body */}
                 <h3 className="mt-5 text-base font-bold text-slate-900">{c.label}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-500">{c.body}</p>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-500">{c.body}</p>
 
-                {/* Citation */}
+                {/* Citation — pinned to bottom */}
                 <div className="mt-6 flex items-center gap-2 border-t border-slate-100 pt-5">
                   <BookOpen className="h-3.5 w-3.5 flex-shrink-0 text-slate-400" />
                   <p className="text-[10px] leading-snug text-slate-400">{c.source}</p>
@@ -428,6 +433,115 @@ function PatientSuccess() {
         <AnimateOnScroll animation="animate-fade-in" delay="0.6s" className="mt-10 text-center">
           <p className="text-[11px] text-slate-400">{h.evidenceDisclaimer}</p>
         </AnimateOnScroll>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------ Founder --------------------------------- */
+function Founder() {
+  const { tr } = useLanguage();
+  const h = tr.home;
+
+  return (
+    <section className="relative overflow-hidden bg-[#05060f] py-28">
+      {/* Atmosphere */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(800px 600px at 0% 50%, rgba(124,58,237,0.15), transparent 60%), radial-gradient(600px 400px at 100% 60%, rgba(37,99,235,0.12), transparent 60%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="grid items-center gap-16 lg:grid-cols-2">
+
+          {/* Image column */}
+          <AnimateOnScroll animation="animate-slide-in-left" className="relative mx-auto w-full max-w-sm lg:max-w-none">
+            {/* Outer glow ring */}
+            <div
+              aria-hidden
+              className="absolute -inset-4 rounded-3xl blur-2xl"
+              style={{ background: "linear-gradient(135deg, rgba(124,58,237,0.25), rgba(37,99,235,0.20))" }}
+            />
+            {/* Gradient border frame */}
+            <div className="relative rounded-3xl bg-gradient-to-br from-violet-500/40 via-blue-500/30 to-violet-500/40 p-px">
+              <div className="relative overflow-hidden rounded-[23px] bg-[#0d0b1f]">
+                <Image
+                  src={founderImg}
+                  alt={h.founderName}
+                  width={520}
+                  height={620}
+                  className="w-full object-cover object-top"
+                  priority
+                />
+                {/* Bottom fade */}
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0d0b1f] to-transparent" />
+                {/* Name chip */}
+                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-bold text-white">{h.founderName}</p>
+                    <p className="text-[11px] text-violet-300">{h.founderTitle}</p>
+                  </div>
+                  <a
+                    href="https://www.linkedin.com/in/nikhillouis"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur transition hover:bg-violet-500/40"
+                  >
+                    <Linkedin className="h-3.5 w-3.5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </AnimateOnScroll>
+
+          {/* Text column */}
+          <div>
+            <AnimateOnScroll animation="animate-fade-in">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-violet-400">
+                {h.founderBadge}
+              </span>
+            </AnimateOnScroll>
+
+            {/* Pull quote */}
+            <AnimateOnScroll animation="animate-slide-in-right" delay="0.15s" className="mt-8 relative">
+              <Quote className="absolute -top-3 -left-1 h-8 w-8 text-violet-500/30" aria-hidden />
+              <blockquote className="pl-6 text-xl font-semibold leading-relaxed text-white sm:text-2xl">
+                {h.founderQuote}
+              </blockquote>
+            </AnimateOnScroll>
+
+            {/* Bio */}
+            <AnimateOnScroll animation="animate-slide-in-right" delay="0.3s">
+              <p className="mt-8 text-sm leading-relaxed text-slate-400">
+                {h.founderBio}
+              </p>
+            </AnimateOnScroll>
+
+            {/* CTAs */}
+            <AnimateOnScroll animation="animate-bounce-in" delay="0.45s" className="mt-10 flex flex-wrap items-center gap-4">
+              <Link
+                href="/booking"
+                className="btn-gradient inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold"
+              >
+                {h.founderCTA}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <a
+                href="https://www.linkedin.com/in/nikhillouis"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-violet-400/40 hover:bg-violet-500/10"
+              >
+                <Linkedin className="h-4 w-4" />
+                {h.founderLinkedin}
+              </a>
+            </AnimateOnScroll>
+          </div>
+        </div>
       </div>
     </section>
   );
