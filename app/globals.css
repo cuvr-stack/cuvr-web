@@ -294,7 +294,7 @@ html[lang="ar"] .font-sans {
   height: auto  !important;
 }
 .brand-text-color{
-    color: rgb(124 58 237 / var(--tw-text-opacity, 1));
+    color: #ffffff;
     font-size: 24px;
     font-weight: 600;
 }

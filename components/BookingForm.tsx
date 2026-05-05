@@ -52,11 +52,34 @@ export default function BookingForm() {
     if (!validate()) return;
 
     setStatus("submitting");
-    await new Promise((r) => setTimeout(r, 900));
-    // eslint-disable-next-line no-console
-    console.log("Consultation request:", values);
-    setStatus("success");
+    try {
+      const res = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
   };
+
+  if (status === "error") {
+    return (
+      <div className="rounded-xl bg-red-50 p-6 ring-1 ring-red-200">
+        <h3 className="text-lg font-semibold text-red-800">{f.errorSending ?? "Something went wrong"}</h3>
+        <p className="mt-2 text-sm text-red-700">{f.errorSendingBody ?? "Please try again or email us directly at support@cuvr.ae"}</p>
+        <button
+          type="button"
+          onClick={() => setStatus("idle")}
+          className="mt-5 text-sm font-semibold text-brand-purple hover:underline"
+        >
+          {f.tryAgain ?? "Try again"}
+        </button>
+      </div>
+    );
+  }
 
   if (status === "success") {
     return (

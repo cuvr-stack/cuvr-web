@@ -25,7 +25,7 @@ export default function Header() {
   const navItems = [
     { href: "/how-it-works", label: tr.nav.howItWorks },
     { href: "/services", label: tr.nav.services },
-    { href: "/#testimonials", label: tr.nav.testimonials },
+    { href: "/#founder", label: tr.nav.whoWeAre },
     { href: "/booking", label: tr.nav.booking },
   ];
 
@@ -82,7 +82,7 @@ export default function Header() {
 
           <Link
             href="/booking"
-            className="hidden btn-gradient rounded-full px-5 py-2 text-sm font-semibold md:inline-block"
+            className="btn-gradient rounded-full px-5 py-2 text-sm font-semibold"
           >
             {tr.nav.getStarted}
           </Link>
@@ -123,15 +123,6 @@ export default function Header() {
               className="text-sm font-medium text-slate-300 hover:text-white sm:hidden"
             >
               {tr.nav.login}
-            </Link>
-
-            {/* Mobile Get Started button */}
-            <Link
-              href="/booking"
-              onClick={closeMenu}
-              className="md:hidden btn-gradient rounded-full px-5 py-2 text-sm font-semibold text-center"
-            >
-              {tr.nav.getStarted}
             </Link>
           </nav>
         </div>

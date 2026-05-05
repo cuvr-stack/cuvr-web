@@ -21,6 +21,9 @@ import metaVR from "@/public/meta-2.png";
 import patient1 from "@/public/patient-1.png";
 import patient2 from "@/public/patient-2.png";
 import patient3 from "@/public/patient-3.png";
+import cognitiveImg from "@/public/cognitive.png";
+import mentalHealthImg from "@/public/mental-health.png";
+import adhdImg from "@/public/adhd.png";
 
 const SERVICES_JSON_LD = {
   "@context": "https://schema.org",
@@ -40,6 +43,7 @@ export default function ServicesContent() {
       <main className="bg-[#05060f] text-white">
         <Hero />
         <Channels />
+        <KineticModalities />
         <Infrastructure />
         <Excellence />
         <FinalCTA />
@@ -222,29 +226,134 @@ function Channels() {
   return (
     <section id="channels" className="bg-white py-24 text-slate-900 scroll-mt-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <AnimateOnScroll animation="animate-fade-in" className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">{s.channelsTitle}</h2>
+        {/* Badge */}
+        <AnimateOnScroll animation="animate-fade-in" className="text-center">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-400">
+            {s.recoveryStack}
+          </span>
         </AnimateOnScroll>
-        <AnimateOnScroll animation="animate-slide-in-up" delay="0.15s" className="mx-auto max-w-2xl text-center">
-          <p className="mt-4 text-base leading-relaxed text-slate-500">{s.channelsBody}</p>
+        {/* Title */}
+        <AnimateOnScroll animation="animate-slide-in-up" delay="0.1s" className="mx-auto mt-3 max-w-2xl text-center">
+          <h2 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">{s.channelsTitle}</h2>
+        </AnimateOnScroll>
+        {/* Subtitle */}
+        <AnimateOnScroll animation="animate-slide-in-up" delay="0.2s" className="mx-auto mt-4 max-w-xl text-center">
+          <p className="text-sm leading-relaxed text-slate-500">{s.channelsBody}</p>
         </AnimateOnScroll>
 
-        <div className="mt-14 grid gap-10 md:grid-cols-3">
+        <div className="mt-12 mx-auto grid max-w-[900px] gap-5 md:grid-cols-3 items-stretch">
           {channels.map((c, i) => (
             <AnimateOnScroll
               key={c.title}
               animation="animate-scale-fade-in"
-              delay={`${0.2 + i * 0.12}s`}
-              className="flex flex-col"
+              delay={`${0.25 + i * 0.12}s`}
+              className="h-full"
             >
-              <article className="flex flex-col">
-                <div className="relative aspect-square w-full overflow-hidden rounded-2xl">
-                  <Image src={c.img} alt={c.title} fill className="object-cover" sizes="(min-width: 768px) 33vw, 100vw" />
-                </div>
-                <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.22em] text-violet-500">{c.no}</p>
-                <h3 className="mt-2 text-xl font-bold text-slate-900">{c.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-500">{c.desc}</p>
-              </article>
+              {/* Gradient border wrapper */}
+              <div className="group h-full rounded-2xl bg-gradient-to-br from-violet-300/40 to-blue-400/40 p-px transition-all duration-300 hover:from-violet-500/70 hover:to-blue-600/70 hover:shadow-xl hover:-translate-y-1">
+                <article className="flex h-full flex-col rounded-[15px] bg-white overflow-hidden">
+                  {/* Image with padding */}
+                  <div className="p-3 pb-0">
+                    <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-slate-100">
+                      <Image
+                        src={c.img}
+                        alt={c.title}
+                        fill
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                        sizes="(min-width: 768px) 30vw, 100vw"
+                      />
+                      <span className="absolute bottom-2.5 left-2.5 rounded-full border border-white/30 bg-black/50 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-sm">
+                        {c.no}
+                      </span>
+                    </div>
+                  </div>
+                  {/* Content */}
+                  <div className="flex flex-1 flex-col px-4 py-4">
+                    <h3 className="text-sm font-bold text-slate-900">{c.title}</h3>
+                    <p className="mt-1.5 flex-1 text-[11px] leading-relaxed text-slate-500">{c.desc}</p>
+                    <Link
+                      href="/booking"
+                      className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-slate-400 transition group-hover:text-violet-600"
+                    >
+                      {s.exploreModality}
+                    </Link>
+                  </div>
+                </article>
+              </div>
+            </AnimateOnScroll>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------------- Kinetic Performance Modalities ------------------- */
+function KineticModalities() {
+  const { tr } = useLanguage();
+  const s = tr.services;
+
+  const modalities = [
+    { title: s.cognitiveTitle, desc: s.cognitiveBody, img: cognitiveImg },
+    { title: s.mentalHealthTitle, desc: s.mentalHealthBody, img: mentalHealthImg },
+    { title: s.adhdTitle, desc: s.adhdBody, img: adhdImg },
+  ];
+
+  return (
+    <section id="kinetic" className="bg-white py-24 text-slate-900 scroll-mt-20">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        {/* Badge */}
+        <AnimateOnScroll animation="animate-fade-in" className="text-center">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-400">
+            {s.kineticBadge}
+          </span>
+        </AnimateOnScroll>
+        {/* Title */}
+        <AnimateOnScroll animation="animate-slide-in-up" delay="0.1s" className="mx-auto mt-3 max-w-2xl text-center">
+          <h2 className="whitespace-nowrap text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            {s.kineticTitle}
+          </h2>
+        </AnimateOnScroll>
+        {/* Subtitle */}
+        <AnimateOnScroll animation="animate-slide-in-up" delay="0.2s" className="mx-auto mt-4 max-w-xl text-center">
+          <p className="text-sm leading-relaxed text-slate-500">{s.kineticBody}</p>
+        </AnimateOnScroll>
+
+        <div className="mt-12 mx-auto grid max-w-[900px] grid-cols-3 gap-5">
+          {modalities.map((m, i) => (
+            <AnimateOnScroll
+              key={m.title}
+              animation="animate-scale-fade-in"
+              delay={`${0.25 + i * 0.12}s`}
+            >
+              {/* Gradient border wrapper */}
+              <div className="group rounded-2xl bg-gradient-to-br from-violet-300/40 to-blue-400/40 p-px transition-all duration-300 hover:from-violet-500/70 hover:to-blue-600/70 hover:shadow-xl hover:-translate-y-1">
+                <article className="flex h-full flex-col rounded-[15px] bg-white overflow-hidden">
+                  {/* Image with padding */}
+                  <div className="p-3 pb-0">
+                    <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-slate-100">
+                      <Image
+                        src={m.img}
+                        alt={m.title}
+                        fill
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                        sizes="(min-width: 768px) 30vw, 100vw"
+                      />
+                    </div>
+                  </div>
+                  {/* Content */}
+                  <div className="flex flex-1 flex-col px-4 py-4">
+                    <h3 className="text-sm font-bold text-slate-900">{m.title}</h3>
+                    <p className="mt-1.5 flex-1 text-[11px] leading-relaxed text-slate-500">{m.desc}</p>
+                    <Link
+                      href="/booking"
+                      className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-slate-400 transition group-hover:text-violet-600"
+                    >
+                      {s.exploreModality}
+                    </Link>
+                  </div>
+                </article>
+              </div>
             </AnimateOnScroll>
           ))}
         </div>
@@ -474,10 +583,10 @@ function FinalCTA() {
                 <Link href="/booking" className="btn-gradient inline-flex items-center gap-2 rounded-full px-7 py-3 text-sm font-semibold">
                   {s.startOnboarding}
                 </Link>
-                <Link href="#" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3 text-sm font-semibold text-slate-100 transition hover:border-white/40 hover:bg-white/10">
+                <a href="mailto:support@cuvr.ae?subject=Specialist Callback Request" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3 text-sm font-semibold text-slate-100 transition hover:border-white/40 hover:bg-white/10">
                   <Shield className="h-4 w-4" />
                   {s.requestCallback}
-                </Link>
+                </a>
               </AnimateOnScroll>
             </div>
           </div>

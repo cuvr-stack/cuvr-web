@@ -6,7 +6,8 @@ const t = {
       howItWorks: "How It Works",
       services: "Services",
       testimonials: "Testimonials",
-      booking: "Booking",
+      whoWeAre: "Who We Are",
+      booking: "Request Demo",
       login: "Login",
       getStarted: "Get Started",
     },
@@ -14,18 +15,21 @@ const t = {
     footer: {
       tagline:
         "CUVR Spatial Systems is a clinical-grade physical therapy with immersive virtual reality. Heal faster with spatial precision.",
-      dhaLicensed: "DHA Licensed",
+      dhaLicensed: "DHA License Pending",
       explore: "Explore",
       services: "Services",
       visitContact: "Visit & Contact",
       resources: "Resources",
       home: "Home",
-      bookSession: "Book a Session",
+      bookSession: "Request a Demo",
       support: "Support",
       neuroKinetic: "Neuro-Kinetic Sync",
       postTrauma: "Post-Trauma Elasticity",
       hyperPerformance: "Hyper-Performance Tuning",
       spatialProtocol: "Spatial Recovery Protocol",
+      cognitiveRehab: "Cognitive Rehabilitation",
+      mentalWellness: "Mental Health & Wellness",
+      adhdFocus: "ADHD & Focus Enhancement",
       helpCenter: "Help Center",
       contact: "Contact",
       privacy: "Privacy Policy",
@@ -78,18 +82,33 @@ const t = {
       phase3Body:
         "Continuous adaptation of difficulty and environment complexity as your physical and neural pathways strengthen.",
 
-      patientSuccess: "Patient Success",
+      patientSuccess: "Clinical Evidence",
       patientSuccessBody:
-        "Real stories from the edge of sensory-enhanced recovery.",
-      quote1:
-        "I was told I'd never regain full mobility. Three months with CUVR and I'm back on the court. The visuals kept me coming back.",
-      quote2:
-        "CUVR turned my recovery into a game. The biofeedback data was so motivating for my surgeon too. Highly recommended.",
-      quote3:
-        "Being immersed in a calm VR forest while doing leg extensions made the difficult movements feel almost effortless.",
-      proAthlete: "Pro Athlete",
-      uxEngineer: "UX Engineer",
-      retiredEducator: "Retired Educator",
+        "CUVR is built on a decade of peer-reviewed VR rehabilitation research. Outcomes data from our own deployments will be published upon clinical launch.",
+      evidenceBadge: "Peer-Reviewed Research",
+      ev1Stat: "52%",
+      ev1Label: "Faster Functional Recovery",
+      ev1Body: "VR rehab patients demonstrate up to 52% faster return to functional mobility compared to conventional physiotherapy programmes.",
+      ev1Source: "Journal of NeuroEngineering & Rehabilitation, 2022",
+      ev2Stat: "27%",
+      ev2Label: "Reduction in Pain Perception",
+      ev2Body: "Immersive VR environments reduce perceived pain intensity by an average of 27% during active rehabilitation sessions.",
+      ev2Source: "Frontiers in Virtual Reality, 2021",
+      ev3Stat: "89%",
+      ev3Label: "Session Completion Rate",
+      ev3Body: "VR-based therapy programmes achieve 89% session completion vs. 62% for traditional physiotherapy — a 44% improvement in adherence.",
+      ev3Source: "BMC Musculoskeletal Disorders, 2023",
+      evidenceDisclaimer: "CUVR outcomes data will be published upon clinical deployment following DHA licensing.",
+
+      founderBadge: "Meet the Founder",
+      founderName: "Nikhil Louis",
+      founderTitle: "Founder & CEO, CUVR Spatial Systems",
+      founderQuote:
+        "I built CUVR because I saw first-hand how broken the rehabilitation experience was — painful, repetitive, and deeply unmotivating. Virtual reality changes the equation entirely. We're not just making therapy more bearable; we're making it something patients genuinely look forward to.",
+      founderBio:
+        "With 12 years of software development experience, Nikhil is a healthcare technology entrepreneur with a background in clinical operations and immersive computing. He founded CUVR to bridge the gap between cutting-edge spatial technology and clinical-grade physical rehabilitation — starting with Dubai and scaling across the GCC.",
+      founderLinkedin: "Connect on LinkedIn",
+      founderCTA: "Request a Demo",
 
       ctaTitle1: "Enter the",
       ctaHighlight: "Future",
@@ -171,21 +190,37 @@ const t = {
       subLatency: "Sub-5ms latency",
       scroll: "Scroll",
 
+      recoveryStack: "Recovery Stack",
       channelsTitle: "Precision Recovery Channels",
       channelsBody:
-        "Focused modalities designed for specific anatomical milestones and performance objectives.",
+        "Clinical-grade recovery protocols deployed through our proprietary spatial computing framework.",
       channel01: "Channel 01",
       channel02: "Channel 02",
       channel03: "Channel 03",
       neuroTitle: "Neuro-Kinetic Sync",
       neuroBody:
-        "Restoring the link between brain intent and muscle execution through biofeedback-rich spatial cues.",
+        "Aligning neural pathways with physical execution through real-time biofeedback and spatial anchors.",
       postTraumaTitle: "Post-Trauma Elasticity",
       postTraumaBody:
-        "Gentle, guided range-of-motion protocols within immersive 'gravity-reduced' visual environments.",
+        "Specialized protocols for regaining mobility and tissue resilience in a controlled, immersive environment.",
       hyperTitle: "Hyper-Performance Tuning",
       hyperBody:
-        "Advanced reactive training for elite athletes looking to optimize reaction time and spatial awareness.",
+        "Optimising peak performance metrics for elite athletes through high-fidelity spatial analysis.",
+      exploreModality: "Explore Modality →",
+
+      kineticBadge: "Neural Optimization",
+      kineticTitle: "Kinetic Performance Modalities",
+      kineticBody:
+        "Foundational movement reprogramming designed for physical restoration and structural integrity.",
+      cognitiveTitle: "Cognitive Rehabilitation",
+      cognitiveBody:
+        "Restoring cognitive function through gamified spatial challenges that bridge thought and action.",
+      mentalHealthTitle: "Mental Health & Wellness",
+      mentalHealthBody:
+        "Immersive environments designed to reduce cortisol levels and facilitate deep neural relaxation.",
+      adhdTitle: "ADHD & Focus Enhancement",
+      adhdBody:
+        "Strengthening attentional control through curated sensory feedback loops and spatial tasks.",
 
       backbone: "The Backbone",
       infraTitle: "Technological Infrastructure",
@@ -224,41 +259,41 @@ const t = {
     },
 
     booking: {
-      recoveryAwaits: "Your Recovery Awaits",
-      heroTitle1: "Start Your",
-      heroHighlight: "Recovery Journey",
+      recoveryAwaits: "For Hospitals & Clinics",
+      heroTitle1: "Bring Spatial Therapy",
+      heroHighlight: "To Your Hospital",
       heroBody:
-        "Experience physical therapy reimagined. Our clinical team will craft a personalized VR protocol tailored to your specific recovery goals.",
-      bookAssessment: "Book Your Assessment",
-      scheduleCall: "Schedule Call",
+        "See how CUVR's clinical-grade VR rehabilitation platform integrates with your ward workflows. Request a live demo tailored to your department's needs.",
+      bookAssessment: "Request a Demo",
+      scheduleCall: "Schedule a Call",
 
-      consultationBadge: "Consultation",
-      consultationTitle: "Request a Consultation",
+      consultationBadge: "Hospital Demo",
+      consultationTitle: "Request a Demo for Your Hospital",
       consultationBody:
-        "Our clinical team will evaluate your specific recovery needs and create a customized VR therapy protocol designed for you.",
-      clinicalPrecisionTitle: "Clinical Precision",
+        "Our team will walk you through the full CUVR platform — from patient onboarding to real-time biofeedback — and discuss integration with your existing clinical workflows.",
+      clinicalPrecisionTitle: "Clinical Integration",
       clinicalPrecisionBody:
-        "Expert physiotherapists design your unique recovery pathway.",
-      assessmentTitle: "30-Minute Assessment",
+        "Seamlessly fits into existing hospital rehab and physiotherapy departments.",
+      assessmentTitle: "60-Minute Live Demo",
       assessmentBody:
-        "Quick evaluation to understand your recovery stage and goals.",
-      bookFreeAssessment: "Book Your Free Assessment",
+        "Full walkthrough of the platform with your clinical team on-site or remote.",
+      bookFreeAssessment: "Request a Free Demo",
 
       whatToExpectBadge: "What to Expect",
-      assessmentExperience: "Your Assessment Experience",
+      assessmentExperience: "Your Demo Experience",
       assessmentExperienceBody:
-        "Here's what happens during your personalized consultation and initial VR experience.",
-      spatialMappingTitle: "Spatial Mapping",
+        "Here's what we cover during a live CUVR demo session with your hospital team.",
+      spatialMappingTitle: "Platform Walkthrough",
       spatialMappingBody:
-        "We map your body in 3D space with millimeter precision.",
-      motionCaptureTitle: "Motion Capture",
+        "End-to-end demo of the VR therapy system and clinical dashboard.",
+      motionCaptureTitle: "Live Patient Simulation",
       motionCaptureBody:
-        "Real-time tracking of your movement patterns and progress.",
-      customPlanTitle: "Custom Plan",
+        "Real-time demonstration of motion tracking and biofeedback.",
+      customPlanTitle: "Integration Planning",
       customPlanBody:
-        "Personalized therapy protocol built just for your recovery.",
-      dataSyncTitle: "Data Synchronize",
-      dataSyncBody: "All metrics integrated for complete progress tracking.",
+        "We map out how CUVR fits into your department's existing workflows.",
+      dataSyncTitle: "Data & Reporting",
+      dataSyncBody: "Overview of patient analytics, progress reports, and EHR compatibility.",
 
       locationBadge: "Location",
       visitHub: "Visit Our Hub",
@@ -274,28 +309,60 @@ const t = {
 
     form: {
       name: "Name",
-      email: "Email",
+      email: "Work Email",
       phone: "Phone",
-      reasonForVisit: "Reason for Visit",
-      scheduleSession: "Schedule My Session",
-      scheduling: "Scheduling…",
-      requestReceived: "Request received",
+      reasonForVisit: "Hospital / Department Type",
+      scheduleSession: "Request Demo",
+      scheduling: "Sending…",
+      requestReceived: "Demo request received!",
       thankYouMessage:
-        "Thanks, {name} — our clinical team will reach out within 2 business hours to confirm your consultation.",
-      bookAnother: "Book another session →",
+        "Thanks, {name} — our team will be in touch within 2 business hours to schedule your demo.",
+      bookAnother: "Submit another request →",
       responseTime:
-        "Our clinical team typically responds within 2 business hours.",
+        "We typically respond within 2 business hours.",
       errorName: "Please enter your name.",
-      errorEmail: "Please enter your email.",
+      errorEmail: "Please enter your work email.",
       errorEmailInvalid: "Please enter a valid email address.",
       errorPhone: "Please enter a valid phone number.",
+      errorSending: "Something went wrong",
+      errorSendingBody: "Please try again or email us directly at support@cuvr.ae",
+      tryAgain: "Try again →",
       reasons: [
-        "General Physiotherapy Assessment",
-        "Post-Surgical Recovery",
-        "Chronic Pain Management",
-        "Sports Performance",
-        "Neurological Rehabilitation",
+        "General Hospital — Physiotherapy Dept.",
+        "Rehabilitation Centre",
+        "Orthopaedic / Sports Medicine Clinic",
+        "Neurology / Neuro-Rehab Unit",
+        "Mental Health & Wellness Centre",
+        "Corporate Wellness Programme",
+        "Other",
       ],
+    },
+
+    disclaimer: {
+      /* ── Dismissible first-visit banner ── */
+      bannerTitle: "Regulatory Notice",
+      bannerBody:
+        "CUVR is a pre-launch medical technology platform currently in the process of obtaining Dubai Health Authority (DHA) licensing. The information on this website is for demonstration and informational purposes only and does not constitute medical advice, diagnosis, or treatment. Clinical deployment will commence upon full regulatory approval.",
+      bannerAccept: "I Understand",
+      bannerLearnMore: "Full Disclaimer",
+
+      /* ── Footer regulatory strip ── */
+      regulatoryTitle: "Regulatory & Compliance",
+      licenseLabel: "DHA License",
+      licenseNumber: "Pending",
+      nabidh: "NABIDH Ready",
+      pdpl: "UAE PDPL Aligned",
+      hipaa: "HIPAA Aligned",
+      emergencyLabel: "Medical Emergency (UAE)",
+      emergencyNumber: "998",
+
+      /* ── Medical disclaimer paragraph (footer) ── */
+      medicalDisclaimer:
+        "CUVR Spatial Systems is a pre-launch medical technology company currently pursuing Dubai Health Authority (DHA) licensing. No clinical services are being offered at this time. All content, demos, and materials on this website are for informational and evaluation purposes only and do not constitute medical advice, diagnosis, or treatment. Clinical operations will commence upon receipt of full regulatory approval from the DHA.",
+
+      /* ── Data / privacy notice ── */
+      dataNotice:
+        "We are committed to handling all data in accordance with the UAE Federal Decree-Law No. 45 of 2021 on Personal Data Protection (PDPL) and international standards including HIPAA. Upon DHA licensing, patient health data will be integrated with the NABIDH platform. By using our website you consent to data use as described in our Privacy Policy.",
     },
   },
 
@@ -304,7 +371,8 @@ const t = {
       howItWorks: "كيف يعمل",
       services: "الخدمات",
       testimonials: "آراء المرضى",
-      booking: "حجز موعد",
+      whoWeAre: "من نحن",
+      booking: "طلب عرض توضيحي",
       login: "تسجيل الدخول",
       getStarted: "ابدأ الآن",
     },
@@ -312,18 +380,21 @@ const t = {
     footer: {
       tagline:
         "CUVR Spatial Systems عيادة مرخّصة من هيئة الصحة بدبي تجمع بين العلاج الطبيعي السريري وتقنية الواقع الافتراضي الغامرة. تعافَ بشكل أسرع بدقة مكانية.",
-      dhaLicensed: "مرخّص من هيئة الصحة بدبي",
+      dhaLicensed: "ترخيص DHA قيد الإنجاز",
       explore: "استكشف",
       services: "الخدمات",
       visitContact: "زيارة وتواصل",
       resources: "الموارد",
       home: "الرئيسية",
-      bookSession: "احجز جلسة",
+      bookSession: "طلب عرض توضيحي",
       support: "الدعم",
       neuroKinetic: "المزامنة الكينيتيكية العصبية",
       postTrauma: "مرونة ما بعد الصدمة",
       hyperPerformance: "الضبط الفائق للأداء",
       spatialProtocol: "بروتوكول التعافي المكاني",
+      cognitiveRehab: "التأهيل المعرفي",
+      mentalWellness: "الصحة النفسية والعافية",
+      adhdFocus: "اضطراب التركيز وتعزيزه",
       helpCenter: "مركز المساعدة",
       contact: "تواصل معنا",
       privacy: "سياسة الخصوصية",
@@ -378,18 +449,33 @@ const t = {
       phase3Body:
         "تكيّف مستمر لصعوبة البيئة وتعقيدها مع تقوية مساراتك الجسدية والعصبية.",
 
-      patientSuccess: "نجاحات المرضى",
+      patientSuccess: "الأدلة السريرية",
       patientSuccessBody:
-        "قصص حقيقية من الطرف الأمامي للتعافي المعزّز بالحواس.",
-      quote1:
-        "قيل لي أنني لن أستعيد حركتي الكاملة أبداً. بعد ثلاثة أشهر مع CUVR عدت إلى الملعب. المرئيات جعلتني أعود باستمرار.",
-      quote2:
-        "حوّلت CUVR تعافيي إلى لعبة. كانت بيانات التغذية الراجعة الحيوية محفّزة لجرّاحي أيضاً. أنصح بها بشدة.",
-      quote3:
-        "الانغماس في غابة الواقع الافتراضي الهادئة أثناء تمارين الساق جعل الحركات الصعبة تبدو سهلة تقريباً.",
-      proAthlete: "رياضي محترف",
-      uxEngineer: "مهندس تجربة المستخدم",
-      retiredEducator: "مُعلّم متقاعد",
+        "بُني CUVR على عقد من أبحاث التأهيل بالواقع الافتراضي المحكّمة. ستُنشر بيانات النتائج الخاصة بنا عند الإطلاق السريري.",
+      evidenceBadge: "أبحاث محكّمة",
+      ev1Stat: "52%",
+      ev1Label: "تعافٍ وظيفي أسرع",
+      ev1Body: "يُظهر مرضى التأهيل بالواقع الافتراضي عودة أسرع بنسبة تصل إلى 52% للحركة الوظيفية مقارنةً ببرامج العلاج الطبيعي التقليدي.",
+      ev1Source: "Journal of NeuroEngineering & Rehabilitation, 2022",
+      ev2Stat: "27%",
+      ev2Label: "انخفاض في إدراك الألم",
+      ev2Body: "تُقلّص بيئات الواقع الافتراضي الغامرة شدة الألم المُدرَك بمعدل 27% خلال جلسات التأهيل النشط.",
+      ev2Source: "Frontiers in Virtual Reality, 2021",
+      ev3Stat: "89%",
+      ev3Label: "معدل إتمام الجلسات",
+      ev3Body: "تحقق برامج العلاج بالواقع الافتراضي معدل إتمام 89% مقابل 62% للعلاج الطبيعي التقليدي — تحسّن بنسبة 44% في الالتزام.",
+      ev3Source: "BMC Musculoskeletal Disorders, 2023",
+      evidenceDisclaimer: "ستُنشر بيانات نتائج CUVR عند الانطلاق السريري عقب الحصول على ترخيص هيئة الصحة بدبي.",
+
+      founderBadge: "تعرّف على المؤسس",
+      founderName: "نيخيل لويس",
+      founderTitle: "المؤسس والرئيس التنفيذي، CUVR Spatial Systems",
+      founderQuote:
+        "أسّستُ CUVR لأنني رأيتُ عن كثب مدى عجز تجربة التأهيل التقليدية — مؤلمة، مملّة، وتفتقر إلى التحفيز. الواقع الافتراضي يغيّر المعادلة كلياً. لا نجعل العلاج أكثر احتمالاً فحسب، بل نجعله شيئاً يتطلّع إليه المرضى حقاً.",
+      founderBio:
+        "بخبرة 12 عاماً في تطوير البرمجيات، نيخيل رائد أعمال في مجال التكنولوجيا الصحية، ذو خلفية في العمليات السريرية والحوسبة الغامرة. أسّس CUVR لردم الفجوة بين أحدث التقنيات المكانية والتأهيل الجسدي ذي المستوى السريري — بدءاً من دبي وتوسّعاً عبر منطقة الخليج.",
+      founderLinkedin: "تواصل على LinkedIn",
+      founderCTA: "طلب عرض توضيحي",
 
       ctaTitle1: "ادخل",
       ctaHighlight: "المستقبل",
@@ -471,21 +557,37 @@ const t = {
       subLatency: "كمون أقل من 5 مللي ثانية",
       scroll: "مرر للأسفل",
 
+      recoveryStack: "مجموعة التعافي",
       channelsTitle: "قنوات التعافي الدقيق",
       channelsBody:
-        "أنماط علاجية مُركَّزة مصممة لنقاط تشريحية محددة وأهداف أداء.",
+        "بروتوكولات تعافٍ سريرية مُنفَّذة عبر إطارنا المملوك للحوسبة المكانية.",
       channel01: "القناة 01",
       channel02: "القناة 02",
       channel03: "القناة 03",
       neuroTitle: "المزامنة الكينيتيكية العصبية",
       neuroBody:
-        "إعادة الرابط بين نية الدماغ وتنفيذ العضلات عبر إشارات مكانية غنية بالتغذية الراجعة الحيوية.",
+        "محاذاة المسارات العصبية مع التنفيذ الجسدي عبر التغذية الراجعة الحيوية الفورية والمراسي المكانية.",
       postTraumaTitle: "مرونة ما بعد الصدمة",
       postTraumaBody:
-        "بروتوكولات خفيفة وموجَّهة لنطاق الحركة ضمن بيئات بصرية غامرة 'منخفضة الجاذبية'.",
+        "بروتوكولات متخصصة لاستعادة الحركة ومرونة الأنسجة في بيئة غامرة ومضبوطة.",
       hyperTitle: "الضبط الفائق للأداء",
       hyperBody:
-        "تدريب رد الفعل المتقدم للرياضيين النخبة الراغبين في تحسين وقت رد الفعل والوعي المكاني.",
+        "تحسين مقاييس الأداء الذروة للرياضيين النخبة عبر التحليل المكاني عالي الدقة.",
+      exploreModality: "استكشف النمط ←",
+
+      kineticBadge: "تحسين عصبي",
+      kineticTitle: "أنماط الأداء الحركي",
+      kineticBody:
+        "إعادة برمجة حركية أساسية مصممة للتعافي الجسدي والسلامة الهيكلية.",
+      cognitiveTitle: "التأهيل المعرفي",
+      cognitiveBody:
+        "استعادة الوظيفة المعرفية عبر تحديات مكانية مُلعَّبة تجسّر الفكر والفعل.",
+      mentalHealthTitle: "الصحة النفسية والعافية",
+      mentalHealthBody:
+        "بيئات غامرة مصممة لخفض مستويات الكورتيزول وتيسير الاسترخاء العصبي العميق.",
+      adhdTitle: "اضطراب التركيز وتعزيزه",
+      adhdBody:
+        "تقوية التحكم الانتباهي عبر حلقات تغذية راجعة حسية مُنتقاة ومهام مكانية.",
 
       backbone: "العمود الفقري",
       infraTitle: "البنية التحتية التكنولوجية",
@@ -524,40 +626,40 @@ const t = {
     },
 
     booking: {
-      recoveryAwaits: "تعافيك في انتظارك",
-      heroTitle1: "ابدأ",
-      heroHighlight: "رحلة تعافيك",
+      recoveryAwaits: "للمستشفيات والعيادات",
+      heroTitle1: "أدخل العلاج المكاني",
+      heroHighlight: "إلى مستشفاك",
       heroBody:
-        "استمتع بإعادة تصوّر العلاج الطبيعي. سيضع فريقنا السريري بروتوكول واقع افتراضي مخصصاً مُصمَّماً لأهداف تعافيك المحددة.",
-      bookAssessment: "احجز تقييمك",
+        "اكتشف كيف تتكامل منصة CUVR السريرية للتأهيل بالواقع الافتراضي مع سير عمل جناحك. اطلب عرضاً توضيحياً مباشراً مُصمَّماً لاحتياجات قسمك.",
+      bookAssessment: "طلب عرض توضيحي",
       scheduleCall: "جدوّل مكالمة",
 
-      consultationBadge: "الاستشارة",
-      consultationTitle: "طلب استشارة",
+      consultationBadge: "عرض توضيحي للمستشفى",
+      consultationTitle: "طلب عرض توضيحي لمستشفاك",
       consultationBody:
-        "سيقيّم فريقنا السريري احتياجات تعافيك المحددة ويُنشئ بروتوكول علاج واقع افتراضي مُخصَّصاً لك.",
-      clinicalPrecisionTitle: "الدقة السريرية",
+        "سيطلعك فريقنا على منصة CUVR كاملةً — من إعداد المريض إلى التغذية الراجعة الحيوية الفورية — ويناقش التكامل مع سير عملك السريري الحالي.",
+      clinicalPrecisionTitle: "التكامل السريري",
       clinicalPrecisionBody:
-        "فيزيوثيرابيون خبراء يصمّمون مسار تعافيك الفريد.",
-      assessmentTitle: "تقييم 30 دقيقة",
+        "يندمج بسلاسة مع أقسام التأهيل والعلاج الطبيعي الموجودة في المستشفى.",
+      assessmentTitle: "عرض مباشر لمدة 60 دقيقة",
       assessmentBody:
-        "تقييم سريع لفهم مرحلة تعافيك وأهدافك.",
-      bookFreeAssessment: "احجز تقييمك المجاني",
+        "جولة كاملة في المنصة مع فريقك السريري حضورياً أو عن بُعد.",
+      bookFreeAssessment: "طلب عرض توضيحي مجاني",
 
       whatToExpectBadge: "ماذا تتوقع",
-      assessmentExperience: "تجربة تقييمك",
+      assessmentExperience: "تجربة العرض التوضيحي",
       assessmentExperienceBody:
-        "إليك ما يحدث خلال استشارتك المخصصة وتجربة الواقع الافتراضي الأولى.",
-      spatialMappingTitle: "الرسم المكاني",
+        "إليك ما نغطيه خلال جلسة العرض التوضيحي المباشر مع فريق مستشفاك.",
+      spatialMappingTitle: "جولة في المنصة",
       spatialMappingBody:
-        "نرسم خريطة جسمك في الفضاء ثلاثي الأبعاد بدقة مليمترية.",
-      motionCaptureTitle: "التقاط الحركة",
-      motionCaptureBody: "تتبع فوري لأنماط حركتك وتقدمك.",
-      customPlanTitle: "خطة مخصصة",
+        "عرض شامل لنظام العلاج بالواقع الافتراضي ولوحة التحكم السريرية.",
+      motionCaptureTitle: "محاكاة مريض مباشر",
+      motionCaptureBody: "عرض فوري لتتبع الحركة والتغذية الراجعة الحيوية.",
+      customPlanTitle: "تخطيط التكامل",
       customPlanBody:
-        "بروتوكول علاج مخصص مبني خصيصاً لتعافيك.",
-      dataSyncTitle: "مزامنة البيانات",
-      dataSyncBody: "جميع المقاييس مدمجة لتتبع تقدم كامل.",
+        "نرسم معك كيفية دمج CUVR في سير عمل قسمك الحالي.",
+      dataSyncTitle: "البيانات والتقارير",
+      dataSyncBody: "نظرة عامة على تحليلات المرضى وتقارير التقدم وتوافق السجلات الطبية.",
 
       locationBadge: "الموقع",
       visitHub: "زيارة مركزنا",
@@ -575,26 +677,58 @@ const t = {
       name: "الاسم",
       email: "البريد الإلكتروني",
       phone: "الهاتف",
-      reasonForVisit: "سبب الزيارة",
-      scheduleSession: "جدوّل جلستي",
-      scheduling: "جاري الجدولة…",
-      requestReceived: "تم استلام الطلب",
+      reasonForVisit: "نوع المستشفى / القسم",
+      scheduleSession: "طلب عرض توضيحي",
+      scheduling: "جاري الإرسال…",
+      requestReceived: "تم استلام طلب العرض!",
       thankYouMessage:
-        "شكراً لك، {name} — سيتواصل معك فريقنا السريري في غضون ساعتين من ساعات العمل لتأكيد موعدك.",
-      bookAnother: "احجز جلسة أخرى →",
+        "شكراً لك، {name} — سيتواصل معك فريقنا في غضون ساعتين من ساعات العمل لجدولة عرضك التوضيحي.",
+      bookAnother: "تقديم طلب آخر →",
       responseTime:
-        "يردّ فريقنا السريري عادةً في غضون ساعتين من ساعات العمل.",
+        "نردّ عادةً في غضون ساعتين من ساعات العمل.",
       errorName: "يرجى إدخال اسمك.",
       errorEmail: "يرجى إدخال بريدك الإلكتروني.",
       errorEmailInvalid: "يرجى إدخال عنوان بريد إلكتروني صالح.",
       errorPhone: "يرجى إدخال رقم هاتف صالح.",
+      errorSending: "حدث خطأ ما",
+      errorSendingBody: "يرجى المحاولة مرة أخرى أو مراسلتنا على support@cuvr.ae",
+      tryAgain: "حاول مجدداً ←",
       reasons: [
-        "تقييم العلاج الطبيعي العام",
-        "التعافي بعد الجراحة",
-        "إدارة الألم المزمن",
-        "الأداء الرياضي",
-        "التأهيل العصبي",
+        "مستشفى عام — قسم العلاج الطبيعي",
+        "مركز تأهيل",
+        "عيادة العظام / طب الرياضة",
+        "وحدة طب الأعصاب / التأهيل العصبي",
+        "مركز الصحة النفسية والعافية",
+        "برنامج العافية المؤسسية",
+        "أخرى",
       ],
+    },
+
+    disclaimer: {
+      /* ── Dismissible first-visit banner ── */
+      bannerTitle: "إشعار تنظيمي",
+      bannerBody:
+        "CUVR منصة تقنية طبية في مرحلة ما قبل الإطلاق، وهي حالياً في طور استكمال إجراءات الحصول على ترخيص هيئة الصحة بدبي (DHA). المعلومات الواردة على هذا الموقع لأغراض توضيحية وإعلامية فحسب، ولا تُعدّ نصيحة طبية أو تشخيصاً أو علاجاً. يبدأ النشر السريري عند الحصول على الموافقة التنظيمية الكاملة.",
+      bannerAccept: "فهمت",
+      bannerLearnMore: "إخلاء المسؤولية الكامل",
+
+      /* ── Footer regulatory strip ── */
+      regulatoryTitle: "الامتثال التنظيمي",
+      licenseLabel: "ترخيص هيئة الصحة بدبي",
+      licenseNumber: "قيد الإنجاز",
+      nabidh: "جاهز لـ NABIDH",
+      pdpl: "متوافق مع PDPL الإماراتي",
+      hipaa: "متوافق مع HIPAA",
+      emergencyLabel: "طوارئ طبية (الإمارات)",
+      emergencyNumber: "998",
+
+      /* ── Medical disclaimer paragraph (footer) ── */
+      medicalDisclaimer:
+        "CUVR Spatial Systems شركة تقنية طبية في مرحلة ما قبل الإطلاق، وهي حالياً في طور استكمال إجراءات الترخيص من هيئة الصحة بدبي (DHA). لا تُقدَّم أي خدمات سريرية في الوقت الحالي. جميع المحتويات والعروض التوضيحية والمواد الواردة على هذا الموقع لأغراض إعلامية وتقييمية فحسب، ولا تُعدّ نصيحة طبية أو تشخيصاً أو علاجاً. تبدأ العمليات السريرية فور الحصول على الموافقة التنظيمية الكاملة من هيئة الصحة بدبي.",
+
+      /* ── Data / privacy notice ── */
+      dataNotice:
+        "نلتزم بمعالجة جميع البيانات وفق أحكام المرسوم بقانون اتحادي رقم 45 لسنة 2021 بشأن حماية البيانات الشخصية (PDPL) والمعايير الدولية بما فيها HIPAA. عند الحصول على ترخيص DHA، ستُدمج البيانات الصحية للمرضى مع منصة NABIDH. باستخدامك لموقعنا، فأنت توافق على استخدام البيانات على النحو المبيَّن في سياسة الخصوصية.",
     },
   },
 } as const;
