@@ -327,9 +327,12 @@ function CTA() {
             >
               {h.bookAssessment}
             </Link>
-            <button className="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+            <a
+              href="mailto:support@cuvr.ae"
+              className="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
               {h.contactSupport}
-            </button>
+            </a>
           </AnimateOnScroll>
         </AnimateOnScroll>
       </div>

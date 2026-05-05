@@ -54,6 +54,9 @@ export default function Footer() {
     { label: f.neuroKinetic, href: "/services#channels" },
     { label: f.postTrauma, href: "/services#channels" },
     { label: f.hyperPerformance, href: "/services#channels" },
+    { label: f.cognitiveRehab, href: "/services#kinetic" },
+    { label: f.mentalWellness, href: "/services#kinetic" },
+    { label: f.adhdFocus, href: "/services#kinetic" },
     { label: f.spatialProtocol, href: "/how-it-works" },
   ];
 

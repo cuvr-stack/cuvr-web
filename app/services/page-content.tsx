@@ -300,7 +300,7 @@ function KineticModalities() {
   ];
 
   return (
-    <section className="bg-white py-24 text-slate-900">
+    <section id="kinetic" className="bg-white py-24 text-slate-900 scroll-mt-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         {/* Badge */}
         <AnimateOnScroll animation="animate-fade-in" className="text-center">
@@ -583,10 +583,10 @@ function FinalCTA() {
                 <Link href="/booking" className="btn-gradient inline-flex items-center gap-2 rounded-full px-7 py-3 text-sm font-semibold">
                   {s.startOnboarding}
                 </Link>
-                <Link href="#" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3 text-sm font-semibold text-slate-100 transition hover:border-white/40 hover:bg-white/10">
+                <a href="mailto:support@cuvr.ae?subject=Specialist Callback Request" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3 text-sm font-semibold text-slate-100 transition hover:border-white/40 hover:bg-white/10">
                   <Shield className="h-4 w-4" />
                   {s.requestCallback}
-                </Link>
+                </a>
               </AnimateOnScroll>
             </div>
           </div>
