@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.zoho.com",
+  host: process.env.ZOHO_HOST ?? "smtp.zoho.com",
   port: 465,
   secure: true,
   auth: {
@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    if (!process.env.ZOHO_USER || !process.env.ZOHO_PASS) {
+    if (!process.env.ZOHO_HOST || !process.env.ZOHO_USER || !process.env.ZOHO_PASS) {
       return NextResponse.json({ error: "Email service not configured" }, { status: 500 });
     }
 
@@ -70,8 +70,12 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({ success: true });
-  } catch (err) {
+  } catch (err: any) {
     console.error("Booking API error:", err);
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+    return NextResponse.json({
+      error: "Internal server error",
+      detail: err?.message ?? String(err),
+      code: err?.code,
+    }, { status: 500 });
   }
 }
