@@ -1,4 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
+import nodemailer from "nodemailer";
+
+const transporter = nodemailer.createTransport({
+  host: "smtp.zoho.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.ZOHO_USER,
+    pass: process.env.ZOHO_PASS,
+  },
+});
 
 export async function POST(req: NextRequest) {
   try {
@@ -8,8 +19,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
+    if (!process.env.ZOHO_USER || !process.env.ZOHO_PASS) {
       return NextResponse.json({ error: "Email service not configured" }, { status: 500 });
     }
 
@@ -51,26 +61,13 @@ export async function POST(req: NextRequest) {
       </div>
     `;
 
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        from: "CUVR Booking <onboarding@resend.dev>",
-        to: ["nikhil.louis@cuvr.ae"],
-        reply_to: email,
-        subject: `New Demo Request — ${name}`,
-        html,
-      }),
+    await transporter.sendMail({
+      from: `"CUVR Booking" <${process.env.ZOHO_USER}>`,
+      to: "nikhil.louis@cuvr.ae",
+      replyTo: email,
+      subject: `New Demo Request — ${name}`,
+      html,
     });
-
-    if (!response.ok) {
-      const err = await response.text();
-      console.error("Resend error:", err);
-      return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
-    }
 
     return NextResponse.json({ success: true });
   } catch (err) {
