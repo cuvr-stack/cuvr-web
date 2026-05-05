@@ -472,7 +472,7 @@ function Founder() {
                 style={{ background: "linear-gradient(135deg, #7c3aed 0%, #2563eb 50%, #a78bfa 100%)" }}
               />
               {/* Photo frame */}
-              <div className="relative h-72 w-56 overflow-hidden rounded-[24px] border-2 border-white shadow-2xl sm:h-80 sm:w-64">
+              <div className="relative h-72 w-56 overflow-hidden rounded-[24px] border border-white/60 shadow-2xl sm:h-80 sm:w-64">
                 <Image
                   src={founderImg}
                   alt={h.founderName}
@@ -488,7 +488,7 @@ function Founder() {
               </div>
               {/* LinkedIn pill */}
               <a
-                href="https://www.linkedin.com/in/nikhillouis"
+                href="https://www.linkedin.com/in/nikhil-louis/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute -top-4 -right-4 flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white shadow-lg transition hover:bg-violet-50 hover:border-violet-200"
@@ -534,7 +534,7 @@ function Founder() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <a
-                href="https://www.linkedin.com/in/nikhillouis"
+                href="https://www.linkedin.com/in/nikhil-louis/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-violet-300 hover:text-violet-700"
