@@ -71,11 +71,11 @@ export default function Header() {
             {tr.nav.login}
           </Link>
 
-          {/* Language switcher — desktop only */}
+          {/* Language switcher — always visible */}
           <button
             onClick={toggleLang}
             aria-label={lang === "en" ? "Switch to Arabic" : "Switch to English"}
-            className="hidden md:flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 transition hover:border-white/40 hover:text-white"
+            className="flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 transition hover:border-white/40 hover:text-white"
           >
             {lang === "en" ? "عربي" : "EN"}
           </button>
@@ -125,20 +125,14 @@ export default function Header() {
               {tr.nav.login}
             </Link>
 
-            <div className="flex items-center justify-between pt-2 border-t border-white/10">
+            <div className="pt-2 border-t border-white/10">
               <Link
                 href="/booking"
                 onClick={closeMenu}
-                className="btn-gradient rounded-full px-5 py-2 text-sm font-semibold"
+                className="btn-gradient rounded-full px-5 py-2 text-sm font-semibold w-full text-center block"
               >
                 {tr.nav.getStarted}
               </Link>
-              <button
-                onClick={() => { toggleLang(); closeMenu(); }}
-                className="flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300"
-              >
-                {lang === "en" ? "عربي" : "EN"}
-              </button>
             </div>
           </nav>
         </div>
