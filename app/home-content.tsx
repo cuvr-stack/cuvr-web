@@ -360,30 +360,21 @@ function PatientSuccess() {
   ];
 
   return (
-    <section id="testimonials" className="relative overflow-hidden bg-[#05060f] py-28">
-      {/* Background atmosphere */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(900px 500px at 20% 50%, rgba(124,58,237,0.12), transparent 60%), radial-gradient(700px 400px at 80% 50%, rgba(6,182,212,0.10), transparent 60%)",
-        }}
-      />
+    <section id="testimonials" className="relative overflow-hidden bg-white py-28">
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         {/* Header */}
         <AnimateOnScroll animation="animate-fade-in" className="mb-16 max-w-2xl">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-violet-400">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-violet-500">
             {h.evidenceBadge}
           </span>
-          <h2 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          <h2 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl">
             {h.patientSuccess.split(" ").slice(0, 1).join(" ")}{" "}
             <span className="text-gradient-brand">
               {h.patientSuccess.split(" ").slice(1).join(" ")}
             </span>
           </h2>
-          <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-400">
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-500">
             {h.patientSuccessBody}
           </p>
         </AnimateOnScroll>
@@ -396,17 +387,14 @@ function PatientSuccess() {
               animation="animate-scale-fade-in"
               delay={`${0.2 + i * 0.15}s`}
             >
-              <div
-                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0d0b1f] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-2xl"
-                style={{ boxShadow: `0 0 0 0 ${c.glow}` }}
-              >
+              <div className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 {/* Top gradient accent line */}
-                <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${c.gradient}`} />
+                <div className={`absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r ${c.gradient}`} />
 
                 {/* Glow orb on hover */}
                 <div
                   aria-hidden
-                  className="pointer-events-none absolute -top-10 -right-10 h-40 w-40 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+                  className="pointer-events-none absolute -top-10 -right-10 h-40 w-40 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-60"
                   style={{ background: c.glow }}
                 />
 
@@ -418,20 +406,18 @@ function PatientSuccess() {
                 </div>
 
                 {/* Progress bar */}
-                <div className="mt-5 h-1 w-full overflow-hidden rounded-full bg-white/10">
-                  <div
-                    className={`h-full ${c.bar} ${c.barColor} rounded-full transition-all duration-1000`}
-                  />
+                <div className="mt-5 h-1.5 w-full overflow-hidden rounded-full bg-slate-100">
+                  <div className={`h-full ${c.bar} ${c.barColor} rounded-full`} />
                 </div>
 
                 {/* Label & body */}
-                <h3 className="mt-5 text-base font-bold text-white">{c.label}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-400">{c.body}</p>
+                <h3 className="mt-5 text-base font-bold text-slate-900">{c.label}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-500">{c.body}</p>
 
                 {/* Citation */}
-                <div className="mt-6 flex items-center gap-2 border-t border-white/5 pt-5">
-                  <BookOpen className="h-3.5 w-3.5 flex-shrink-0 text-slate-600" />
-                  <p className="text-[10px] leading-snug text-slate-600">{c.source}</p>
+                <div className="mt-6 flex items-center gap-2 border-t border-slate-100 pt-5">
+                  <BookOpen className="h-3.5 w-3.5 flex-shrink-0 text-slate-400" />
+                  <p className="text-[10px] leading-snug text-slate-400">{c.source}</p>
                 </div>
               </div>
             </AnimateOnScroll>
@@ -440,7 +426,7 @@ function PatientSuccess() {
 
         {/* Disclaimer */}
         <AnimateOnScroll animation="animate-fade-in" delay="0.6s" className="mt-10 text-center">
-          <p className="text-[11px] text-slate-600">{h.evidenceDisclaimer}</p>
+          <p className="text-[11px] text-slate-400">{h.evidenceDisclaimer}</p>
         </AnimateOnScroll>
       </div>
     </section>
