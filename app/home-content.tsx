@@ -444,88 +444,91 @@ function Founder() {
   const h = tr.home;
 
   return (
-    <section className="relative overflow-hidden bg-[#05060f] py-28">
-      {/* Atmosphere */}
+    <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-violet-50/40 py-28">
+      {/* Decorative blobs */}
+      <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-violet-100/60 blur-3xl" />
+      <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-blue-100/50 blur-3xl" />
+
+      {/* Subtle dot grid */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 opacity-[0.035]"
         style={{
-          background:
-            "radial-gradient(800px 600px at 0% 50%, rgba(124,58,237,0.15), transparent 60%), radial-gradient(600px 400px at 100% 60%, rgba(37,99,235,0.12), transparent 60%)",
+          backgroundImage: "radial-gradient(circle, #7c3aed 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
         }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+      <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
+        <div className="flex flex-col items-center gap-14 lg:flex-row lg:items-start lg:gap-20">
 
-          {/* Image column */}
-          <AnimateOnScroll animation="animate-slide-in-left" className="relative mx-auto w-full max-w-sm lg:max-w-none">
-            {/* Outer glow ring */}
-            <div
-              aria-hidden
-              className="absolute -inset-4 rounded-3xl blur-2xl"
-              style={{ background: "linear-gradient(135deg, rgba(124,58,237,0.25), rgba(37,99,235,0.20))" }}
-            />
-            {/* Gradient border frame */}
-            <div className="relative rounded-3xl bg-gradient-to-br from-violet-500/40 via-blue-500/30 to-violet-500/40 p-px">
-              <div className="relative overflow-hidden rounded-[23px] bg-[#0d0b1f]">
+          {/* Image — compact portrait */}
+          <AnimateOnScroll animation="animate-slide-in-left" className="flex-shrink-0">
+            <div className="relative">
+              {/* Rotating gradient ring */}
+              <div
+                aria-hidden
+                className="absolute -inset-2 rounded-[28px] opacity-70 blur-sm"
+                style={{ background: "linear-gradient(135deg, #7c3aed 0%, #2563eb 50%, #a78bfa 100%)" }}
+              />
+              {/* Photo frame */}
+              <div className="relative h-72 w-56 overflow-hidden rounded-[24px] border-2 border-white shadow-2xl sm:h-80 sm:w-64">
                 <Image
                   src={founderImg}
                   alt={h.founderName}
-                  width={520}
-                  height={620}
-                  className="w-full object-cover object-top"
+                  fill
+                  className="object-cover object-top"
                   priority
                 />
-                {/* Bottom fade */}
-                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0d0b1f] to-transparent" />
-                {/* Name chip */}
-                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between">
-                  <div>
-                    <p className="text-sm font-bold text-white">{h.founderName}</p>
-                    <p className="text-[11px] text-violet-300">{h.founderTitle}</p>
-                  </div>
-                  <a
-                    href="https://www.linkedin.com/in/nikhillouis"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur transition hover:bg-violet-500/40"
-                  >
-                    <Linkedin className="h-3.5 w-3.5" />
-                  </a>
-                </div>
               </div>
+              {/* Floating name card */}
+              <div className="absolute -bottom-5 -right-5 rounded-2xl border border-slate-100 bg-white px-4 py-3 shadow-xl">
+                <p className="text-sm font-bold text-slate-900">{h.founderName}</p>
+                <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-violet-500">Founder & CEO</p>
+              </div>
+              {/* LinkedIn pill */}
+              <a
+                href="https://www.linkedin.com/in/nikhillouis"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute -top-4 -right-4 flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white shadow-lg transition hover:bg-violet-50 hover:border-violet-200"
+              >
+                <Linkedin className="h-4 w-4 text-violet-600" />
+              </a>
             </div>
           </AnimateOnScroll>
 
-          {/* Text column */}
-          <div>
+          {/* Text */}
+          <div className="flex-1">
             <AnimateOnScroll animation="animate-fade-in">
-              <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-violet-400">
+              <span className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-violet-600">
+                <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
                 {h.founderBadge}
               </span>
             </AnimateOnScroll>
 
             {/* Pull quote */}
-            <AnimateOnScroll animation="animate-slide-in-right" delay="0.15s" className="mt-8 relative">
-              <Quote className="absolute -top-3 -left-1 h-8 w-8 text-violet-500/30" aria-hidden />
-              <blockquote className="pl-6 text-xl font-semibold leading-relaxed text-white sm:text-2xl">
-                {h.founderQuote}
-              </blockquote>
+            <AnimateOnScroll animation="animate-slide-in-right" delay="0.15s" className="mt-7">
+              <div className="relative rounded-2xl border border-violet-100 bg-white px-7 py-6 shadow-sm">
+                <Quote className="absolute -top-3 -left-2 h-8 w-8 text-violet-400" aria-hidden />
+                <blockquote className="text-lg font-semibold leading-relaxed text-slate-800 sm:text-xl">
+                  {h.founderQuote}
+                </blockquote>
+              </div>
             </AnimateOnScroll>
 
             {/* Bio */}
             <AnimateOnScroll animation="animate-slide-in-right" delay="0.3s">
-              <p className="mt-8 text-sm leading-relaxed text-slate-400">
+              <p className="mt-6 text-sm leading-relaxed text-slate-500">
                 {h.founderBio}
               </p>
             </AnimateOnScroll>
 
             {/* CTAs */}
-            <AnimateOnScroll animation="animate-bounce-in" delay="0.45s" className="mt-10 flex flex-wrap items-center gap-4">
+            <AnimateOnScroll animation="animate-bounce-in" delay="0.45s" className="mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href="/booking"
-                className="btn-gradient inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold"
+                className="btn-gradient inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold"
               >
                 {h.founderCTA}
                 <ArrowRight className="h-4 w-4" />
@@ -534,9 +537,9 @@ function Founder() {
                 href="https://www.linkedin.com/in/nikhillouis"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-violet-400/40 hover:bg-violet-500/10"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-violet-300 hover:text-violet-700"
               >
-                <Linkedin className="h-4 w-4" />
+                <Linkedin className="h-4 w-4 text-violet-500" />
                 {h.founderLinkedin}
               </a>
             </AnimateOnScroll>
