@@ -71,18 +71,18 @@ export default function Header() {
             {tr.nav.login}
           </Link>
 
-          {/* Language switcher */}
+          {/* Language switcher — desktop only */}
           <button
             onClick={toggleLang}
             aria-label={lang === "en" ? "Switch to Arabic" : "Switch to English"}
-            className="flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 transition hover:border-white/40 hover:text-white"
+            className="hidden md:flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300 transition hover:border-white/40 hover:text-white"
           >
             {lang === "en" ? "عربي" : "EN"}
           </button>
 
           <Link
             href="/booking"
-            className="btn-gradient rounded-full px-5 py-2 text-sm font-semibold"
+            className="hidden md:inline-block btn-gradient rounded-full px-5 py-2 text-sm font-semibold"
           >
             {tr.nav.getStarted}
           </Link>
@@ -120,10 +120,26 @@ export default function Header() {
             <Link
               href="/login"
               onClick={closeMenu}
-              className="text-sm font-medium text-slate-300 hover:text-white sm:hidden"
+              className="text-sm font-medium text-slate-300 hover:text-white"
             >
               {tr.nav.login}
             </Link>
+
+            <div className="flex items-center justify-between pt-2 border-t border-white/10">
+              <Link
+                href="/booking"
+                onClick={closeMenu}
+                className="btn-gradient rounded-full px-5 py-2 text-sm font-semibold"
+              >
+                {tr.nav.getStarted}
+              </Link>
+              <button
+                onClick={() => { toggleLang(); closeMenu(); }}
+                className="flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-300"
+              >
+                {lang === "en" ? "عربي" : "EN"}
+              </button>
+            </div>
           </nav>
         </div>
       )}
