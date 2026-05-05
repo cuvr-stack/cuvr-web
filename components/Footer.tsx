@@ -84,9 +84,9 @@ export default function Footer() {
               {f.tagline}
             </p>
 
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-200">
-              <Clock className="h-3.5 w-3.5" />
-              {f.dhaLicensed}
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-500/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-violet-200">
+              <ShieldCheck className="h-3.5 w-3.5" />
+              {/* {f.dhaLicensed} */}
             </div>
 
             <div className="mt-6 flex gap-3">
