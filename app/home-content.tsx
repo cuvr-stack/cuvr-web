@@ -21,6 +21,7 @@ import { useLanguage } from "@/lib/language-context";
 import vr_person from "@/public/cuvr_person_vr.png";
 import vr_headset from "@/public/quest1.png";
 import founderImg from "@/public/founder.png";
+import ctaBg from "@/public/home-bg.png";
 
 export default function HomeContent() {
   return (
@@ -570,6 +571,14 @@ function FinalCTA() {
           animation="animate-scale-fade-in"
           className="bg-cta-gradient relative overflow-hidden rounded-[32px] border border-white/10 px-8 py-16 text-center md:px-16"
         >
+          <Image
+            src={ctaBg}
+            alt=""
+            fill
+            className="object-cover object-center opacity-20"
+            aria-hidden
+          />
+          <div className="relative z-10">
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
             {h.ctaTitle1}{" "}
             <span className="text-gradient-future">{h.ctaHighlight}</span>
@@ -596,6 +605,7 @@ function FinalCTA() {
               <ArrowRight className="h-4 w-4" />
             </button>
           </form>
+          </div>
         </AnimateOnScroll>
       </div>
     </section>
