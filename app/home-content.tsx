@@ -465,27 +465,33 @@ function Founder() {
           {/* Image — compact portrait */}
           <AnimateOnScroll animation="animate-slide-in-left" className="flex-shrink-0">
             <div className="relative">
-              {/* Rotating gradient ring */}
+              {/* Thin gradient border on photo via p-px wrapper */}
               <div
-                aria-hidden
-                className="absolute -inset-2 rounded-[28px] opacity-70 blur-sm"
+                className="rounded-[25px] p-px shadow-2xl"
                 style={{ background: "linear-gradient(135deg, #7c3aed 0%, #2563eb 50%, #a78bfa 100%)" }}
-              />
-              {/* Photo frame */}
-              <div className="relative h-72 w-56 overflow-hidden rounded-[24px] border border-white/60 shadow-2xl sm:h-80 sm:w-64">
-                <Image
-                  src={founderImg}
-                  alt={h.founderName}
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
+              >
+                <div className="relative h-72 w-56 overflow-hidden rounded-[24px] sm:h-80 sm:w-64">
+                  <Image
+                    src={founderImg}
+                    alt={h.founderName}
+                    fill
+                    className="object-cover object-top"
+                    priority
+                  />
+                </div>
               </div>
-              {/* Floating name card */}
-              <div className="absolute -bottom-5 -right-5 rounded-2xl border border-slate-100 bg-white px-4 py-3 shadow-xl">
-                <p className="text-sm font-bold text-slate-900">{h.founderName}</p>
-                <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-violet-500">Founder & CEO</p>
+
+              {/* Floating name card with thin gradient border */}
+              <div
+                className="absolute -bottom-5 -right-5 rounded-2xl p-px shadow-xl"
+                style={{ background: "linear-gradient(135deg, #7c3aed 0%, #2563eb 50%, #a78bfa 100%)" }}
+              >
+                <div className="rounded-2xl bg-white px-4 py-3">
+                  <p className="text-sm font-bold text-slate-900">{h.founderName}</p>
+                  <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-violet-500">Founder & CEO</p>
+                </div>
               </div>
+
               {/* LinkedIn pill */}
               <a
                 href="https://www.linkedin.com/in/nikhil-louis/"
@@ -495,6 +501,12 @@ function Founder() {
               >
                 <Linkedin className="h-4 w-4 text-violet-600" />
               </a>
+
+              {/* Decorative years badge */}
+              <div className="absolute -left-6 top-1/2 -translate-y-1/2 flex flex-col items-center rounded-xl border border-violet-100 bg-white px-3 py-2 shadow-lg">
+                <span className="text-2xl font-extrabold text-violet-600 leading-none">12</span>
+                <span className="mt-0.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-500 leading-tight text-center">yrs<br/>exp</span>
+              </div>
             </div>
           </AnimateOnScroll>
 

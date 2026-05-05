@@ -105,7 +105,7 @@ const t = {
       founderQuote:
         "I built CUVR because I saw first-hand how broken the rehabilitation experience was — painful, repetitive, and deeply unmotivating. Virtual reality changes the equation entirely. We're not just making therapy more bearable; we're making it something patients genuinely look forward to.",
       founderBio:
-        "Nikhil is a healthcare technology entrepreneur with a background in clinical operations and immersive computing. He founded CUVR to bridge the gap between cutting-edge spatial technology and clinical-grade physical rehabilitation — starting with Dubai and scaling across the GCC.",
+        "With 12 years of software development experience, Nikhil is a healthcare technology entrepreneur with a background in clinical operations and immersive computing. He founded CUVR to bridge the gap between cutting-edge spatial technology and clinical-grade physical rehabilitation — starting with Dubai and scaling across the GCC.",
       founderLinkedin: "Connect on LinkedIn",
       founderCTA: "Request a Demo",
 
@@ -471,7 +471,7 @@ const t = {
       founderQuote:
         "أسّستُ CUVR لأنني رأيتُ عن كثب مدى عجز تجربة التأهيل التقليدية — مؤلمة، مملّة، وتفتقر إلى التحفيز. الواقع الافتراضي يغيّر المعادلة كلياً. لا نجعل العلاج أكثر احتمالاً فحسب، بل نجعله شيئاً يتطلّع إليه المرضى حقاً.",
       founderBio:
-        "نيخيل رائد أعمال في مجال التكنولوجيا الصحية، ذو خلفية في العمليات السريرية والحوسبة الغامرة. أسّس CUVR لردم الفجوة بين أحدث التقنيات المكانية والتأهيل الجسدي ذي المستوى السريري — بدءاً من دبي وتوسّعاً عبر منطقة الخليج.",
+        "بخبرة 12 عاماً في تطوير البرمجيات، نيخيل رائد أعمال في مجال التكنولوجيا الصحية، ذو خلفية في العمليات السريرية والحوسبة الغامرة. أسّس CUVR لردم الفجوة بين أحدث التقنيات المكانية والتأهيل الجسدي ذي المستوى السريري — بدءاً من دبي وتوسّعاً عبر منطقة الخليج.",
       founderLinkedin: "تواصل على LinkedIn",
       founderCTA: "طلب عرض توضيحي",
 
