@@ -241,15 +241,16 @@ function Channels() {
           <p className="text-sm leading-relaxed text-slate-500">{s.channelsBody}</p>
         </AnimateOnScroll>
 
-        <div className="mt-12 mx-auto grid max-w-[900px] gap-5 md:grid-cols-3">
+        <div className="mt-12 mx-auto grid max-w-[900px] gap-5 md:grid-cols-3 items-stretch">
           {channels.map((c, i) => (
             <AnimateOnScroll
               key={c.title}
               animation="animate-scale-fade-in"
               delay={`${0.25 + i * 0.12}s`}
+              className="h-full"
             >
               {/* Gradient border wrapper */}
-              <div className="group rounded-2xl bg-gradient-to-br from-violet-300/40 to-blue-400/40 p-px transition-all duration-300 hover:from-violet-500/70 hover:to-blue-600/70 hover:shadow-xl hover:-translate-y-1">
+              <div className="group h-full rounded-2xl bg-gradient-to-br from-violet-300/40 to-blue-400/40 p-px transition-all duration-300 hover:from-violet-500/70 hover:to-blue-600/70 hover:shadow-xl hover:-translate-y-1">
                 <article className="flex h-full flex-col rounded-[15px] bg-white overflow-hidden">
                   {/* Image with padding */}
                   <div className="p-3 pb-0">
