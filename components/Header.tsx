@@ -66,7 +66,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <Link
             href="/login"
-            className="hidden text-sm font-medium text-slate-300 transition hover:text-white sm:inline"
+            className="hidden text-sm font-medium text-slate-300 transition hover:text-white md:inline"
           >
             {tr.nav.login}
           </Link>

@@ -445,10 +445,10 @@ function Founder() {
   const h = tr.home;
 
   return (
-    <section id="founder" className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-violet-50/40 py-28">
+    <section id="founder" className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-[#0f0c29] via-[#1a1060] to-[#1e3a8a] py-28">
       {/* Decorative blobs */}
-      <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-violet-100/60 blur-3xl" />
-      <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-blue-100/50 blur-3xl" />
+      <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-violet-600/20 blur-3xl" />
+      <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
 
       {/* Subtle dot grid */}
       <div
@@ -510,7 +510,7 @@ function Founder() {
           {/* Text */}
           <div className="flex-1">
             <AnimateOnScroll animation="animate-fade-in">
-              <span className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-violet-600">
+              <span className="inline-flex items-center gap-2 rounded-full border border-violet-400/50 bg-violet-500/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-violet-200">
                 <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
                 {h.founderBadge}
               </span>
@@ -528,7 +528,7 @@ function Founder() {
 
             {/* Bio */}
             <AnimateOnScroll animation="animate-slide-in-right" delay="0.3s">
-              <p className="mt-6 text-sm leading-relaxed text-slate-500">
+              <p className="mt-6 text-sm leading-relaxed text-slate-300">
                 {h.founderBio}
               </p>
             </AnimateOnScroll>
@@ -546,7 +546,7 @@ function Founder() {
                 href="https://www.linkedin.com/in/nikhil-louis/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-violet-300 hover:text-violet-700"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-white/20"
               >
                 <Linkedin className="h-4 w-4 text-violet-500" />
                 {h.founderLinkedin}
