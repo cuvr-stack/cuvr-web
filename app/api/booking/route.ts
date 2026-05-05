@@ -1,15 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
-
-const transporter = nodemailer.createTransport({
-  host: process.env.ZOHO_HOST ?? "smtp.zoho.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.ZOHO_USER,
-    pass: process.env.ZOHO_PASS,
-  },
-});
 
 export async function POST(req: NextRequest) {
   try {
@@ -19,7 +8,8 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    if (!process.env.ZOHO_HOST || !process.env.ZOHO_USER || !process.env.ZOHO_PASS) {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
       return NextResponse.json({ error: "Email service not configured" }, { status: 500 });
     }
 
@@ -61,21 +51,30 @@ export async function POST(req: NextRequest) {
       </div>
     `;
 
-    await transporter.sendMail({
-      from: `"CUVR Booking" <${process.env.ZOHO_USER}>`,
-      to: "nikhil.louis@cuvr.ae",
-      replyTo: email,
-      subject: `New Demo Request — ${name}`,
-      html,
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        from: "CUVR Booking <onboarding@resend.dev>",
+        to: ["nikhil.louis@cuvr.ae"],
+        reply_to: email,
+        subject: `New Demo Request — ${name}`,
+        html,
+      }),
     });
 
+    if (!response.ok) {
+      const err = await response.text();
+      console.error("Resend error:", err);
+      return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
+    }
+
     return NextResponse.json({ success: true });
-  } catch (err: any) {
+  } catch (err) {
     console.error("Booking API error:", err);
-    return NextResponse.json({
-      error: "Internal server error",
-      detail: err?.message ?? String(err),
-      code: err?.code,
-    }, { status: 500 });
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
