@@ -565,19 +565,19 @@ function FinalCTA() {
   const h = tr.home;
 
   return (
-    <section className="bg-[#0a0a1c] py-24">
-      <div className="mx-auto max-w-5xl px-5 sm:px-8">
+    <section className="relative overflow-hidden bg-[#0a0a1c] py-24">
+      <Image
+        src={ctaBg}
+        alt=""
+        fill
+        className="object-cover object-center opacity-15"
+        aria-hidden
+      />
+      <div className="relative z-10 mx-auto max-w-5xl px-5 sm:px-8">
         <AnimateOnScroll
           animation="animate-scale-fade-in"
           className="bg-cta-gradient relative overflow-hidden rounded-[32px] border border-white/10 px-8 py-16 text-center md:px-16"
         >
-          <Image
-            src={ctaBg}
-            alt=""
-            fill
-            className="object-cover object-center opacity-20"
-            aria-hidden
-          />
           <div className="relative z-10">
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
             {h.ctaTitle1}{" "}
