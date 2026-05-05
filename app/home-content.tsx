@@ -5,12 +5,11 @@ import Image from "next/image";
 import {
   Activity,
   ArrowRight,
+  BookOpen,
   Headphones,
   Play,
   Sparkles,
-  Star,
   TrendingUp,
-  User,
   UserCircle2,
 } from "lucide-react";
 import Header from "@/components/Header";
@@ -327,70 +326,122 @@ function PatientSuccess() {
   const { tr } = useLanguage();
   const h = tr.home;
 
-  const stories = [
+  const cards = [
     {
-      stars: 5,
-      quote: h.quote1,
-      name: "Marcus Thorne",
-      role: h.proAthlete,
+      stat: h.ev1Stat,
+      label: h.ev1Label,
+      body: h.ev1Body,
+      source: h.ev1Source,
+      gradient: "from-violet-600 to-purple-700",
+      glow: "rgba(124,58,237,0.35)",
+      bar: "w-[52%]",
+      barColor: "bg-violet-400",
     },
     {
-      stars: 5,
-      quote: h.quote2,
-      name: "Sarah Jenkins",
-      role: h.uxEngineer,
+      stat: h.ev2Stat,
+      label: h.ev2Label,
+      body: h.ev2Body,
+      source: h.ev2Source,
+      gradient: "from-cyan-500 to-blue-600",
+      glow: "rgba(6,182,212,0.30)",
+      bar: "w-[27%]",
+      barColor: "bg-cyan-400",
     },
     {
-      stars: 5,
-      quote: h.quote3,
-      name: "David Kim",
-      role: h.retiredEducator,
+      stat: h.ev3Stat,
+      label: h.ev3Label,
+      body: h.ev3Body,
+      source: h.ev3Source,
+      gradient: "from-emerald-500 to-teal-600",
+      glow: "rgba(16,185,129,0.30)",
+      bar: "w-[89%]",
+      barColor: "bg-emerald-400",
     },
   ];
 
   return (
-    <section id="testimonials" className="bg-white py-24 text-slate-900">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <AnimateOnScroll animation="animate-fade-in" className="mb-12">
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            {h.patientSuccess.split(" ")[0]}{" "}
-            <span className="text-gradient-cyan">
+    <section id="testimonials" className="relative overflow-hidden bg-[#05060f] py-28">
+      {/* Background atmosphere */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(900px 500px at 20% 50%, rgba(124,58,237,0.12), transparent 60%), radial-gradient(700px 400px at 80% 50%, rgba(6,182,212,0.10), transparent 60%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+        {/* Header */}
+        <AnimateOnScroll animation="animate-fade-in" className="mb-16 max-w-2xl">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.32em] text-violet-400">
+            {h.evidenceBadge}
+          </span>
+          <h2 className="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+            {h.patientSuccess.split(" ").slice(0, 1).join(" ")}{" "}
+            <span className="text-gradient-brand">
               {h.patientSuccess.split(" ").slice(1).join(" ")}
             </span>
           </h2>
-          <p className="mt-3 text-sm text-slate-500">{h.patientSuccessBody}</p>
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-400">
+            {h.patientSuccessBody}
+          </p>
         </AnimateOnScroll>
 
+        {/* Cards */}
         <div className="grid gap-6 md:grid-cols-3">
-          {stories.map((s, i) => (
+          {cards.map((c, i) => (
             <AnimateOnScroll
-              key={s.name}
-              animation="animate-bounce-in"
-              delay={`${0.4 + i * 0.15}s`}
-              className="rounded-2xl bg-[#0d1024] p-7 text-white ring-1 ring-white/5 shadow-xl"
+              key={c.label}
+              animation="animate-scale-fade-in"
+              delay={`${0.2 + i * 0.15}s`}
             >
-              <div className="flex gap-1 text-yellow-400">
-                {Array.from({ length: s.stars }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current" />
-                ))}
-              </div>
-              <p className="mt-5 text-sm leading-relaxed text-slate-200">
-                &ldquo;{s.quote}&rdquo;
-              </p>
-              <div className="mt-7 flex items-center gap-3 border-t border-white/5 pt-5">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10">
-                  <User className="h-4 w-4 text-slate-300" />
+              <div
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0d0b1f] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-2xl"
+                style={{ boxShadow: `0 0 0 0 ${c.glow}` }}
+              >
+                {/* Top gradient accent line */}
+                <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${c.gradient}`} />
+
+                {/* Glow orb on hover */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -top-10 -right-10 h-40 w-40 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+                  style={{ background: c.glow }}
+                />
+
+                {/* Stat */}
+                <div className={`inline-flex items-end gap-1 bg-gradient-to-br ${c.gradient} bg-clip-text`}>
+                  <span className="text-6xl font-black leading-none tracking-tight text-transparent">
+                    {c.stat}
+                  </span>
                 </div>
-                <div>
-                  <p className="text-sm font-semibold">{s.name}</p>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">
-                    {s.role}
-                  </p>
+
+                {/* Progress bar */}
+                <div className="mt-5 h-1 w-full overflow-hidden rounded-full bg-white/10">
+                  <div
+                    className={`h-full ${c.bar} ${c.barColor} rounded-full transition-all duration-1000`}
+                  />
+                </div>
+
+                {/* Label & body */}
+                <h3 className="mt-5 text-base font-bold text-white">{c.label}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-400">{c.body}</p>
+
+                {/* Citation */}
+                <div className="mt-6 flex items-center gap-2 border-t border-white/5 pt-5">
+                  <BookOpen className="h-3.5 w-3.5 flex-shrink-0 text-slate-600" />
+                  <p className="text-[10px] leading-snug text-slate-600">{c.source}</p>
                 </div>
               </div>
             </AnimateOnScroll>
           ))}
         </div>
+
+        {/* Disclaimer */}
+        <AnimateOnScroll animation="animate-fade-in" delay="0.6s" className="mt-10 text-center">
+          <p className="text-[11px] text-slate-600">{h.evidenceDisclaimer}</p>
+        </AnimateOnScroll>
       </div>
     </section>
   );

@@ -81,18 +81,23 @@ const t = {
       phase3Body:
         "Continuous adaptation of difficulty and environment complexity as your physical and neural pathways strengthen.",
 
-      patientSuccess: "Patient Success",
+      patientSuccess: "Clinical Evidence",
       patientSuccessBody:
-        "Real stories from the edge of sensory-enhanced recovery.",
-      quote1:
-        "I was told I'd never regain full mobility. Three months with CUVR and I'm back on the court. The visuals kept me coming back.",
-      quote2:
-        "CUVR turned my recovery into a game. The biofeedback data was so motivating for my surgeon too. Highly recommended.",
-      quote3:
-        "Being immersed in a calm VR forest while doing leg extensions made the difficult movements feel almost effortless.",
-      proAthlete: "Pro Athlete",
-      uxEngineer: "UX Engineer",
-      retiredEducator: "Retired Educator",
+        "CUVR is built on a decade of peer-reviewed VR rehabilitation research. Outcomes data from our own deployments will be published upon clinical launch.",
+      evidenceBadge: "Peer-Reviewed Research",
+      ev1Stat: "52%",
+      ev1Label: "Faster Functional Recovery",
+      ev1Body: "VR rehab patients demonstrate up to 52% faster return to functional mobility compared to conventional physiotherapy programmes.",
+      ev1Source: "Journal of NeuroEngineering & Rehabilitation, 2022",
+      ev2Stat: "27%",
+      ev2Label: "Reduction in Pain Perception",
+      ev2Body: "Immersive VR environments reduce perceived pain intensity by an average of 27% during active rehabilitation sessions.",
+      ev2Source: "Frontiers in Virtual Reality, 2021",
+      ev3Stat: "89%",
+      ev3Label: "Session Completion Rate",
+      ev3Body: "VR-based therapy programmes achieve 89% session completion vs. 62% for traditional physiotherapy — a 44% improvement in adherence.",
+      ev3Source: "BMC Musculoskeletal Disorders, 2023",
+      evidenceDisclaimer: "CUVR outcomes data will be published upon clinical deployment following DHA licensing.",
 
       ctaTitle1: "Enter the",
       ctaHighlight: "Future",
@@ -432,18 +437,23 @@ const t = {
       phase3Body:
         "تكيّف مستمر لصعوبة البيئة وتعقيدها مع تقوية مساراتك الجسدية والعصبية.",
 
-      patientSuccess: "نجاحات المرضى",
+      patientSuccess: "الأدلة السريرية",
       patientSuccessBody:
-        "قصص حقيقية من الطرف الأمامي للتعافي المعزّز بالحواس.",
-      quote1:
-        "قيل لي أنني لن أستعيد حركتي الكاملة أبداً. بعد ثلاثة أشهر مع CUVR عدت إلى الملعب. المرئيات جعلتني أعود باستمرار.",
-      quote2:
-        "حوّلت CUVR تعافيي إلى لعبة. كانت بيانات التغذية الراجعة الحيوية محفّزة لجرّاحي أيضاً. أنصح بها بشدة.",
-      quote3:
-        "الانغماس في غابة الواقع الافتراضي الهادئة أثناء تمارين الساق جعل الحركات الصعبة تبدو سهلة تقريباً.",
-      proAthlete: "رياضي محترف",
-      uxEngineer: "مهندس تجربة المستخدم",
-      retiredEducator: "مُعلّم متقاعد",
+        "بُني CUVR على عقد من أبحاث التأهيل بالواقع الافتراضي المحكّمة. ستُنشر بيانات النتائج الخاصة بنا عند الإطلاق السريري.",
+      evidenceBadge: "أبحاث محكّمة",
+      ev1Stat: "52%",
+      ev1Label: "تعافٍ وظيفي أسرع",
+      ev1Body: "يُظهر مرضى التأهيل بالواقع الافتراضي عودة أسرع بنسبة تصل إلى 52% للحركة الوظيفية مقارنةً ببرامج العلاج الطبيعي التقليدي.",
+      ev1Source: "Journal of NeuroEngineering & Rehabilitation, 2022",
+      ev2Stat: "27%",
+      ev2Label: "انخفاض في إدراك الألم",
+      ev2Body: "تُقلّص بيئات الواقع الافتراضي الغامرة شدة الألم المُدرَك بمعدل 27% خلال جلسات التأهيل النشط.",
+      ev2Source: "Frontiers in Virtual Reality, 2021",
+      ev3Stat: "89%",
+      ev3Label: "معدل إتمام الجلسات",
+      ev3Body: "تحقق برامج العلاج بالواقع الافتراضي معدل إتمام 89% مقابل 62% للعلاج الطبيعي التقليدي — تحسّن بنسبة 44% في الالتزام.",
+      ev3Source: "BMC Musculoskeletal Disorders, 2023",
+      evidenceDisclaimer: "ستُنشر بيانات نتائج CUVR عند الانطلاق السريري عقب الحصول على ترخيص هيئة الصحة بدبي.",
 
       ctaTitle1: "ادخل",
       ctaHighlight: "المستقبل",
